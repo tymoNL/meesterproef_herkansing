@@ -1,5 +1,152 @@
 .grid {
-  display: grid;
-  gap: 1rem;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+}
+
+.banner {
+    position: relative;
+    overflow: hidden;
+
+    .backgroundText {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 300%;
+        white-space: nowrap;
+        height: 200%;
+        transform: rotate(-5deg);
+        opacity: 0.5;
+        animation: scrollNames 60s linear infinite;
+
+        &.copy {
+            left: 100%;
+
+            animation-delay: 10s;
+        }
+    }
+
+    h1 {
+        color: var(--black);
+        font-size: clamp(2rem, 10vw, 7rem);
+        position: relative;
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+        line-height: 1;
+
+        span.red {
+            color: #8b2300;
+        }
+    }
+}
+
+.content {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 1rem;
+    grid-template-rows: auto 1fr;
+
+    >* {
+        padding: 1rem 2rem;
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            margin: 0;
+        }
+    }
+
+    /* Positionering */
+    .info {
+        grid-column: 1;
+    }
+
+    .peopleList {
+        grid-column: 1;
+        grid-row: 4;
+    }
+
+    .imageLeft {
+        grid-column: 1;
+        grid-row: 2;
+    }
+
+    .imageRight {
+        grid-column: 1;
+        grid-row: 3;
+    }
+
+    .info {
+        background: var(--white);
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    }
+
+
+    /* Styling */
+    .peopleList {
+        background: var(--black);
+        color: var(--white);
+
+        >* {
+            color: var(--white);
+        }
+
+        h2 {
+            margin-bottom: 1rem;
+        }
+
+        .people {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(1rem, 1fr));
+            margin: 0;
+            padding: 0;
+            gap: 0.5rem;
+
+            li {
+                list-style-type: none;
+                opacity: 0;
+                animation: grow-progress 2s linear forwards;
+                color: var(--white);
+            }
+        }
+    }
+
+    .imageLeft,
+    .imageRight {
+        img {
+            width: 100%;
+            height: auto;
+        }
+    }
+
+    /* Vanaf 992px en groter (Tablet etc.) */
+    @media screen and (min-width: 992px) {
+        grid-template-columns: 1fr 1fr 1fr;
+
+        .info {
+            grid-column: 1 / span 2;
+            grid-row: 1;
+        }
+
+        .peopleList {
+            grid-column: 3;
+            grid-row: 1 / span 2;
+        }
+
+        .imageLeft {
+            grid-column: 1;
+            grid-row: 2;
+        }
+
+        .imageRight {
+            grid-column: 2;
+            grid-row: 2;
+        }
+    }
 }

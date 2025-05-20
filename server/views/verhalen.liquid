@@ -1,0 +1,13 @@
+{% layout "server/layouts/base.liquid" %}
+
+{% block content %}
+<ul class="grid">
+  {% for item in items %}
+    <li>
+      <a href="/adressen/{{ item.id }}">
+        {% render 'server/components/card/card.liquid', item: item %}
+      </a>
+    </li>
+  {% endfor %}
+</ul>
+{% endblock %}

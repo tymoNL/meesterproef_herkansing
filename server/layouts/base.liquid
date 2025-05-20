@@ -1,9 +1,14 @@
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   {% block head %}
-    <title>{{ title }}</title>
+
+  <!-- Font-awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+  <title>{{ title }}</title>
   {% endblock %}
   <link rel="stylesheet" href="/index.css">
   <script src="/index.js" defer></script>
@@ -13,13 +18,46 @@
 
 <body>
   <header>
-    Deze header staat op elke pagina
+    <section class="container">
+      <nav class="desktopMenu">
+        <a href="/">Home</a>
+        <a href="/4-mei">4 Mei</a>
+        <a href="/terugblik">Terugblik</a>
+        <img src="/images/logo.png" alt="logo" width="auto" height="75" />
+        <a href="/verhalen">Verhalen</a>
+        <a href="/gedenk-posters">Gedenk posters</a>
+        <a href="/over-ons">Over ons</a>
+      </nav>
+
+      <div class="mobileMenuToggle">
+        <a href="/"><img src="/images/logo.png" alt="logo" width="auto" height="75" /></a>
+        <a href="javascript:;" class="mobileMenuLink"><i class="fa-solid fa-bars"></i></a>
+      </div>
+
+      <nav class="mobileMenu">
+        <a href="/">Home</a>
+        <a href="/4-mei">4 Mei</a>
+        <a href="/terugblik">Terugblik</a>
+        <a href="/verhalen">Verhalen</a>
+        <a href="/gedenk-posters">Gedenk posters</a>
+        <a href="/over-ons">Over ons</a>
+      </nav>
+    </section>
   </header>
+
   <main>
     {% block content %}{% endblock %}
   </main>
+
   <footer>
-    Deze footer staat op elke pagina
+    <section class="container">
+      <p>
+        <i class="fa-regular fa-copyright"></i>
+        2025 <a href="https://github.com/tymoNL/Oost-west_thuis_best" target="_blank">Oost west thuis
+          best</a> Alle rechten voorbehouden
+      </p>
+    </section>
   </footer>
 </body>
+
 </html>

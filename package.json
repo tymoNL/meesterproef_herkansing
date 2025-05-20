@@ -16,6 +16,7 @@
   },
   "license": "MIT",
   "dependencies": {
+    "@directus/sdk": "^19.1.0",
     "@tinyhttp/app": "^2.5.2",
     "@tinyhttp/logger": "^2.1.0",
     "chokidar-cli": "^3.0.0",

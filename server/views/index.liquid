@@ -2,16 +2,52 @@
 
 {% block content %}
 
-<h1 class="h1">{{ title }}</h1>
+<section class="banner">
+  <div class="container">
+    <h1><span>HOUD DE</span>
+        <span style="text-align: center;">HERINNERING</span>
+        <span class="red" style="text-align: right;">LEVEND</span>
+    </h1>
+</div>
+</section>
 
-<ul class="grid">
-  {% for item in people %}
-    <li>
-      <a href="/plant/{{ item.id }}">
-        {% render 'server/components/card/card.liquid', item: item %}
-      </a>
-    </li>
-  {% endfor %}
-</ul>
+<section>
+  <div class="container">
+      <div class="content">
+          <div class="info">
+              <h3>Herdenk door te vertellen</h3>
+              <p>
+                  In de jaren tussen 1940 en 1945 zijn door de Duitse bezetter meer dan 2800 mensen uit de
+                  Oosterparkbuurt gedeporteerd en vermoord in Oost-Europa. Het Joodse leven in de buurt, dat
+                  voor de oorlog bloeiende was, verdween.
+              </p>
+              <p>
+                  Wie waren deze mensen? Hoe zagen hun levens eruit? Wat hebben ze tijdens de oorlog
+                  meegemaakt? Op deze vragen proberen we met de gedenkposters antwoord te geven. Zo'n veertig
+                  buurtbewoners in wiens huizen Joodse mensen hebben gewoond hebben al onderzoek gedaan naar
+                  die oud-bewoners en hun verhalen opgeschreven. De gedenkposters hangen in april en mei door
+                  de hele buurt voor de ramen. Ook worden er wandelingen langs de posters georganiseerd.
+              </p>
+              <p>
+                  De gedenkposters zijn geïnspireerd op het project Namen en Nummers van kunstenaar Ida van
+                  der Lee. Ontdek hier meer over Namen en Nummers.
+              </p>
+          </div>
+          <div class="peopleList">
+              <h2>2800 mensen</h2>
+
+              <ul class="people"></ul>
+          </div>
+
+          <div class="imageLeft">
+              <img src="/images/homepage/homepage1.png" alt="herdenkingsdagfoto 1" width="100" height="100" />
+          </div>
+
+          <div class="imageRight">
+              <img src="/images/homepage/homepage2.png" alt="herdenkingsdagfoto 2" width="100" height="100" />
+          </div>
+      </div>
+  </div>
+</section>
 
 {% endblock %}
