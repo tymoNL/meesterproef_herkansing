@@ -1,0 +1,31 @@
+/* Light Weight */
+@font-face {
+    font-family: "Poppins";
+    src: local("Poppins"), url("/fonts/Quicksand-Light.ttf") format("truetype");
+    font-weight: 300;
+    font-style: normal;
+}
+
+/* Regular Weight */
+@font-face {
+    font-family: "Poppins";
+    src: local("Poppins"), url("/fonts/Quicksand-Regular.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Medium Weight */
+@font-face {
+    font-family: "Poppins";
+    src: local("Poppins"), url("/fonts/Quicksand-Medium.ttf") format("truetype");
+    font-weight: 500; /* Medium weight */
+    font-style: normal;
+}
+
+/* Bold Weight */
+@font-face {
+    font-family: "Poppins";
+    src: local("Poppins"), url("/fonts/Quicksand-Bold.ttf") format("truetype");
+    font-weight: bold;
+    font-style: normal;
+}

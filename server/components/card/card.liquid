@@ -1,0 +1,10 @@
+<div class="card">
+  <h2 class="h2">{{ item.name }}</h2>
+  <picture>
+    <source srcset="https://fdnd-agency.directus.app/assets/{{ item.files[0].directus_files_id }}?format=avif" type="image/avif" />
+    <source srcset="https://fdnd-agency.directus.app/assets/{{ item.files[0].directus_files_id }}?format=webp" type="image/webp" />
+    <img class="card__image" src="https://fdnd-agency.directus.app/assets/{{ item.files[0].directus_files_id }}?format=png" alt="{{ item.image.alt }}" width="{{ item.image.width }}" height="{{ item.image.height }}" />
+  </picture>
+  
+  
+</div>
