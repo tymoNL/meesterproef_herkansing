@@ -1,3 +1,9 @@
+ul.grid {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+
 .grid {
     display: grid;
     gap: 1rem;
@@ -43,7 +49,7 @@
     }
 }
 
-.content {
+.homepageContent {
     display: grid;
     grid-template-columns: 1fr;
     grid-gap: 1rem;
@@ -150,3 +156,48 @@
         }
     }
 }
+
+/* 4 Mei */
+.banner {
+    margin: -1rem;
+
+    img {
+        width: 100%;
+        height: auto;
+    }
+}
+/* 4 Mei */
+
+/* Gedenkmuur */
+.gedenkMuur {
+    position: relative;
+
+    img {
+        width: 100%;
+        height: auto;
+    }
+
+    .streetSignWrapper {
+        position: absolute;
+        top: 3rem;
+        right: 3rem;
+        background-color: #005AA7;
+        padding: 6px;
+        display: inline-block;
+        border-radius: 10px;
+
+        .streetSign {
+            background-color: #005AA7;
+            color: white;
+            padding: 12px 24px;
+            border: 4px solid white;
+            border-radius: 6px;
+            font-family: Arial, sans-serif;
+            font-size: 24px;
+            text-transform: uppercase;
+            box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+        }
+    }
+}
+
+/* Gedenkmuur */

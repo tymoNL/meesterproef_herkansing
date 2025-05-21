@@ -1,6 +1,29 @@
 {% layout "server/layouts/base.liquid" %}
 
 {% block content %}
-<h1 class="h1">{{ item.name }}</h1>
-<img src="{{ item.image.src }}" alt="{{ item.image.alt }}" width="{{ item.image.width }}" height="{{ item.image.height }}" />
+<section class="banner">
+    <img src="/images/4-mei/banner.avif" alt="4 mei banner" />
+</section>
+
+<section class="content">
+    <h1>Herdenken op het Kastanjeplein</h1>
+
+    <p>
+        Elk jaar herdenken we op 4 mei de Joodse buurtbewoners die tijdens de Holocaust uit de buurt zijn weggevoerd en
+        vermoord. Met muziek, verhalen uit de buurt en het voorlezen van de namen van vermoorde buurtbewoners creëren we
+        een moment om bij de slachtoffers van de Tweede Wereldoorlog - en de slachtoffers van alle conflicten sindsdien
+        - stil te staan. We nemen stelling tegen antisemitisme, islamofobie en discriminatie
+        op welke grond dan ook.
+    </p>
+
+    <p>
+        Bekijk hier een terugblik op 2023 en hier een video over de herdenking van 2023,
+        gemaakt door Bert Runhaar. Hier vind je een terugblik op de herdenking van 2024.
+        Kijk hier voor informatie over de herdenking van 2025.
+    </p>
+
+    <div>
+        <img src="/images/4-mei/banner.avif" alt="4 mei foto" width="800" />
+    </div>
+</section>
 {% endblock %}

@@ -8,11 +8,15 @@
   --link-color: #8B2300;
   --main-bg: var(--header-bg);
 
-  --button-bg: #273D7C;
+  --button-bg: var(--main-blauw);
   --button-color: var(--white);
   --button-br: 10px;
+  --button-hover-bg: var(--secondary-blauw);
 
   --input-br: 10px;
+
+  --main-blauw: #273D7C;
+  --secondary-blauw: #B1B9CF;
 }
 
 body {
@@ -38,6 +42,10 @@ h6 {
 
 a {
   color: var(--link-color);
+}
+
+img {
+  max-width: 100%;
 }
 
 header {
@@ -79,6 +87,10 @@ header {
     background-color: var(--header-bg);
     padding: 1rem;
     box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+
+    .mobileMenuLink i {
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
 
     a {
       display: block;
@@ -149,10 +161,8 @@ a.button {
   transition: background-color 0.3s ease;
   text-decoration: none;
 
-  &:hover {
-    background-color: transparent;
-    border-color: var(--button-bg);
-    color: var(--button-bg);
+  &:hover, &:focus {
+    background-color: var(--button-hover-bg);
   }
 }
 

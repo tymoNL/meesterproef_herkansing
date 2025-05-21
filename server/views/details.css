@@ -1,0 +1,17 @@
+.details {
+
+    .details__grid {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        grid-gap: 1rem;
+    }
+
+    .details__header {
+        grid-column: 1 / span 2;
+    }
+
+    img {
+        width: 100%;
+        height: auto;
+    }
+}

@@ -3,6 +3,8 @@ import { logger } from '@tinyhttp/logger';
 import { Liquid } from 'liquidjs';
 import sirv from 'sirv';
 
+let numberOfRoses = 0;
+
 // API URL base
 const apiBase = `https://fdnd-agency.directus.app/items/atlas_`;
 
@@ -12,7 +14,7 @@ let enrichedData = [];
 async function fetchAllData() {
   try {
     const [posterRes, addressRes, personRes, familyRes] = await Promise.all([
-      fetch(`${apiBase}poster/?fields=*,covers.*`),
+      fetch(`${apiBase}poster/?fields=*,covers.*,files.*`),
       fetch(`${apiBase}address/?fields=*`),
       fetch(`${apiBase}person/?fields=*`),
       fetch(`${apiBase}family/?fields=*`)
@@ -115,11 +117,23 @@ app.get('/adressen/:id/', async (req, res) => {
   const id = parseInt(req.params.id);
   let item = null;
 
-  // Zoek het adres in verrijkte data
+  // Zoek het adres én de bijbehorende poster
   for (const poster of enrichedData) {
-    item = poster.addresses.find(addr => addr.id === id);
-    if (item) break;
+    const address = poster.addresses.find(addr => addr.id === id);
+    if (address) {
+      item = {
+        ...address,
+        poster: {
+          name: poster.name,
+          files: poster.files,
+          covers: poster.covers
+        }
+      };
+      break;
+    }
   }
+
+  console.log('item', item);
 
   if (!item) {
     return res.status(404).send('Adres niet gevonden');
@@ -127,7 +141,7 @@ app.get('/adressen/:id/', async (req, res) => {
 
   return res.send(renderTemplate('server/views/detail.liquid', {
     title: `Detailpagina voor adres ${id}`,
-    item: item
+    item
   }));
 });
 
@@ -157,8 +171,14 @@ app.get('/verhalen', async (req, res) => {
 app.get('/gedenk-posters', async (req, res) => {
   return res.send(renderTemplate('server/views/gedenk-posters.liquid', {
     title: 'Gedenk-posters',
-    items: enrichedData
+    items: enrichedData,
+    numberOfRoses
   }));
+});
+
+app.post('/legbloem', async (req, res) => {
+  numberOfRoses++;
+  return res.send({ numberOfRoses });
 });
 
 app.get('/over-ons', async (req, res) => {

@@ -39,3 +39,35 @@ if (peopleList) {
 }
 
 
+let bloemButton = document.querySelector('#bloemButton');
+
+if (bloemButton) {
+    bloemButton.addEventListener('click', async function () {
+        console.log("addBloem");
+
+        postBloem();
+    });
+}
+
+async function postBloem() {
+    const url = "/legbloem";
+    try {
+        const response = await fetch(url, { method: 'POST', headers: { 'Content-Type': 'application/json' } });
+        if (!response.ok) {
+            throw new Error(`Response status: ${response.status}`);
+        }
+
+        const json = await response.json();
+        console.log(json);
+
+        let numberOfRoses = document.querySelector('#numberOfRoses');
+        if (numberOfRoses) {
+            numberOfRoses.innerHTML = json.numberOfRoses;
+        }
+    } catch (error) {
+        console.error(error.message);
+    }
+}
+
+
+

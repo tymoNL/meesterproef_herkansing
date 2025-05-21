@@ -1,6 +1,17 @@
 {% layout "server/layouts/base.liquid" %}
 
 {% block content %}
-<h1 class="h1">{{ item.name }}</h1>
-<img src="{{ item.image.src }}" alt="{{ item.image.alt }}" width="{{ item.image.width }}" height="{{ item.image.height }}" />
+<section class="gedenkMuur banner">
+    <img src="/images/gedenkmuur/brick-wall.png" alt="Gedenkmuur" />
+
+    <div class="streetSignWrapper">
+        <div class="streetSign">
+            <span>teststraat</span>
+        </div>
+    </div>
+
+    <span id="numberOfRoses">{{  numberOfRoses }}</span>
+
+    <button type="button" id="bloemButton">Leg een bloem</button>
+</section>
 {% endblock %}
