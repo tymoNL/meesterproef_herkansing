@@ -6,39 +6,27 @@
     <div class="container">
         <div class="details__grid">
 
-
             <div class="details__header">
-                <h1 class="h1">{{ item.poster.name }}</h1>
+                <nav class="familySlider">
+                    <ul>
+                        <li>familie 1</li>
+                        <li>familie 2</li>
+                        <li>familie 3</li>
+                        <li>familie 4</li>
+                    </ul>
+                </nav>
             </div>
 
-            {% if item.poster and item.poster.covers and item.poster.covers[0] %}
-            <div class="details__image">
-                <a href="https://fdnd-agency.directus.app/assets/{{ item.poster.files[0].directus_files_id }}?fit=cover&format=png" target="_blank">
-                <picture>
-                    <source
-                        srcset="https://fdnd-agency.directus.app/assets/{{ item.poster.covers[0].directus_files_id }}?fit=cover&format=avif"
-                        type="image/avif" />
-                    <source
-                        srcset="https://fdnd-agency.directus.app/assets/{{ item.poster.covers[0].directus_files_id }}?fit=cover&format=webp"
-                        type="image/webp" />
-                    <img class="card__image"
-                        src="https://fdnd-agency.directus.app/assets/{{ item.poster.covers[0].directus_files_id }}?fit=cover&format=png"
-                        loading="lazy" alt="{{ item.poster.name }}" width="400" height="300" />
-                </picture>
-                </a>
+            <div class="details__left">
+
             </div>
-            {% endif %}
 
-            <div class="details__content">
-                <div class="details__text">
-                    <h2 class="h2">Over deze poster</h2>
-                    <p>{{ item.poster.description }}</p>
-                </div>
+            <div class="details__middle">
 
-                <div class="details__text">
-                    <h2 class="h2">Over de buurtbewoner</h2>
-                    <p>{{ item.poster.person.description }}</p>
-                </div>
+            </div>
+
+            <div class="details__right">
+
             </div>
         </div>
     </div>
