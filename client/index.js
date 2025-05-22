@@ -69,5 +69,46 @@ async function postBloem() {
     }
 }
 
+// Timeline Scroll Section
+// --------------------------------------------------------------
+
+document.addEventListener("DOMContentLoaded", function () {
+    const items = document.querySelectorAll(".timeline li");
+    const timeline = document.querySelector(".timeline");
+    const timelineUl = document.querySelector(".timeline ul");
+    const greyLine = document.querySelector(".default-line");
+    const lineToDraw = document.querySelector(".draw-line");
+  
+    if (lineToDraw) {
+      window.addEventListener("scroll", function () {
+        const redLineHeight = lineToDraw.offsetHeight;
+        const greyLineHeight = greyLine.offsetHeight;
+        const windowDistance = window.scrollY;
+        const windowHeight = window.innerHeight / 2;
+        const timelineDistance = timeline.offsetTop;
+  
+        if (windowDistance >= timelineDistance - windowHeight) {
+          let line = windowDistance - timelineDistance + windowHeight;
+  
+          if (line <= greyLineHeight) {
+            lineToDraw.style.height = (line + 20) + "px";
+          }
+        }
+  
+        // In-view animation
+        const bottom = lineToDraw.getBoundingClientRect().top + window.scrollY + lineToDraw.offsetHeight;
+  
+        items.forEach(function (item) {
+          const itemTop = item.getBoundingClientRect().top + window.scrollY;
+          if (bottom > itemTop) {
+            item.classList.add("in-view");
+          } else {
+            item.classList.remove("in-view");
+          }
+        });
+      });
+    }
+  });
+  
 
 
