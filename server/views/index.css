@@ -198,6 +198,11 @@ ul.grid {
             box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
         }
     }
+
+    .bloemButtonWrapper {
+        margin: 2rem 0;
+        text-align: center;
+    }
 }
 
 /* Gedenkmuur */

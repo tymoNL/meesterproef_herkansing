@@ -2,6 +2,7 @@ import { App } from '@tinyhttp/app';
 import { logger } from '@tinyhttp/logger';
 import { Liquid } from 'liquidjs';
 import sirv from 'sirv';
+import QRCode from 'qrcode';
 
 let numberOfRoses = 0;
 
@@ -143,6 +144,24 @@ app.get('/adressen/:id/', async (req, res) => {
     title: `Detailpagina voor adres ${id}`,
     item
   }));
+});
+
+app.get('/print/qr/:id', async (req, res) => {
+  const id = req.params.id;
+  const detailUrl = `http://localhost:3000/adressen/${id}`; // Change to your real URL in production
+
+  try {
+    const qrDataUrl = await QRCode.toDataURL(detailUrl);
+
+    return res.send(renderTemplate('server/views/print-qr.liquid', {
+      title: `QR voor adres ${id}`,
+      qrDataUrl,
+      detailUrl
+    }));
+  } catch (err) {
+    console.error(err);
+    return res.status(500).send('QR Code kon niet worden gegenereerd.');
+  }
 });
 
 /* Header pages */
