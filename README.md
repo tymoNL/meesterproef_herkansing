@@ -84,6 +84,9 @@ De data heb ik op kunnen halen via meerdere endpoints zodat we toegang hebben to
 ### Donna
 
 Hier docs over week 1
+In week 1 kregen wij uitleg over de opdracht en hoe dit in elkaar zou gaan zitten. We zijn begonnen met het proberen te uitpluizen van de opdracht. We hebben geprobeerd contact op t enemen met de opdrachtgever, wat vervolgens bleek dat wij een verkeerd email adres hadden dus hier in vast zaten. Gelukkig hadden we later deze week een afspraak met onze coach voor het project en gaf hij ook wat input. Ondertussen hebben we natuurlijk nagedacht over de vorm van het project, hoe we dit op willen zetten en wat belangrijke punten zijn voor ons. In principe hebben we nu nog de vrijheid omdat we vrij weinig informatie hebben en dus zelf kunnen invullen hoe we hier gebruik van maken. We doen onderzoek naar hoe de huidige situatie is voor de website en wat we hieruit kunnen halen. Ondertussen hebben we contact gekregen met Joost die ook betrokken is in het project en ons dus wel meer informatie geeft over wat de grote lijnen van het project zullen zijn. 
+
+We komen erachter dat het belangrijk is dat we de verhalen over de mensen op een mooie manier verteld gaan worden. We leven namelijk in een tijd waar veel mensen die de oorlog bewust hebben meegemaakt en overleefd beginnen uit te dunnen. Dus is het aan ons om de herinnering levend te houden. We komen op wat ideeën voor een design, we houden een soort gedenkmuur waar afbeeldingen of informatie wordt getoond van de overledene personen uit een bepaalde straat gaan komen. je kan als het ware door deze straten heen wandelen en als je dan op een adres klikt komt er meer informatie te zien. 
 
 ### Lilian
 
@@ -104,7 +107,9 @@ Ook heb ik na het 2e gesprek met **Declan** via `Npm` een **QR code generator** 
 ### Donna
 
 Hier docs over week 2
-dit is mijn update
+In week 2 hebben we de eerste meeting gehad met de opdrachtgever die ons ook weer benadrukte dat het vooral om het vertellen van de verhalen gaat. We gaan dus beginnen met het opzetten van taken en beginnen met code schrijven. Ik neem de taak op mij om de gedenkmuur te gaan maken. Zo heb ik genoeg uitdaging op elk vlak, ik kan wat gebruik maken van html,css maar ook van javasccript. Dus hier ga ik beginnen met een opzet voor de pagina en bedenken welke techniek ik ga gebruiken om tot mijn doel te komen. Ik begin dus met heel grof secties te gaan maken voor de pagina als indeling. 
+
+Ik zet dus alle elementen neer die nodig zijn maar verder doe ik er nog niet veel aan omdat deze later gevuld gaan worden met elementen uit de database.
 
 
 ### Lilian
@@ -154,6 +159,23 @@ De content uit dit verhaal heb ik verwerkt in liquid om meerdere objecten uit Js
 ### Donna
 
 Hier docs over week 3
+
+Vanaf hier ben ik begonnnen om vorm te geven aan de elementen die ik op de pagina had. Deze moesten gevuld worden met data die we hadden uit de database. Het idee is om per straat personen weer te geven op de gedenkmuur en vanuit hier kan je dan naar de detailpagina. Op de gedenkmuur kan je uitkiezen van welke straat je gegevens wil zien. Deze straatnamen ga ik inladen vanuit de json die wij hebben. Ik vraag om elke id van straatnamen in te laden in de select. Vervolgens komen er dan allemaal straatnamen. Hierna heb ik dan nog aangegeven dat ik geen dubbele straatnamen wil om het makkelijiker te maken. Zo kan je nu dus de id zien van de personen die op deze straat hebben gewoond vroeger. 
+
+  fetchData(addressURL).then(adressen => {
+    alleAdressen = adressen;
+    const uniekeStraten = getUniekeStraten(adressen);
+    straatSelect.innerHTML = '<option value="">Kies een straat...</option>';
+
+    uniekeStraten.forEach(straat => {
+      const option = document.createElement('option');
+      option.value = straat;
+      option.textContent = straat;
+      straatSelect.appendChild(option);
+    });
+  });
+
+Vervolgens willen we onderaan de pagina ook een aantal families weergeven zodat je meteen naar een familie kan vanuit hun naam zonder de straat aan te geven. Dit heb ik op een zelfde soort manier gedaan.
 
 ### Lilian
 
