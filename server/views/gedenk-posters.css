@@ -40,7 +40,7 @@
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     width: 100vw;
-    background: url('/images/2.png') repeat;
+    /* background: url('/images/2.png') repeat; */
     background-size: cover;
     background-position: center;
     padding: 2rem 1rem;
@@ -48,7 +48,7 @@
   
   .muur {
     display: flex;
-    background: url('/images/2.png') repeat;
+
     padding-bottom: 1rem;
     min-width: 100%;
   }
