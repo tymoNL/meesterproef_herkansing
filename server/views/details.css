@@ -15,53 +15,43 @@
         height: auto;
     }
 
-    .familySlider {
-        position: relative;
-        overflow: hidden;
-
-        ul {
-            padding: 0;
-            margin: 0;
-            display: flex;
-            height: 100%;
-            list-style-type: none;
-            overflow-x: auto;
-            overscroll-behavior-x: contain;
-            scroll-snap-type: x mandatory;
-            scroll-behavior: smooth;
-            gap: 0;
-
-            >li {
-                min-width: 100%;
-                flex: 0 0 100%;
-                scroll-snap-align: start;
-            }
-
-            &::scroll-button(*) {
-                position: absolute;
-                top: 50%;
-                transform: translateY(-50%);
-                background: rgba(0, 0, 0, 0.5);
-                color: white;
-                border: none;
-                padding: 0.5em 1em;
-                cursor: pointer;
-                z-index: 10;
-            }
-
-            &::scroll-button(left) {
-                content: "⬅" / "Scroll Left";
-                left: 0;
-            }
-
-            &::scroll-button(right) {
-                content: "⮕" / "Scroll Right";
-                right: 0;
-            }
-
-            &::scroll-button(*):focus-visible {
-                outline-offset: 5px;
-            }
-        }
+    @mixin global-transition {
+        transition: 0.125s ease-in-out, background-color 0.2s ease-out, color 0.1s ease-out, border 0.1s ease-out;
     }
+
+    body {
+        margin: 0;
+        background: dark-grey;
+        padding-bottom: 300px;
+    }
+
+    .header {
+        height: 500px;
+        text-align: center;
+        background: linear-gradient(rgba(255, 255, 255, .9), rgba(255, 255, 255, .8)),
+            url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwzzY9fjzAm7fIXKNZSmoU4LH-GoZOj7scpVvJm3w15M2nreWOHg');
+        background-position: 50% 50%;
+        background-color: light-grey;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        font-family: Droid Sans;
+
+        h1 {
+            font-size: 3rem;
+            color: #000000;
+            font-family: 'Yatra One', cursive;
+        }
+
+        p {
+            font-family: 'Yatra One', cursive;
+            font-size: 1.5rem;
+        }
+
+    }
+
+    
+
 }
+

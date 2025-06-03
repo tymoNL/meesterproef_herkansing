@@ -65,9 +65,6 @@ async function postBloem() {
 
     const json = await response.json();
 
-    const numberOfRoses = document.querySelector('#numberOfRoses');
-    if (numberOfRoses) numberOfRoses.innerHTML = json.numberOfRoses;
-
     // Voeg bloem toe in UI
     addOneBloem();
 
@@ -91,4 +88,41 @@ if (bloemList) {
   for (let i = 0; i < aantalBloemen; i++) {
     addOneBloem();
   }
+}
+
+// Timeline Scroll Section
+// --------------------------------------------------------------
+const items = document.querySelectorAll(".timeline li");
+const timeline = document.querySelector(".timeline ul");
+const greyLine = document.querySelector(".default-line");
+const lineToDraw = document.querySelector(".draw-line");
+
+if (lineToDraw) {
+  window.addEventListener("scroll", () => {
+    const redLineHeight = lineToDraw.offsetHeight;
+    const greyLineHeight = greyLine.offsetHeight;
+    const windowDistance = window.scrollY;
+    const windowHeight = window.innerHeight / 2;
+    const timelineDistance = document.querySelector(".timeline").offsetTop;
+
+    if (windowDistance >= timelineDistance - windowHeight) {
+      let line = windowDistance - timelineDistance + windowHeight;
+
+      if (line <= greyLineHeight) {
+        lineToDraw.style.height = `${line + 20}px`;
+      }
+    }
+
+    const bottom = lineToDraw.getBoundingClientRect().top + window.scrollY + lineToDraw.offsetHeight;
+
+    items.forEach((item) => {
+      const circleTop = item.getBoundingClientRect().top + window.scrollY;
+
+      if (bottom > circleTop) {
+        item.classList.add("in-view");
+      } else {
+        item.classList.remove("in-view");
+      }
+    });
+  });
 }

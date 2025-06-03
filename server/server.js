@@ -3,13 +3,33 @@ import { logger } from '@tinyhttp/logger';
 import { Liquid } from 'liquidjs';
 import sirv from 'sirv';
 import QRCode from 'qrcode';
+import fs from 'fs/promises';
+import path from 'path';
 
 let numberOfRoses = 0;
 
 // API URL base
 const apiBase = `https://fdnd-agency.directus.app/items/atlas_`;
 
+const testJson = `/json/details.json`;
+
 let enrichedData = [];
+
+let testData = null;
+
+fetchTestData();
+
+async function fetchTestData() {
+  try {
+    const filePath = path.resolve('./server/json/details.json');
+    const file = await fs.readFile(filePath, 'utf-8');
+    testData = JSON.parse(file); // 👈 store globally
+    return testData;
+  } catch (error) {
+    console.error('Fout bij ophalen van testdata:', error);
+    return null;
+  }
+}
 
 // ✅ Fetch en combineer data van alle endpoints
 async function fetchAllData() {
@@ -84,12 +104,12 @@ function enrichData({ posters, addresses, persons, families }) {
 fetchAllData()
   .then(data => {
     enrichedData = enrichData(data);
-    console.log('Gegevens succesvol verrijkt');
+    // console.log('Gegevens succesvol verrijkt');
 
-    console.log(JSON.stringify(enrichedData, null, 2));
+    // console.log(JSON.stringify(enrichedData, null, 2));
   })
   .catch(err => {
-    console.error('Fout bij verrijken van data:', err);
+    // console.error('Fout bij verrijken van data:', err);
   });
 
 // ✅ LiquidJS setup
@@ -110,6 +130,21 @@ app.get('/', async (req, res) => {
   return res.send(renderTemplate('server/views/index.liquid', {
     title: 'Home',
     items: enrichedData
+  }));
+});
+
+app.get('/verhalen/:id', (req, res) => {
+  const verhaalId = req.params.id;
+
+  if (!testData || !testData.verhaal || testData.verhaal.id !== verhaalId) {
+    return res.status(404).send('Verhaal niet gevonden');
+  }
+
+  console.log('testData.verhaal', testData);
+
+  return res.send(renderTemplate('server/views/verhaal-detail.liquid', {
+    title: testData.verhaal.titel,
+    item: testData.verhaal
   }));
 });
 
