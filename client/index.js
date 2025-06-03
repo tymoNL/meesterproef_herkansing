@@ -126,3 +126,147 @@ if (lineToDraw) {
     });
   });
 }
+
+
+// vanaf hier is de code voor de gedenkmuur
+
+document.addEventListener('DOMContentLoaded', () => {
+  const addressURL = 'https://fdnd-agency.directus.app/items/atlas_address?';
+  const familieURL = 'https://fdnd-agency.directus.app/items/atlas_family?';
+
+  const straatSelect = document.getElementById('straatSelect');
+  const muur = document.getElementById('muur');
+  const familieContainer = document.getElementById('familieLijst');
+
+  let alleAdressen = [];
+
+  // 🌐 Algemene fetch helper
+  async function fetchData(url) {
+    try {
+      const response = await fetch(url);
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+      const data = await response.json();
+      return data.data || [];
+    } catch (error) {
+      console.error('Fout bij ophalen data:', error);
+      return [];
+    }
+  }
+
+  // 🏠 Adressen ophalen en dropdown vullen
+  fetchData(addressURL).then(adressen => {
+    alleAdressen = adressen;
+    const uniekeStraten = getUniekeStraten(adressen);
+    straatSelect.innerHTML = '<option value="">Kies een straat...</option>';
+
+    uniekeStraten.forEach(straat => {
+      const option = document.createElement('option');
+      option.value = straat;
+      option.textContent = straat;
+      straatSelect.appendChild(option);
+    });
+  });
+
+  // 👨‍👩‍👧‍👦 Families ophalen en tonen
+  fetchData(familieURL).then(families => {
+    if (families.length === 0) {
+      familieContainer.innerHTML = '<p>Geen families gevonden.</p>';
+      const maxAantal = 4;
+      const familiesToon = data.data.slice(0, maxAantal);
+      return;
+    }
+
+    familieContainer.innerHTML = '';
+    
+    families.forEach(fam => {
+      const naam = fam.family_name || 'Onbekende familie';
+      const beschrijving = fam.description || '';
+
+      const div = document.createElement('div');
+      div.classList.add('familie-info');
+      div.innerHTML = `
+        <h4>Fam. ${naam}</h4>
+        <p>${beschrijving}</p>
+        <a href="familie-detail.html?id=${fam.id}">Meer informatie</a>
+      `;
+      familieContainer.appendChild(div);
+    });
+  });
+
+  // 🧭 Straatselectie → toon bijbehorende adressen
+  straatSelect.addEventListener('change', (event) => {
+    const gekozenStraat = event.target.value;
+    const adressenInStraat = alleAdressen.filter(addr =>
+      addr.street && addr.street.trim().toLowerCase() === gekozenStraat.trim().toLowerCase()
+    );
+
+    if (adressenInStraat.length === 0) {
+      muur.innerHTML = '<p>Geen adressen gevonden voor deze straat.</p>';
+      return;
+    }
+
+    muur.innerHTML = '';
+    adressenInStraat.forEach(addr => {
+      const huisnummer = ('house_number' in addr && addr.house_number !== null)
+        ? addr.house_number
+        : '(geen nummer)';
+
+      const div = document.createElement('div');
+      div.classList.add('adres-kaart');
+      div.innerHTML = `
+        <h4>${addr.street} ${huisnummer}</h4>
+        <p>Adres-ID: ${addr.id}</p>
+        <a href="detail.html?id=${addr.id}" class="detail-link">Bekijk meer</a>
+      `;
+      muur.appendChild(div);
+    });
+  });
+
+  // 🔁 Unieke straten verzamelen
+  function getUniekeStraten(adressen) {
+    const stratenSet = new Set();
+    adressen.forEach(addr => {
+      if (addr.street) {
+        stratenSet.add(addr.street.trim());
+      }
+    });
+    return Array.from(stratenSet).sort();
+  }
+});
+
+
+
+fetch('https://fdnd-agency.directus.app/items/atlas_family?fields=id,family_name,description')
+  .then(res => res.json())
+  .then(data => {
+    console.log('DEBUG: ruwe data', data);
+
+    const container = document.getElementById('familieLijst');
+    if (!container) {
+      console.error('⚠️ container #familieLijst niet gevonden');
+      return;
+    }
+
+    if (data && data.data && data.data.length > 0) {
+      container.innerHTML = '';
+      data.data.forEach(fam => {
+        const naam = fam.family_name || 'Naam onbekend';
+        const beschrijving = fam.description || '';
+
+        const div = document.createElement('div');
+        div.classList.add('familie-info');
+        div.innerHTML = `
+          <h4>Fam. ${naam}</h4>
+          <p>${beschrijving}</p>
+          <a href="familie-detail.html?id=${fam.id}">Meer informatie</a>
+        `;
+        container.appendChild(div);
+      });
+    } else {
+      container.innerHTML = '<p>Geen families gevonden.</p>';
+    }
+  })
+  .catch(error => {
+    console.error('❌ Fout bij ophalen families:', error);
+  });
+

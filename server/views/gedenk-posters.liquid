@@ -1,21 +1,37 @@
+
 {% layout "server/layouts/base.liquid" %}
 
+
 {% block content %}
-<section class="gedenkMuur">
-    <div class=" banner">
-        <img src="/images/gedenkmuur/brick-wall.png" alt="Gedenkmuur" />
+  <h2>Digitale Gedenkmuur</h2>
 
-        <div class="streetSignWrapper">
-            <div class="streetSign">
-                <span>teststraat</span>
-            </div>
-        </div>
+  <section class="straat-selectie">
+    <label for="straat"></label>
+    <select id="straatSelect">
+      <option value="">Kies een straat:</option>
+    </select>
+  </section>
 
-            <ul class="bloemenLijst"></ul>
+  <div class="muur-scroll">
+    <div class="muur" id="muur">
+      <!-- Hier komen de foto's van de gekozen straat -->
     </div>
+  </div>
 
-    <div class="bloemButtonWrapper">
-        <button type="button" id="bloemButton">Leg een bloem</button>
-    </div>
-</section>
+  <section class="herdenking">
+    <h3>Herdenk het hele jaar door</h3>
+    <p>Kies een bloem om mee te herdenken</p>
+
+    <section class="bloem-container">
+      <img src="/images/tulips.png" alt="Tulips" class="bloem" />
+      <img src="/images/nature.png" alt="flowers" class="bloem" />
+      <img src="/images/violet-flower.png" alt="violet-flower" class="bloem" />
+      <img src="/images/flower-bouquet.png" alt="roses" class="bloem" />
+    </section>
+  </section>
+
+  <section class="familie-scroll">
+    <h3>Families</h3>
+    <div class="familie-lijst" id="familieLijst"></div>
+  </section>
 {% endblock %}
