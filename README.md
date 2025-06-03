@@ -104,6 +104,8 @@ Ook heb ik na het 2e gesprek met **Declan** via `Npm` een **QR code generator** 
 ### Donna
 
 Hier docs over week 2
+dit is mijn update
+
 
 ### Lilian
 
