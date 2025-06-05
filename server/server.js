@@ -9,11 +9,8 @@ import path from 'path';
 let numberOfRoses = 0;
 
 // API URL base
-const apiBase = `https://fdnd-agency.directus.app/items/atlas_`;
 
 const testJson = `/json/details.json`;
-
-let enrichedData = [];
 
 let testData = null;
 
@@ -31,87 +28,6 @@ async function fetchTestData() {
   }
 }
 
-// ✅ Fetch en combineer data van alle endpoints
-async function fetchAllData() {
-  try {
-    const [posterRes, addressRes, personRes, familyRes] = await Promise.all([
-      fetch(`${apiBase}poster/?fields=*,covers.*,files.*`),
-      fetch(`${apiBase}address/?fields=*`),
-      fetch(`${apiBase}person/?fields=*`),
-      fetch(`${apiBase}family/?fields=*`)
-    ]);
-
-    const [posters, addresses, persons, families] = await Promise.all([
-      posterRes.json(),
-      addressRes.json(),
-      personRes.json(),
-      familyRes.json()
-    ]);
-
-    return {
-      posters: posters.data,
-      addresses: addresses.data,
-      persons: persons.data,
-      families: families.data
-    };
-  } catch (error) {
-    console.error('Fout bij ophalen van data:', error);
-    return {};
-  }
-}
-
-// ✅ Verrijk data met relaties (poster → address → person → family)
-function enrichData({ posters, addresses, persons, families }) {
-  const addressById = Object.fromEntries(addresses.map(a => [a.id, a]));
-  const familyById = Object.fromEntries(families.map(f => [f.id, f]));
-
-  // Voeg familie toe aan personen
-  const enrichedPersons = persons.map(person => {
-    let familyData = null;
-    if (person.family && familyById[person.family]) {
-      familyData = familyById[person.family];
-    }
-    return {
-      ...person,
-      family: familyData
-    };
-  });
-
-  const enrichedPersonById = Object.fromEntries(enrichedPersons.map(p => [p.id, p]));
-
-  // Poster verrijken
-  return posters.map(poster => {
-    const posterAddresses = (poster.address || []).map(addrId => {
-      const addr = addressById[addrId];
-      if (!addr) return null;
-
-      const addressPersons = (addr.person || []).map(pid => enrichedPersonById[pid]).filter(Boolean);
-
-      return {
-        ...addr,
-        person: addressPersons
-      };
-    }).filter(Boolean);
-
-    return {
-      ...poster,
-      addresses: posterAddresses
-    };
-  });
-}
-
-// ✅ Start ophalen van data bij opstart
-fetchAllData()
-  .then(data => {
-    enrichedData = enrichData(data);
-    // console.log('Gegevens succesvol verrijkt');
-
-    // console.log(JSON.stringify(enrichedData, null, 2));
-  })
-  .catch(err => {
-    // console.error('Fout bij verrijken van data:', err);
-  });
-
 // ✅ LiquidJS setup
 const engine = new Liquid({ extname: '.liquid' });
 const renderTemplate = (template, data) => engine.renderFileSync(template, data);
@@ -128,56 +44,26 @@ app
 // ✅ Home route met verrijkte data
 app.get('/', async (req, res) => {
   return res.send(renderTemplate('server/views/index.liquid', {
-    title: 'Home',
-    items: enrichedData
+    title: 'Home'
   }));
 });
 
 app.get('/verhalen/:id', (req, res) => {
   const verhaalId = req.params.id;
 
-  if (!testData || !testData.verhaal || testData.verhaal.id !== verhaalId) {
+  if (!testData) {
+    return res.status(500).send('Data nog niet geladen');
+  }
+
+  const verhaalData = testData.find(v => v.verhaal.id === verhaalId);
+
+  if (!verhaalData) {
     return res.status(404).send('Verhaal niet gevonden');
   }
 
-  console.log('testData.verhaal', testData);
-
   return res.send(renderTemplate('server/views/verhaal-detail.liquid', {
-    title: testData.verhaal.titel,
-    item: testData.verhaal
-  }));
-});
-
-// ✅ Detailpagina op basis van adres-ID
-app.get('/adressen/:id/', async (req, res) => {
-  const id = parseInt(req.params.id);
-  let item = null;
-
-  // Zoek het adres én de bijbehorende poster
-  for (const poster of enrichedData) {
-    const address = poster.addresses.find(addr => addr.id === id);
-    if (address) {
-      item = {
-        ...address,
-        poster: {
-          name: poster.name,
-          files: poster.files,
-          covers: poster.covers
-        }
-      };
-      break;
-    }
-  }
-
-  console.log('item', item);
-
-  if (!item) {
-    return res.status(404).send('Adres niet gevonden');
-  }
-
-  return res.send(renderTemplate('server/views/detail.liquid', {
-    title: `Detailpagina voor adres ${id}`,
-    item
+    title: verhaalData.verhaal.titel,
+    item: verhaalData.verhaal
   }));
 });
 
@@ -200,35 +86,45 @@ app.get('/print/qr/:id', async (req, res) => {
 });
 
 /* Header pages */
-
-app.get('/4-mei', async (req, res) => {
-  return res.send(renderTemplate('server/views/4-mei.liquid', {
-    title: '4 Mei',
-    items: enrichedData
-  }));
-});
-
-app.get('/terugblik', async (req, res) => {
-  return res.send(renderTemplate('server/views/terugblik.liquid', {
-    title: 'Terugblik',
-    items: enrichedData
-  }));
-});
-
-app.get('/verhalen', async (req, res) => {
-  return res.send(renderTemplate('server/views/verhalen.liquid', {
-    title: 'Verhalen',
-    items: enrichedData
-  }));
-});
-
 app.get('/gedenk-posters', async (req, res) => {
+  const straatSet = new Set(testData.map(item => item.verhaal.straat));
+  const straten = Array.from(straatSet);
+
+  // Maak een unieke map van familie -> id (bijv. voor de eerste persoon met die familienaam)
+  const familieMap = new Map();
+  testData.forEach(item => {
+    const { familie, id } = item.verhaal;
+    if (!familieMap.has(familie)) {
+      familieMap.set(familie, id);
+    }
+  });
+
+  // Zet het om naar een array van objecten
+  const families = Array.from(familieMap.entries()).map(([naam, id]) => ({
+    naam,
+    id
+  }));
+
+  const selectedStraat = req.query.straat;
+
+  const filteredItems = selectedStraat
+    ? testData.filter(item => item.verhaal.straat === selectedStraat)
+    : testData;
+
+console.log(numberOfRoses);
+
   return res.send(renderTemplate('server/views/gedenk-posters.liquid', {
     title: 'Gedenk-posters',
-    items: enrichedData,
+    items: testData,
+    straten,
+    families,
+    filteredItems,
+    selectedStraat,
     numberOfRoses
   }));
 });
+
+
 
 app.post('/legbloem', async (req, res) => {
   numberOfRoses++;
@@ -237,8 +133,7 @@ app.post('/legbloem', async (req, res) => {
 
 app.get('/over-ons', async (req, res) => {
   return res.send(renderTemplate('server/views/over-ons.liquid', {
-    title: 'Over ons',
-    items: enrichedData
+    title: 'Over ons'
   }));
 });
 

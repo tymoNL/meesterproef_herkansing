@@ -40,10 +40,10 @@
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     width: 100vw;
-    /* background: url('/images/2.png') repeat; */
+    background: url('/images/2.png') repeat;
     background-size: cover;
     background-position: center;
-    padding: 2rem 1rem;
+    padding: 2rem 1rem 4rem 1rem;
   }
   
   .muur {
@@ -102,6 +102,7 @@
     height: 8em;
     border: 1px solid #631a00;
     margin: 0.5em;
+    cursor: pointer;
   }
   
   .familie-scroll {

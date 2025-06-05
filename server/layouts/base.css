@@ -122,6 +122,8 @@ header.header {
 }
 
 .main {
+overflow-x: hidden;
+
   .container {
     display: flex;
     justify-content: center;

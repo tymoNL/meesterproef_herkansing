@@ -1,37 +1,64 @@
-
 {% layout "server/layouts/base.liquid" %}
 
 
 {% block content %}
-  <h2>Digitale Gedenkmuur</h2>
 
-  <section class="straat-selectie">
-    <label for="straat"></label>
-    <select id="straatSelect">
-      <option value="">Kies een straat:</option>
-    </select>
-  </section>
+<script>
+  const allVerhalen = {{ items | json }};
+  window.numberOfRoses = {{ numberOfRoses }};
+</script>
 
-  <div class="muur-scroll">
-    <div class="muur" id="muur">
-      <!-- Hier komen de foto's van de gekozen straat -->
-    </div>
+<h2>Digitale Gedenkmuur</h2>
+
+<section class="straat-selectie">
+  <label for="straatSelect">Kies een straat:</label>
+  <select id="straatSelect">
+    <option value="">Kies een straat:</option>
+    {% for straat in straten %}
+    <option value="{{ straat }}">{{ straat }}</option>
+    {% endfor %}
+  </select>
+</section>
+
+<div class="muur-scroll">
+  <div class="muur" id="muur">
+    {% if selectedStraat %}
+    <h4>Verhalen uit {{ selectedStraat }}</h4>
+    {% for item in filteredItems %}
+    <a href="/verhalen/{{ item.verhaal.id }}">{{ item.verhaal.naam }}</a><br />
+    {% endfor %}
+    {% else %}
+    <p>Kies een straat om verhalen te zien.</p>
+    {% endif %}
   </div>
 
-  <section class="herdenking">
-    <h3>Herdenk het hele jaar door</h3>
-    <p>Kies een bloem om mee te herdenken</p>
+  <!-- Hier worden de bloemen toegevoegd -->
+  <ul class="bloem-lijst" style="position: relative; list-style: none; padding: 0;"></ul>
+</div>
 
-    <section class="bloem-container">
-      <img src="/images/tulips.png" alt="Tulips" class="bloem" />
-      <img src="/images/nature.png" alt="flowers" class="bloem" />
-      <img src="/images/violet-flower.png" alt="violet-flower" class="bloem" />
-      <img src="/images/flower-bouquet.png" alt="roses" class="bloem" />
-    </section>
-  </section>
+<section class="herdenking">
+  <h3>Herdenk het hele jaar door</h3>
+  <p>Kies een bloem om mee te herdenken</p>
 
-  <section class="familie-scroll">
-    <h3>Families</h3>
-    <div class="familie-lijst" id="familieLijst"></div>
+  <section class="bloem-container">
+    <!-- Klikbare bloemen -->
+    <img src="/images/bloemen/1.png" alt="Tulips" class="bloem" data-image="tulips.png" />
+    <img src="/images/bloemen/2.png" alt="flowers" class="bloem" data-image="nature.png" />
+    <img src="/images/bloemen/3.png" alt="violet-flower" class="bloem" data-image="violet-flower.png" />
+    <img src="/images/bloemen/4.png" alt="roses" class="bloem" data-image="flower-bouquet.png" />
+    <img src="/images/bloemen/5.png" alt="roses" class="bloem" data-image="flower-bouquet.png" />
   </section>
+</section>
+
+<section class="familie-scroll">
+  <h3>Families</h3>
+  <div class="familie-lijst" id="familieLijst">
+    {% for familie in families %}
+    <div>
+      <h4>Fam. {{ familie.naam }}</h4>
+      <a href="/verhalen/{{ familie.id }}">Meer informatie</a>
+    </div>
+    {% endfor %}
+  </div>
+</section>
 {% endblock %}
