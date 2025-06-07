@@ -79,14 +79,15 @@ We hebben als groep onze sterke en zwakke punten opgeschreven en de leerdoelen z
 
 In deze week heb ik gekeken wat voor data er is in [Directus](https://directus.io/) (hier is de data opgeslagen). En ik heb gekeken wat we als groep hiermee konden om de website te vullen met content.
 
+Na gesprek met Vasilis is duidelijker geworden hoe opdrachtgevers niet altijd zelf precies weten wat ze willen en waar je naar moet luisteren en kijken wat er realistisch is.
+
 De data heb ik op kunnen halen via meerdere endpoints zodat we toegang hebben tot deze data in onze website. De website is opgezet met [Liquid](https://shopify.github.io/liquid/), voornamelijk omdat deze templating taal al gebruikt is met het vak API dus dit is een bekende template voor iedereen in de groep.
 
 ### Donna
 
-Hier docs over week 1
-In week 1 kregen wij uitleg over de opdracht en hoe dit in elkaar zou gaan zitten. We zijn begonnen met het proberen te uitpluizen van de opdracht. We hebben geprobeerd contact op t enemen met de opdrachtgever, wat vervolgens bleek dat wij een verkeerd email adres hadden dus hier in vast zaten. Gelukkig hadden we later deze week een afspraak met onze coach voor het project en gaf hij ook wat input. Ondertussen hebben we natuurlijk nagedacht over de vorm van het project, hoe we dit op willen zetten en wat belangrijke punten zijn voor ons. In principe hebben we nu nog de vrijheid omdat we vrij weinig informatie hebben en dus zelf kunnen invullen hoe we hier gebruik van maken. We doen onderzoek naar hoe de huidige situatie is voor de website en wat we hieruit kunnen halen. Ondertussen hebben we contact gekregen met Joost die ook betrokken is in het project en ons dus wel meer informatie geeft over wat de grote lijnen van het project zullen zijn. 
+In week 1 kregen wij uitleg over de opdracht en hoe dit in elkaar zou gaan zitten. We zijn begonnen met het proberen te uitpluizen van de opdracht. We hebben geprobeerd contact op t enemen met de opdrachtgever, wat vervolgens bleek dat wij een verkeerd email adres hadden dus hier in vast zaten. Gelukkig hadden we later deze week een afspraak met onze coach voor het project en gaf hij ook wat input. Ondertussen hebben we natuurlijk nagedacht over de vorm van het project, hoe we dit op willen zetten en wat belangrijke punten zijn voor ons. In principe hebben we nu nog de vrijheid omdat we vrij weinig informatie hebben en dus zelf kunnen invullen hoe we hier gebruik van maken. We doen onderzoek naar hoe de huidige situatie is voor de website en wat we hieruit kunnen halen. Ondertussen hebben we contact gekregen met Joost die ook betrokken is in het project en ons dus wel meer informatie geeft over wat de grote lijnen van het project zullen zijn.
 
-We komen erachter dat het belangrijk is dat we de verhalen over de mensen op een mooie manier verteld gaan worden. We leven namelijk in een tijd waar veel mensen die de oorlog bewust hebben meegemaakt en overleefd beginnen uit te dunnen. Dus is het aan ons om de herinnering levend te houden. We komen op wat ideeën voor een design, we houden een soort gedenkmuur waar afbeeldingen of informatie wordt getoond van de overledene personen uit een bepaalde straat gaan komen. je kan als het ware door deze straten heen wandelen en als je dan op een adres klikt komt er meer informatie te zien. 
+We komen erachter dat het belangrijk is dat we de verhalen over de mensen op een mooie manier verteld gaan worden. We leven namelijk in een tijd waar veel mensen die de oorlog bewust hebben meegemaakt en overleefd beginnen uit te dunnen. Dus is het aan ons om de herinnering levend te houden. We komen op wat ideeën voor een design, we houden een soort gedenkmuur waar afbeeldingen of informatie wordt getoond van de overledene personen uit een bepaalde straat gaan komen. je kan als het ware door deze straten heen wandelen en als je dan op een adres klikt komt er meer informatie te zien.
 
 ### Lilian
 
@@ -106,11 +107,9 @@ Ook heb ik na het 2e gesprek met **Declan** via `Npm` een **QR code generator** 
 
 ### Donna
 
-Hier docs over week 2
-In week 2 hebben we de eerste meeting gehad met de opdrachtgever die ons ook weer benadrukte dat het vooral om het vertellen van de verhalen gaat. We gaan dus beginnen met het opzetten van taken en beginnen met code schrijven. Ik neem de taak op mij om de gedenkmuur te gaan maken. Zo heb ik genoeg uitdaging op elk vlak, ik kan wat gebruik maken van html,css maar ook van javasccript. Dus hier ga ik beginnen met een opzet voor de pagina en bedenken welke techniek ik ga gebruiken om tot mijn doel te komen. Ik begin dus met heel grof secties te gaan maken voor de pagina als indeling. 
+In week 2 hebben we de eerste meeting gehad met de opdrachtgever die ons ook weer benadrukte dat het vooral om het vertellen van de verhalen gaat. We gaan dus beginnen met het opzetten van taken en beginnen met code schrijven. Ik neem de taak op mij om de gedenkmuur te gaan maken. Zo heb ik genoeg uitdaging op elk vlak, ik kan wat gebruik maken van html,css maar ook van javasccript. Dus hier ga ik beginnen met een opzet voor de pagina en bedenken welke techniek ik ga gebruiken om tot mijn doel te komen. Ik begin dus met heel grof secties te gaan maken voor de pagina als indeling.
 
 Ik zet dus alle elementen neer die nodig zijn maar verder doe ik er nog niet veel aan omdat deze later gevuld gaan worden met elementen uit de database.
-
 
 ### Lilian
 
@@ -158,10 +157,9 @@ De content uit dit verhaal heb ik verwerkt in liquid om meerdere objecten uit Js
 
 ### Donna
 
-Hier docs over week 3
+Vanaf hier ben ik begonnnen om vorm te geven aan de elementen die ik op de pagina had. Deze moesten gevuld worden met data die we hadden uit de database. Het idee is om per straat personen weer te geven op de gedenkmuur en vanuit hier kan je dan naar de detailpagina. Op de gedenkmuur kan je uitkiezen van welke straat je gegevens wil zien. Deze straatnamen ga ik inladen vanuit de json die wij hebben. Ik vraag om elke id van straatnamen in te laden in de select. Vervolgens komen er dan allemaal straatnamen. Hierna heb ik dan nog aangegeven dat ik geen dubbele straatnamen wil om het makkelijiker te maken. Zo kan je nu dus de id zien van de personen die op deze straat hebben gewoond vroeger.
 
-Vanaf hier ben ik begonnnen om vorm te geven aan de elementen die ik op de pagina had. Deze moesten gevuld worden met data die we hadden uit de database. Het idee is om per straat personen weer te geven op de gedenkmuur en vanuit hier kan je dan naar de detailpagina. Op de gedenkmuur kan je uitkiezen van welke straat je gegevens wil zien. Deze straatnamen ga ik inladen vanuit de json die wij hebben. Ik vraag om elke id van straatnamen in te laden in de select. Vervolgens komen er dan allemaal straatnamen. Hierna heb ik dan nog aangegeven dat ik geen dubbele straatnamen wil om het makkelijiker te maken. Zo kan je nu dus de id zien van de personen die op deze straat hebben gewoond vroeger. 
-
+```js
   fetchData(addressURL).then(adressen => {
     alleAdressen = adressen;
     const uniekeStraten = getUniekeStraten(adressen);
@@ -174,6 +172,8 @@ Vanaf hier ben ik begonnnen om vorm te geven aan de elementen die ik op de pagin
       straatSelect.appendChild(option);
     });
   });
+```
+
 
 Vervolgens willen we onderaan de pagina ook een aantal families weergeven zodat je meteen naar een familie kan vanuit hun naam zonder de straat aan te geven. Dit heb ik op een zelfde soort manier gedaan.
 
@@ -185,7 +185,36 @@ Hier docs over week 3
 
 ### Tymo
 
-Hier docs over week 4
+De select voor de straten heb ik aangepast zodat de data via liquid wordt ingeladen. Dit zorgt ervoor dat alle straten die in de verhalen zitten ook worden ingeladen.
+
+De straten worden meegestuurd naar de pagina via de server om te zorgen dat door alle straten heen geloopt kan worden.
+
+```js
+return res.send(renderTemplate('server/views/gedenk-posters.liquid', {
+    title: 'Gedenk-posters',
+    items: testData,
+    straten,
+    families,
+    filteredItems,
+    selectedStraat,
+    numberOfRoses
+  }));
+```
+
+```html
+<select id="straatSelect">
+    <option value="">Kies een straat:</option>
+    {% for straat in straten %}
+    <option value="{{ straat }}">{{ straat }}</option>
+    {% endfor %}
+  </select>
+```
+
+De straten kunnen worden geselecteerd en dan verschijnen alle verhalen op deze straten. Via deze manier kan je door op een digitale manier door de straat heen lopen.
+
+Na gesprek met Syd was duidelijk geworden dat we nog aan de styling vooral moesten werken en dat de funcionaliteiten van de website klopten. De punten die boven kwamen waren de huisstyle, kiezen welke scrollrichting we kiezen en vormgeving van de gedenkmuur zelf.
+
+Deze week was ook CSS day waar ik aan heb deelgenomen. Hierom kon ik wat minder werkzaamheden verrichten deze week.
 
 ### Donna
 
