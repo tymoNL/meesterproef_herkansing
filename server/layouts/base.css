@@ -27,6 +27,7 @@ body {
   display: grid;
   grid-template-rows: auto 1fr auto;
   color: var(--white);
+  min-height: 100dvh;
 }
 
 .container {

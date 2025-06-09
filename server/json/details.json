@@ -13,14 +13,12 @@
                     "titel": "Salomon Swalep",
                     "datum": "9 mei 1916 - 30 november 1943",
                     "locatie": "Amsterdam",
-                    "afbeelding": "/images/details/foto_man.png",
                     "tekst": "Salomon Swalep, journalist, winkelier in damesmode en kantoorbediende bij een herenconfectiefabriek, geboren in Amsterdam op 9 mei 1916 en overleden in Sobibor op 30 november 1943. Hij groeide op in het Nederlandsch Israëlietisch Jongensweeshuis. In 1939 trouwde hij met Rebecca Gerritse. Op 18 mei 1943 werden zij gedeporteerd naar Sobibor. Rebecca werd direct na aankomst vergast, terwijl Salomon later werd vermoord."
                 },
                 {
                     "titel": "Rebecca Swalep-Gerritse",
                     "datum": "23 augustus 1916 - 21 mei 1943",
                     "locatie": "Amsterdam",
-                    "afbeelding": "/images/details/foto_vrouw.png",
                     "tekst": "Rebecca was naaister bij een lingeriefabriek, geboren op 23 augustus 1916, overleden in Sobibor op 21 mei 1943. Ze werd direct na aankomst vergast."
                 }
             ]
@@ -40,14 +38,12 @@
                     "titel": "Levie Vogel",
                     "datum": "4 juli 1886 - 2 april 1943",
                     "locatie": "Amsterdam",
-                    "afbeelding": "/images/details/foto_man.png",
                     "tekst": "Levie Vogel was handelsreiziger en woonde vanaf 1937 op dit adres met zijn vrouw Branca Fieijra. Ze werden op 25 maart 1943 naar Westerbork gebracht en op 30 maart gedeporteerd naar Sobibor, waar ze direct werden vermoord."
                 },
                 {
                     "titel": "Branca Vogel-Fieijra",
                     "datum": "21 oktober 1885 - 2 april 1943",
                     "locatie": "Amsterdam",
-                    "afbeelding": "/images/details/foto_vrouw.png",
                     "tekst": "Branca was de echtgenote van Levie Vogel. Ze werd met haar man gedeporteerd naar Sobibor en direct vergast. Haar zus Keetje werd ook vermoord."
                 }
             ]
@@ -67,7 +63,6 @@
                     "titel": "Jacob Boekbinder",
                     "datum": "3 januari 1885 - 23 april 1943",
                     "locatie": "Amsterdam",
-                    "afbeelding": "/images/details/foto_man.png",
                     "tekst": "Jacob Boekbinder was sigarenmaker, geboren op 3 januari 1885 en overleden op 23 april 1943 in Sobibor. Hij woonde hier met zijn vrouw Esther en dochter Rachel. Het gezin werd gedeporteerd en vermoord."
                 }
             ]
@@ -87,7 +82,6 @@
                     "titel": "Abraham Espinosa",
                     "datum": "2 december 1884 - 4 juni 1943",
                     "locatie": "Amsterdam",
-                    "afbeelding": "/images/details/foto_man.png",
                     "tekst": "Abraham Espinosa was marktkoopman en woonde op dit adres met zijn vrouw Roosje. Ze hadden zes kinderen, waarvan er vijf tijdens de oorlog werden vermoord. Abraham en Roosje werden op 1 juni 1943 naar Sobibor gedeporteerd en daar vermoord."
                 }
             ]
@@ -107,10 +101,125 @@
                     "titel": "Joseph Noort",
                     "datum": "6 juni 1881 - 28 mei 1943",
                     "locatie": "Amsterdam",
-                    "afbeelding": "/images/details/foto_man.png",
                     "tekst": "Joseph Noort was diamantslijper. Hij woonde hier met zijn vrouw Roosje en kinderen. Op 25 mei 1943 werden zij op transport gesteld naar Sobibor, waar ze direct na aankomst om het leven werden gebracht."
                 }
             ]
         }
+    },
+    {
+        "verhaal": {
+            "id": "eerste-oosterparkstraat-16-1",
+            "straat": "eerste oosterparkstraat",
+            "naam": "Samuel Rodrigues Pereira",
+            "geboortedatum": "2 februari 1906",
+            "overleidingsdatum": "19 oktober 1942",
+            "taal": "Nederlands",
+            "verhalen": [
+                {
+                    "titel": "Samuel Rodrigues Pereira",
+                    "datum": "2 februari 1906 - 19 oktober 1942",
+                    "locatie": "Amsterdam",
+                    "tekst": "Samuel was kleermaker en woonde samen met zijn vrouw Roosje Lopes Dias en hun twee kinderen op de Eerste Oosterparkstraat. Hij werd op 19 oktober 1942 vermoord in Auschwitz. Zijn hele gezin werd in hetzelfde jaar omgebracht."
+                }
+            ]
+        }
+    },
+    {
+        "verhaal": {
+            "id": "eerste-oosterparkstraat-20-2",
+            "straat": "eerste oosterparkstraat",
+            "naam": "Mozes Nunes Cardozo",
+            "geboortedatum": "13 maart 1884",
+            "overleidingsdatum": "23 juli 1943",
+            "taal": "Nederlands",
+            "verhalen": [
+                {
+                    "titel": "Mozes Nunes Cardozo",
+                    "datum": "13 maart 1884 - 23 juli 1943",
+                    "locatie": "Amsterdam",
+                    "tekst": "Mozes Nunes Cardozo was koopman in textiel. Hij werd gedeporteerd naar Sobibor en daar vermoord. Zijn vrouw Rachel en hun kinderen overleefden de oorlog niet."
+                }
+            ]
+        }
+    },
+    {
+    "verhaal": {
+        "id": "derde-oosterparkstraat-103-3",
+        "straat": "derde oosterparkstraat",
+        "naam": "Jakob (Yankel) Hersz Nortman",
+        "geboortedatum": "21 juli 1894",
+        "overleidingsdatum": "24 september 1943",
+        "taal": "Nederlands",
+        "verhalen": [
+            {
+                "titel": "Jakob (Yankel) Hersz Nortman",
+                "datum": "21 juli 1894 - 24 september 1943",
+                "locatie": "Amsterdam",
+                "tekst": "Jakob (Yankel) Hersz Nortman, kleermaker, geboren in Sarnaki (Polen), vestigde zich in 1930 in Amsterdam met zijn vrouw Frejda. Ze woonden sinds 1932 op de Derde Oosterparkstraat 103-3. Yankel werd op 20 februari 1943 naar Westerbork gebracht en op 21 september naar Auschwitz, waar hij direct na aankomst op 24 september 1943 werd vermoord. Er zijn geen verdere familieleden bekend van Yankel."
+            },
+            {
+                "titel": "Frejda Liwcia Nortman-Nuchowicz",
+                "datum": "31 juli 1894 - 24 september 1943",
+                "locatie": "Amsterdam",
+                "tekst": "Frejda, echtgenote van Yankel, werd geboren in Biala en was de dochter van Josef Icek Nuchowicz en Fejga Perla Grynszpan. Ook zij werd op 21 september 1943 gedeporteerd en direct na aankomst in Auschwitz vermoord. Er zijn geen andere bekende familieleden van haar."
+            },
+            {
+                "titel": "Josef Icchok Nortman",
+                "datum": "18 december 1920 - 26 januari 1945",
+                "locatie": "Amsterdam",
+                "tekst": "Josef was de zoon van Yankel en Frejda. Hij werkte bij Hollandia-Kattenburg, een fabriek waar veel Joden tijdelijk beschermd waren door een sperre. Na een razzia in januari 1942 werden veel medewerkers afgevoerd. Josef kwam uiteindelijk terecht in Kamp Vught, later Westerbork, en werd op 21 september 1943 samen met zijn familie naar Auschwitz gedeporteerd. Hij werd niet direct vermoord, maar overleed uiteindelijk op 26 januari 1945 in Buchenwald."
+            },
+            {
+                "titel": "Zysa Nortman",
+                "datum": "27 februari 1926 - 30 september 1942",
+                "locatie": "Amsterdam",
+                "tekst": "Zysa was dochter van Yankel en Frejda, geboren in Warschau. Zij werd al op 17 juli 1942 naar Auschwitz gedeporteerd, veel eerder dan haar ouders en broer, en werd daar op 30 september 1942 vermoord. Ze woonde mogelijk niet meer thuis, maar bij het echtpaar Meijer Piller op de Weesperstraat."
+            }
+        ]
     }
+},
+{
+    "verhaal": {
+        "id": "derde-oosterparkstraat-125-1",
+        "straat": "derde oosterparkstraat",
+        "naam": "Mozes Zurel",
+        "geboortedatum": "15 november 1910",
+        "overleidingsdatum": "11 juni 1943",
+        "taal": "Nederlands",
+        "verhalen": [
+            {
+                "titel": "Mozes Zurel",
+                "datum": "15 november 1910 - 11 juni 1943",
+                "locatie": "Amsterdam",
+                "tekst": "Mozes Zurel was banketbakker en lompensorteerder, geboren in Amsterdam. Hij trouwde in 1933 met Kaatje Dooseman. Ze kregen drie kinderen: Robert (1936), André (1938) en Alfred (1942). Alleen Alfred overleefde de oorlog. Het gezin woonde vanaf 1938 op de Derde Oosterparkstraat 125-1. Op 6 juni 1943 werden Mozes, Kaatje, Robert en André via Westerbork naar Sobibor gedeporteerd en daar bij aankomst vergast. Mozes had twaalf broers en zussen, waarvan enkelen ook werden vermoord."
+            },
+            {
+                "titel": "Kaatje Zurel-Dooseman",
+                "datum": "6 mei 1907 - 11 juni 1943",
+                "locatie": "Amsterdam",
+                "tekst": "Kaatje was de jongste van drie kinderen van Levie en Roosje Dooseman. Zij trouwde met Mozes Zurel en kreeg drie kinderen. Samen met haar man en twee oudste zoons werd zij op 11 juni 1943 in Sobibor vermoord. Twee zussen van Kaatje, Margaretha en Gonda, kwamen ook om in de oorlog."
+            },
+            {
+                "titel": "Robert Zurel",
+                "datum": "3 oktober 1936 - 11 juni 1943",
+                "locatie": "Haarlem",
+                "tekst": "Robert (Robby) was de oudste zoon van Mozes en Kaatje Zurel. Hij werd samen met zijn ouders en broertje André op 11 juni 1943 vergast in Sobibor."
+            },
+            {
+                "titel": "André Zurel",
+                "datum": "25 mei 1938 - 11 juni 1943",
+                "locatie": "Amsterdam",
+                "tekst": "André was de tweede zoon van Mozes en Kaatje Zurel. Hij werd op 11 juni 1943 in Sobibor vermoord, samen met zijn ouders en broer Robert."
+            },
+            {
+                "titel": "Alfred Zurel",
+                "datum": "1942 - overleefde de oorlog",
+                "locatie": "Amsterdam",
+                "tekst": "Alfred was de jongste zoon van Mozes en Kaatje Zurel. Hij overleefde als enige van het gezin de oorlog. Omdat hij ziek was, bleef hij achter toen de rest van het gezin werd opgepakt. Hij werd uiteindelijk ondergebracht bij familie in de Watergraafsmeer, die hem opvoedde als hun eigen kind."
+            }
+        ]
+    }
+}
+
+
 ]

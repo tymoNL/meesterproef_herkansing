@@ -43,14 +43,21 @@
     background: url('/images/2.png') repeat;
     background-size: cover;
     background-position: center;
-    padding: 2rem 1rem 4rem 1rem;
+    padding: 4rem 1rem 4rem 1rem;
+    min-height: 250px;
   }
   
   .muur {
     display: flex;
-
     padding-bottom: 1rem;
     min-width: 100%;
+    gap: 1rem;
+
+    >div {
+      padding: 1rem 2rem;
+      border-radius: var(--button-br);
+      background-color: rgba(155, 155, 155, 0.5);
+    }
   }
   
   .adres-kaart {
@@ -117,6 +124,14 @@
     scroll-snap-type: x mandatory;
     padding-bottom: 1rem;
     scrollbar-width: thin;
+
+    > div {
+      background-color: #fff;
+      border: 1px solid #fff;
+      box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+      border-radius: var(--button-br);
+      padding: 1rem 2rem;
+    }
   }
   
   .familie-info {

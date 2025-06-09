@@ -41,10 +41,10 @@ console.log('test');
 
   if (bloemList) {
     const randomLeft = Math.floor(Math.random() * 85) + 1;
-    const randomWidth = Math.floor(Math.random() * 6) + 10; // Breedte tussen 10% en 30%
-
+    const randomWidth = Math.floor(Math.random() * 26) + 50;
+    
     const bloemHTML = `
-      <li style="position: absolute; left: ${randomLeft}%; width: ${randomWidth}%;">
+      <li style="position: absolute; left: ${randomLeft}%; width: ${randomWidth}px;">
         <img src="${imageSrc}" alt="${altText}" style="width: 100%" />
       </li>`;
 
