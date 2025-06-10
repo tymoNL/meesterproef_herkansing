@@ -1,3 +1,114 @@
+/* main{
+  scroll-snap-type: mandatory;
+  overflow-y:scroll;
+  height:70vh;
+} */
+
+
+
+body{
+  padding:0;
+  margin:0;
+}
+
+
+.section1{
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centreer de inhoud horizontaal */
+  justify-content: space-between; /* Zorg dat de huisjes en slider netjes verdeeld zijn */
+  padding: 2em; /* Voeg wat ruimte toe rondom de sectie */
+  margin-bottom:10em;
+  
+  height:70vh;
+  overflow: hidden;
+}
+
+/* .section2 {
+  position: relative;
+  height: 100vh;
+  background-color: black;
+  background-image: url("/images/1steoosterparkstraat.png");
+  max-width:100vw;
+  background-size: cover; 
+  background-position: center; 
+  background-repeat: no-repeat;
+  overflow: hidden;
+  display:flex;
+  z-index:1;
+} */
+
+
+/* .section2::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: -1;
+} */
+
+/* .section2-content {
+  position: relative;
+  z-index: 2;
+  color: white; 
+  text-align: center;
+  padding: 2em;
+} */
+
+.streetName{
+  background-color: #273D7C;
+  color: #fff;
+  padding: .8em;
+  border-radius: .3em;
+  width:fit-content;
+  border: 1.8px solid #fff;
+  box-shadow: #273D7C 0px 2px 5px, #273D7C 0px 0px 0px 4px;
+  margin-left:80%;
+  font-size:1em;
+}
+
+
+
+.tree1 {
+  top: 8em;
+  left: 5%;
+  position: absolute;
+  z-index: -1; /* Zorg dat de bomen achter de huisjes staan */
+  width: 25em; /* Pas de grootte van de bomen aan */
+  opacity: 0.8;
+}
+
+.tree2 {
+  top: 12em;
+  left: 20%;
+  position: absolute;
+  z-index: -1; /* Zorg dat de bomen achter de huisjes staan */
+  width: 20em; /* Pas de grootte van de bomen aan */
+  opacity: 0.95;
+}
+
+.tree3 {
+  top: 8em;
+  right: 15%;
+  position: absolute;
+  z-index: -1; /* Zorg dat de bomen achter de huisjes staan */
+  width: 25em; /* Pas de grootte van de bomen aan */
+  opacity: 0.8;
+}
+
+.tree4 {
+  top: 12.5em;
+  right: 26%;
+  position: absolute;
+  z-index: -1; /* Zorg dat de bomen achter de huisjes staan */
+  width: 22em; /* Pas de grootte van de bomen aan */
+  opacity: 0.95;
+}
+
+
 .details {
 
     .details__grid {
@@ -15,57 +126,96 @@
         height: auto;
     }
 
+
+    
     .familySlider {
-        position: relative;
-        overflow: hidden;
-
-        ul {
-            padding: 0;
-            margin: 0;
-            display: flex;
-            height: 100%;
-            list-style-type: none;
-            overflow-x: auto;
-            overscroll-behavior-x: contain;
-            scroll-snap-type: x mandatory;
-            scroll-behavior: smooth;
-            gap: 0;
-
-            >li {
-                min-width: 100%;
-                flex: 0 0 100%;
-                scroll-snap-align: start;
-            }
-
-            &::scroll-button(*) {
-                position: absolute;
-                top: 50%;
-                transform: translateY(-50%);
-                background: rgba(0, 0, 0, 0.5);
-                color: white;
-                border: none;
-                padding: 0.5em 1em;
-                cursor: pointer;
-                z-index: 10;
-            }
-
-            &::scroll-button(left) {
-                content: "⬅" / "Scroll Left";
-                left: 0;
-            }
-
-            &::scroll-button(right) {
-                content: "⮕" / "Scroll Right";
-                right: 0;
-            }
-
-            &::scroll-button(*):focus-visible {
-                outline-offset: 5px;
-            }
-        }
+      position: relative;
+      overflow: hidden;
+      width: 80%;
+      max-width: 1200px; 
+      background-color: #f2f4fb; 
+      border-radius: 0.5em; 
+      box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; 
+      padding: .5em 5em; 
     }
-}
 
+    .familySlider__button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: #8b2300 ;
+      color: white;
+      border: none;
+      padding: 0.5em 1em;
+      cursor: pointer;
+      z-index: 10;
+      border-radius: 0.3em;
+      font-size: 1em;
+    }
+    
+    .familySlider__button--left {
+      left: 10px;
+    }
+    
+    .familySlider__button--right {
+      right: 10px;
+    }
+    
+    .familySlider__button:hover {
+      background: #581600; /* Maak de knop volledig zichtbaar bij hover */
+    }
+    
+    .familySlider ul {
+      padding: 0;
+      margin: 0;
+      display: flex;
+      height: 100%;
+      list-style-type: none;
+      overflow-x: auto;
+      overscroll-behavior-x: contain;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      gap: 1em; /* Voeg ruimte toe tussen de items */
+    }
+    
+    .familySlider ul > li {
+      min-width: 100%;
+      flex: 0 0 100%;
+      scroll-snap-align: start;
+      background-color: #8b2300; /* Gebruik de primaire kleur van het thema */
+      color: #fff; /* Zorg dat de tekst goed zichtbaar is */
+      border-radius: 0.5em; /* Voeg afgeronde hoeken toe */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4em;
+    }
+    
+    .familySlider &::scroll-button(*) {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(39, 61, 124, 0.8); /* Gebruik een semi-transparante versie van de primaire kleur */
+      color: white;
+      border: none;
+      padding: 0.5em 1em;
+      cursor: pointer;
+      z-index: 10;
+      border-radius: 0.3em; /* Voeg afgeronde hoeken toe */
+    }
+    
+    .familySlider &::scroll-button(left) {
+      left: 0;
+    }
+    
+    .familySlider &::scroll-button(right) {
+      right: 0;
+    }
+    
+    .familySlider &::scroll-button(*):focus-visible {
+      outline-offset: 5px;
+    }
+  }
 
 @mixin global-transition {
   transition: 0.125s ease-in-out, background-color 0.2s ease-out, color 0.1s ease-out, border 0.1s ease-out;
@@ -73,81 +223,311 @@
 
 
 
+/* huisjes */
+
+.housjesContainer {
+  position: relative;
+  display: flex;
+  gap: 1em;
+  justify-content: center;
+}
+
+.housjesContainer img {
+  width: 50%;
+  transition: transform 0.1s ease-out; /* Zorg voor een soepel scroll-effect */
+}
+
+
+/* ///////////////// */
+/* SCROLL TIME LINE */
+/* ///////////////// */
+
+@keyframes move {
+	to {
+		/* Move horizontally so that right edge is aligned against the viewport */
+		transform: translateX(calc(-100% + 100vw));
+	}
+}
+
+#sectionPin {
+	/* Stretch it out, so that we create room for the horizontal scroll animation */
+	height: 500vh;
+	overflow: visible; /* To make position sticky work … */
+
+	view-timeline-name: --section-pin-tl;
+	view-timeline-axis: block;
+  background-image: url("/images/1steoosterparkstraat.png");
+  max-width:100vw;
+  background-size: cover; 
+  background-position: center; 
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
 
 
 
 
+.pin-wrap-sticky {
+	/* Stick to Top */
+	height: 100vh;
+	width: 100vw;
+	position: sticky;
+	top: 0;
+
+	width: 100vw;
+	overflow-x: hidden;
+}
+
+.pin-wrap {
+	height: 100vh;
+	width: 250vmax;
+  gap:3rem;
   
+   display: flex;
+   justify-content: flex-start;
+   align-items: center;
 
-.timeline {
-  padding: 50px;
-  ul {
-    padding: 0;
-  }
+	/* Hook animation */
+	will-change: transform;
+	animation: linear move forwards;
 
-  .default-line {
-    content: '';
-    position: absolute;
-    left: 50%;
-    width: 6px;
-    background: #B1B9CF;
-    height: 1500px;
-  }
+	/* Link animation to view-timeline */
+	animation-timeline: --section-pin-tl;
+	animation-range: contain 0% contain 100%;
+}
 
-  .draw-line {
-    width: 6px;
-    height: 0;
-    position: absolute;
-    left: 50%;
-    background: #273D7C;
-  }
+.introtekst{
+  text-align: center;
+  background: radial-gradient(circle,rgba(84, 3, 3, 1) 0%, rgba(46, 3, 3, 1) 100%);
+  color: white;
+  padding: 90px;
+  border-radius: 10px;
+  box-sizing: border-box;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  margin-left: 10em;
+  margin-right: 10em;
+  width:711px;
+  height:20em;
+}
 
-  ul li {
-    list-style-type: none;
-    position: relative;
-    width: 2px;
-    margin: auto;
-    margin-left:50.2%;
-    height: 400px;
-    background: transparent;
+h2{
+  color:white;
+}
 
-    &.in-view {
-      
-      @include global-transition;
+h3{
+  color:white;
+}
 
 
-      &::before {
-        content: '';
-        position: absolute;
-        left: 50%;
-        top: 0;
-        transform: translateX(-50%);
-        width: 30px;
-        height: 30px;
-        border-radius: 50%;
-        background-image: url('https://sg0duxoli5-flywheel.netdna-ssl.com/wp-content/themes/inspired_elearning_theme/images/check-dark.svg');
-        background-color: #273D7C;
-        background-size: 20px 20px;
-        background-repeat: no-repeat;
-        background-position: center;
-        @include global-transition;
 
-      }
-    }
+.img{
+  background-color:rgba(0, 0, 0, 0.635);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.614);
+  height: auto;
+  width: 711px;
+  max-width: 100%;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  padding: 1em;
+  gap:1em;
+}
 
-    &::before {
-      content: '';
-      position: absolute;
-      left: 50%;
-      top: 0;
-      transform: translateX(-50%);
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      background: inherit;
-      background: #B1B9CF;
-      transition: all .4s ease-in-out;
-    }
+.img img{
+ width:10em;
+  height: auto;
+  border-radius: 10px;
+}
 
+.imgContent {
+  display: flex;
+  flex-direction: column; /* Plaats de tekst onder elkaar */
+  justify-content: center; /* Centreer de tekst verticaal */
+  gap: 0.5em; /* Voeg ruimte toe tussen de `h2` en `p` */
+  color: white;
+}
+
+.imgContent h2{
+  color:white;
+  font-size:1.5em;
+
+  font-family: 'Open Sans', sans-serif;
+
+}
+
+.imgContent p{
+  color:white;
+  font-size:1em;
+
+  font-family: 'Open Sans', sans-serif;
+
+}
+
+
+/* TIMELINE KAARTJES */
+
+/* .timeline{
+display:flex;
+overflow:auto;
+gap:2em;
+align-items: center;
+}
+
+
+.timeline li{
+list-style-type:none;
+flex-shrink:0;
+
+width:40em;
+height:30em;
+text-align:center;
+
+display: flex;
+justify-content: center;
+}
+
+.intro {
+  width: 100vw;
+  flex-shrink: 0;
+  box-sizing: border-box;
+  z-index:2;
+}
+
+.intro-content {
+  text-align: center;
+  flex-shrink: 0;
+  background: radial-gradient(circle,rgba(84, 3, 3, 1) 0%, rgba(46, 3, 3, 1) 100%);
+  background-size: cover; 
+  background-position: center; 
+  background-repeat: no-repeat;
+  color: white;
+  padding: 90px;
+  border-radius: 10px;
+  box-sizing: border-box;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 700px;
+  max-height:250px;
+
+  h2{
+    color:white;
   }
 }
+
+.line {
+  position: absolute;
+  width: calc(100% - 150px);
+  height: 2px;
+  background-color: #ccc;
+  top: 50%;
+  z-index: 1;
+}
+
+
+
+.card {
+  position: relative;
+  height: 600px;
+  width: 250px;
+  box-sizing: border-box;
+  cursor: pointer;
+  margin-right: 50px;
+  border-radius: 10px;
+}
+
+.card:hover .upper,
+.card:hover .lower {
+  transform: translateY(0);
+}
+
+.upper {
+  height: 300px;
+  width: 300px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  color: white;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  font-family: 'Open Sans', sans-serif;
+  font-weight: bolder;
+  font-size: 25px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  z-index: 3;
+  transform: translateY(100px);
+  transition: 0.3s ease-in-out;
+}
+
+.year {
+  font-size: 35px;
+  margin-bottom: 10px;
+}
+
+.lower {
+  height: 300px;
+  width:300px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background: white;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  transform: translateY(-67%);
+  transition: 0.3s ease-in-out;
+  color: black;
+  z-index: 2;
+}
+
+.lower p {
+  text-align: center;
+}
+
+.card1 {
+  background-image: url('/images/jacob.png'); 
+  background-size: cover; 
+  background-position: center; 
+  background-repeat: no-repeat;
+}
+
+.card2 {
+  background-image: url('/images/jacobenbep.png'); 
+  background-size: cover; 
+  background-position: center; 
+  background-repeat: no-repeat;
+}
+
+.card3 {
+  background-image: url('/images/jacob.png'); 
+  background-size: cover; 
+  background-position: center; 
+  background-repeat: no-repeat;
+}
+
+.card4 {
+  background-color: #9db4c4;
+}
+
+.card5 {
+  background-color: #98e8cd;
+}
+
+.card6 {
+  background-color: #f98f93;
+}
+
+.card7 {
+  background-color: #90eae0;
+}
+
+.card8 {
+  background-color: #fcdf94;
+} */
+
+
+
+
+
