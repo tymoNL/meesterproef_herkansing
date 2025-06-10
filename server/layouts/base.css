@@ -19,10 +19,15 @@
   --secondary-blauw: #B1B9CF;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   display: grid;
   grid-template-rows: auto 1fr auto;
   color: var(--white);
+  min-height: 100dvh;
 }
 
 .container {
@@ -48,7 +53,7 @@ img {
   max-width: 100%;
 }
 
-header {
+header.header {
   background-color: var(--header-bg);
   color: var(--header-color);
   padding: 1rem 0;
@@ -118,6 +123,8 @@ header {
 }
 
 .main {
+overflow-x: hidden;
+
   .container {
     display: flex;
     justify-content: center;

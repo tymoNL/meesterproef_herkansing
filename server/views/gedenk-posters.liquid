@@ -1,17 +1,62 @@
 {% layout "server/layouts/base.liquid" %}
 
+
 {% block content %}
-<section class="gedenkMuur banner">
-    <img src="/images/gedenkmuur/brick-wall.png" alt="Gedenkmuur" />
 
-    <div class="streetSignWrapper">
-        <div class="streetSign">
-            <span>teststraat</span>
-        </div>
+<script>
+  const allVerhalen = {{ items | json }};
+  window.numberOfRoses = {{ numberOfRoses }};
+</script>
+
+<h2>Digitale Gedenkmuur</h2>
+
+<section class="straat-selectie">
+  <label for="straatSelect">Kies een straat:</label>
+  <select id="straatSelect">
+    <option value="">Kies een straat:</option>
+    {% for straat in straten %}
+    <option value="{{ straat }}">{{ straat }}</option>
+    {% endfor %}
+  </select>
+</section>
+
+<div class="muur-scroll">
+  <div class="muur" id="muur">
+    {% if selectedStraat %}
+    <h4>Verhalen uit {{ selectedStraat }}</h4>
+    {% for item in filteredItems %}
+    <a href="/verhalen/{{ item.verhaal.id }}">{{ item.verhaal.naam }}</a><br />
+    {% endfor %}
+    {% endif %}
+  </div>
+
+  <!-- Hier worden de bloemen toegevoegd -->
+  <ul class="bloem-lijst" style="position: relative; list-style: none; padding: 0;"></ul>
+</div>
+
+<section class="herdenking">
+  <h3>Herdenk het hele jaar door</h3>
+  <p>Kies een bloem om mee te herdenken</p>
+
+  <section class="bloem-container">
+    <!-- Klikbare bloemen -->
+    <img src="/images/bloemen/1.png" alt="Tulips" class="bloem" data-image="tulips.png" />
+    <img src="/images/bloemen/2.png" alt="flowers" class="bloem" data-image="nature.png" />
+    <img src="/images/bloemen/3.png" alt="violet-flower" class="bloem" data-image="violet-flower.png" />
+    <img src="/images/bloemen/4.png" alt="roses" class="bloem" data-image="flower-bouquet.png" />
+    <img src="/images/bloemen/5.png" alt="roses" class="bloem" data-image="flower-bouquet.png" />
+  </section>
+</section>
+
+<section class="familie-scroll">
+  <h3>Families</h3>
+  <div class="familie-lijst" id="familieLijst">
+    {% for familie in families %}
+    <div>
+      <h4>Fam. {{ familie.naam }}</h4>
+      <a href="/verhalen/{{ familie.id }}">Meer informatie</a>
     </div>
-
-    <span id="numberOfRoses">{{  numberOfRoses }}</span>
-
-    <button type="button" id="bloemButton">Leg een bloem</button>
+    {% endfor %}
+  </div>
 </section>
 {% endblock %}

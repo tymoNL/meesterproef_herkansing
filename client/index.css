@@ -7,6 +7,8 @@
 @import '../server/layouts/base.css';
 @import '../server/views/index.css';
 @import '../server/views/details.css';
+@import '../server/views/verhaal-detail.css';
+@import '../server/views/gedenk-posters.css';
 
 
 /* component styling */
@@ -16,4 +18,5 @@ body {
   color: black;
   margin: 0 auto;
 }
+
 
