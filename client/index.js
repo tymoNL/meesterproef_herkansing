@@ -120,8 +120,53 @@ function getRandomBloem() {
   };
 }
 
+
+// familie slider
+
+document.addEventListener("DOMContentLoaded", () => {
+  const slider = document.querySelector(".familySlider ul");
+  const leftButton = document.querySelector(".familySlider__button--left");
+  const rightButton = document.querySelector(".familySlider__button--right");
+
+  const scrollAmount = 300; // Hoeveel pixels de slider moet scrollen per klik
+
+  leftButton.addEventListener("click", () => {
+    slider.scrollBy({
+      left: -scrollAmount,
+      behavior: "smooth",
+    });
+  });
+
+  rightButton.addEventListener("click", () => {
+    slider.scrollBy({
+      left: scrollAmount,
+      behavior: "smooth",
+    });
+  });
+});
+
+
+  
+// huisjes bewegeen bij scrollen
+
+document.addEventListener("DOMContentLoaded", () => {
+  const housjes = document.querySelectorAll(".housjesContainer img");
+
+  window.addEventListener("scroll", () => {
+    const scrollPosition = window.scrollY;
+
+    housjes.forEach((huisje) => {
+      const speed = huisje.getAttribute("data-speed");
+      const translateY = -scrollPosition * speed * 0.1; // Gebruik een negatieve waarde voor naar boven bewegen
+      huisje.style.transform = `translateY(${translateY}px)`;
+      huisje.style.opacity = 1 - scrollPosition / 500; // Laat de huisjes uitfaden
+    });
+  });
+});
+
+
 // Timeline Scroll Section
-// --------------------------------------------------------------
+
 const items = document.querySelectorAll(".timeline li");
 const timeline = document.querySelector(".timeline ul");
 const greyLine = document.querySelector(".default-line");
@@ -147,6 +192,7 @@ if (lineToDraw) {
 
     items.forEach((item) => {
       const circleTop = item.getBoundingClientRect().top + window.scrollY;
+
 
       if (bottom > circleTop) {
         item.classList.add("in-view");
