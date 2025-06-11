@@ -37,12 +37,12 @@ const totalFlowerImages = 5;  // Zet dit bovenaan in je bestand
 
 // Voeg een bloem toe op willekeurige positie gebaseerd op geklikte afbeelding
 function addSpecificBloem(imageSrc, altText) {
-console.log('test');
+  console.log('test');
 
   if (bloemList) {
     const randomLeft = Math.floor(Math.random() * 85) + 1;
     const randomWidth = Math.floor(Math.random() * 26) + 50;
-    
+
     const bloemHTML = `
       <li style="position: absolute; left: ${randomLeft}%; width: ${randomWidth}px;">
         <img src="${imageSrc}" alt="${altText}" style="width: 100%" />
@@ -146,7 +146,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
-  
+
 // huisjes bewegeen bij scrollen
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -203,33 +203,35 @@ if (lineToDraw) {
   });
 }
 
-  const straatSelect = document.getElementById('straatSelect');
-  const muur = document.getElementById('muur');
+straatSelect.addEventListener('change', () => {
+  const geselecteerdeStraat = straatSelect.value.trim();
+  muur.innerHTML = ''; // Leegmaken
 
-  straatSelect.addEventListener('change', () => {
-    const geselecteerdeStraat = straatSelect.value;
-    muur.innerHTML = ''; // Leegmaken
+  console.log('Geselecteerde straat:', geselecteerdeStraat);
 
-    console.log('Geselecteerde straat:', geselecteerdeStraat);
+  if (!geselecteerdeStraat) {
+    muur.innerHTML = '<p>Kies een straat om verhalen te bekijken.</p>';
+    return;
+  }
 
-    const gefilterdeVerhalen = allVerhalen.filter(item => item.verhaal.straat === geselecteerdeStraat);
+  const gefilterdeVerhalen = allVerhalen.filter(
+    item => item.verhaal.straat === geselecteerdeStraat
+  );
 
-    gefilterdeVerhalen.forEach(item => {
-      console.log('Verhaal item:', item);
-      // Controleer of huisnummer bestaat, anders 'Onbekend'
-      const huisnummer = item.huisnummer || 'Onbekend';
-      const div = document.createElement('div');
-      div.classList.add('verhaal-kaart');
-      div.innerHTML = `
-        <div class="huisnummer-bord">${item.verhaal.huisnummer}</div>
-        <p class="verhaal-naam">${item.verhaal.naam}</p>
-        <a href="/verhalen/${item.verhaal.id}">Bekijk dit verhaal</a>
+  if (gefilterdeVerhalen.length === 0) {
+    muur.innerHTML = '<p>Geen verhalen gevonden voor deze straat.</p>';
+    return;
+  }
 
-      `;
-      muur.appendChild(div);
-    });
-
-    if (gefilterdeVerhalen.length === 0) {
-      muur.innerHTML = '<p>Geen verhalen gevonden voor deze straat.</p>';
-    }
+  gefilterdeVerhalen.forEach(item => {
+    const div = document.createElement('div');
+    div.classList.add('verhaal-kaart');
+    div.innerHTML = `
+      <div class="huisnummer-bord">${item.verhaal.huisnummer || 'Onbekend'}</div>
+      <p class="verhaal-naam">${item.verhaal.naam}</p>
+      <a href="/verhalen/${item.verhaal.id}">Bekijk dit verhaal</a>
+    `;
+    muur.appendChild(div);
   });
+});
+

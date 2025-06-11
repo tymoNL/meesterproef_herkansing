@@ -25,7 +25,11 @@
     {% if selectedStraat %}
     <h4>Verhalen uit {{ selectedStraat }}</h4>
     {% for item in filteredItems %}
-    <a href="/verhalen/{{ item.verhaal.id }}">{{ item.verhaal.naam }}</a><br />
+    <div class="verhaal-kaart">
+      <div class="huisnummer-bord">{{ item.verhaal.huisnummer }}</div>
+      <p class="verhaal-naam">{{ item.verhaal.naam }}</p>
+      <a href="/verhalen/{{ item.verhaal.id }}">Bekijk dit verhaal</a>
+    </div>
     {% endfor %}
     {% endif %}
   </div>
@@ -50,7 +54,7 @@
 
 
 
-{% comment %} 
+{% comment %}
 <section class="familie-scroll">
   <h3>Families</h3>
   <div class="familie-lijst" id="familieLijst">
