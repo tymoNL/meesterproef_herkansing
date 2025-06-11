@@ -8,81 +8,91 @@
   window.numberOfRoses = {{ numberOfRoses }};
 </script>
 
-<h2>Digitale Gedenkmuur</h2>
-
-<section class="straat-selectie">
-  <label for="straatSelect">Kies een straat:</label>
-  <select id="straatSelect">
-    <option value="">Kies een straat:</option>
-    {% for straat in straten %}
-    <option value="{{ straat }}">{{ straat }}</option>
-    {% endfor %}
-  </select>
-</section>
-
-<div class="muur-scroll">
-  <div class="muur" id="muur">
-    {% if selectedStraat %}
-    <h4>Verhalen uit {{ selectedStraat }}</h4>
-    {% for item in filteredItems %}
-    <div class="verhaal-kaart">
-      <div class="huisnummer-bord">{{ item.verhaal.huisnummer }}</div>
-      <p class="verhaal-naam">{{ item.verhaal.naam }}</p>
-      <a href="/verhalen/{{ item.verhaal.id }}">Bekijk dit verhaal</a>
-    </div>
-    {% endfor %}
-    {% endif %}
-  </div>
-
-  <!-- Hier worden de bloemen toegevoegd -->
-  <ul class="bloem-lijst" style="list-style: none; padding: 0;"></ul>
-</div>
-
-<section class="herdenking">
-  <h3>Herdenk het hele jaar door</h3>
-  <p>Kies een bloem om mee te herdenken</p>
-
-  <section class="bloem-container">
-    <!-- Klikbare bloemen -->
-    <img src="/images/bloemen/1.png" alt="Tulips" class="bloem" data-image="tulips.png" />
-    <img src="/images/bloemen/2.png" alt="flowers" class="bloem" data-image="nature.png" />
-    <img src="/images/bloemen/3.png" alt="violet-flower" class="bloem" data-image="violet-flower.png" />
-    <img src="/images/bloemen/4.png" alt="roses" class="bloem" data-image="flower-bouquet.png" />
-    <img src="/images/bloemen/5.png" alt="roses" class="bloem" data-image="flower-bouquet.png" />
-  </section>
-</section>
 
 
 
-{% comment %}
-<section class="familie-scroll">
-  <h3>Families</h3>
-  <div class="familie-lijst" id="familieLijst">
-    {% for familie in families %}
-    <div>
-      <h4>Fam. {{ familie.naam }}</h4>
-      <a href="/verhalen/{{ familie.id }}">Meer informatie</a>
-    </div>
-    {% endfor %}
-  </div>
-</section> {% endcomment %}
+  <section class="container" style="overflow-x: hidden;">
 
-<section class="familie-scroll">
-  <h3>Families</h3>
-  <div class="familie-lijst" id="familieLijst">
-    {% for familie in families %}
-    <div class="familie-kaart">
-      <div class="familie-illustratie">
-        <img src="/images/illustraties/familie{{ forloop.index }}.svg" alt="Illustratie familie {{ familie.naam }}">
+    <h2>Digitale Gedenkmuur</h2>
+
+    <section class="straat-selectie">
+      <select id="straatSelect">
+        <option value="">Kies een straat:</option>
+        {% for straat in straten %}
+        <option value="{{ straat }}">{{ straat }}</option>
+        {% endfor %}
+      </select>
+    </section>
+
+    <div class="muur-background">
+    <div class="muur-scroll">
+      <div class="muur" id="muur">
+        {% if selectedStraat %}
+        <h4>Verhalen uit {{ selectedStraat }}</h4>
+        {% for item in filteredItems %}
+        <div class="verhaal-kaart">
+          <div class="huisnummer-bord">{{ item.verhaal.huisnummer }}</div>
+          <p class="verhaal-naam">{{ item.verhaal.naam }}</p>
+          <a href="/verhalen/{{ item.verhaal.id }}">Bekijk dit verhaal</a>
+        </div>
+        {% endfor %}
+        {% endif %}
       </div>
-      <h4>Fam. {{ familie.naam }}</h4>
-      <p>Bekijk de verhalen van deze familie</p>
-      <a href="/verhalen/{{ familie.id }}">Bekijk familie</a>
+      
+
+      <!-- Hier worden de bloemen toegevoegd -->
+      <ul class="bloem-lijst" style="list-style: none; padding: 0;"></ul>
     </div>
+    </div>
+
+    <section class="herdenking">
+      <h3>Herdenk het hele jaar door</h3>
+      <p>Kies een bloem om mee te herdenken</p>
+
+      <section class="bloem-container">
+        <!-- Klikbare bloemen -->
+        <img src="/images/bloemen/1.png" alt="Tulips" class="bloem" data-image="tulips.png" />
+        <img src="/images/bloemen/2.png" alt="flowers" class="bloem" data-image="nature.png" />
+        <img src="/images/bloemen/3.png" alt="violet-flower" class="bloem" data-image="violet-flower.png" />
+        <img src="/images/bloemen/4.png" alt="roses" class="bloem" data-image="flower-bouquet.png" />
+        <img src="/images/bloemen/5.png" alt="roses" class="bloem" data-image="flower-bouquet.png" />
+      </section>
+    </section>
+
+
+
+    {% comment %}
+    <section class="familie-scroll">
+      <h3>Families</h3>
+      <div class="familie-lijst" id="familieLijst">
+        {% for familie in families %}
+        <div>
+          <h4>Fam. {{ familie.naam }}</h4>
+          <a href="/verhalen/{{ familie.id }}">Meer informatie</a>
+        </div>
+        {% endfor %}
+      </div>
+    </section> {% endcomment %}
+
+<section class="familie-scroll">
+  <h3>Families</h3>
+  <div class="familie-lijst" id="familieLijst">
+    {% for familie in families %}
+   
+    
+<a href="/verhalen/{{ familie.id }}" class="familie-kaart">
+  <div class="familie-illustratie">
+    <img src="/images/gedenkmuur/ilustratie-gezinnen.png" alt="">
+  </div>
+  <h4>Fam. {{ familie.naam }}</h4>
+  <p>Bekijk de verhalen van deze familie</p>
+</a>
+
+
     {% endfor %}
   </div>
 </section>
 
-
+  </section>
 
 {% endblock %}
