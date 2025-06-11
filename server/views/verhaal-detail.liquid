@@ -1,6 +1,87 @@
 {% layout "server/layouts/base.liquid" %}
 
 {% block content %}
+
+
+<section class="section1">
+
+    <h3 class="streetName">{{ item.straat }}</h3>
+
+    <div class="housjesContainer">
+        <img src="/images/huis1.png" alt="amsterdams huisje 1" data-speed="1">
+        <img src="/images/huis2.png" alt="amsterdams huisje 2" data-speed="4">
+        <img src="/images/huis3.png" alt="amsterdams huisje 3" data-speed="2">
+        <img src="/images/huis4.png" alt="amsterdams huisje 4" data-speed="3">
+        <img src="/images/huis5.png" alt="amsterdams huisje 5" data-speed="5">
+        <img src="/images/huis1.png" alt="amsterdams huisje 1" data-speed="1">
+        <img src="/images/huis2.png" alt="amsterdams huisje 2" data-speed="4">
+        <img src="/images/huis3.png" alt="amsterdams huisje 3" data-speed="2">
+        <img src="/images/huis4.png" alt="amsterdams huisje 4" data-speed="3">
+        <img src="/images/huis5.png" alt="amsterdams huisje 5" data-speed="5">
+    </div>
+
+    <img src="/images/boom.png" alt="" class="tree1">
+
+    <img src="/images/boom.png" alt="" class="tree2">
+
+    <img src="/images/boom.png" alt="" class="tree3">
+
+    <img src="/images/boom.png" alt="" class="tree4">
+
+    <p>Scroll naar beneden voor het verhaal van <strong>{{ item.naam }}</strong> </p>
+
+</section>
+
+
+<section id="sectionPin">
+    
+    <div class="pin-wrap-sticky">
+        <div class="pin-wrap">
+            
+            <div class="introtekst">
+                <h2>{{ item.id }}  </h2>
+                <h3>{{ item.naam }}</h3>
+            </div>
+            {% for tekst in item.verhalen %}
+            <div class="img">
+
+                {% comment %} <p style="color:white;">{{ item | json }}</p> {% endcomment %}
+
+
+                
+                {% comment %} <img src="/images/jacob.png" alt="foto van Jacob Philips"> {% endcomment %}
+                <div class="imgContent">
+                    <h2>{{ tekst.titel }}</h2>
+                    <p>{{ tekst.tekst }}</p>
+                </div>
+                </div>
+            {% endfor %}
+            
+
+    
+        </div>
+    </div>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+{% endblock %} 
+
+
+
+
+{% comment %} {% layout "server/layouts/base.liquid" %}
+
+{% block content %}
 <section class="voorbeeld">
     <h1>{{ item.titel }}</h1>
     <p><strong>Naam:</strong> {{ item.naam }}</p>
@@ -26,4 +107,4 @@
         {% endfor %}
     </div>
 </section>
-{% endblock %}
+{% endblock %} {% endcomment %}

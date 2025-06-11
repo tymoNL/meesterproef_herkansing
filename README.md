@@ -100,7 +100,9 @@ We komen erachter dat het belangrijk is dat we de verhalen over de mensen op een
 
 ### Lilian
 
-Hier docs over week 1
+In week 1 zijn we begonnen met ons verdiepen in de opdracht, we hebben gekeken naar welke data er beschikbaar was en hoe we deze woude gaan vormgeven. Het eerste idee was om een digitale gedenkmuur te maken waar slachtoffers het hele jaar door herdacht kunnen worden. 
+We willen de gedenkmuur per straat maken en dan de posters erop laten zien van de gedeporteerde uit die straat. Daaronder komt ook nog een overzicht van die posters waar je op kan klikken en dan op een detail pagina komt. 
+Ik heb afgelopen week gewerkt aan het design en hoe de website gaat werken. Op vrijdag hadden we een gesprek met Ineke, haar feedback over de gedenkmuur was enthousiast dus die houden we erin.
 
 ## Week 2
 
@@ -122,7 +124,7 @@ Ik zet dus alle elementen neer die nodig zijn maar verder doe ik er nog niet vee
 
 ### Lilian
 
-Hier docs over week 2
+
 
 ## Week 3
 
