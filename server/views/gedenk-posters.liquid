@@ -50,6 +50,9 @@
   </section>
 </section>
 
+
+
+{% comment %} 
 <section class="familie-scroll">
   <h3>Families</h3>
   <div class="familie-lijst" id="familieLijst">
@@ -60,5 +63,24 @@
     </div>
     {% endfor %}
   </div>
+</section> {% endcomment %}
+
+<section class="familie-scroll">
+  <h3>Families</h3>
+  <div class="familie-lijst" id="familieLijst">
+    {% for familie in families %}
+    <div class="familie-kaart">
+      <div class="familie-illustratie">
+        <img src="/images/illustraties/familie{{ forloop.index }}.svg" alt="Illustratie familie {{ familie.naam }}">
+      </div>
+      <h4>Fam. {{ familie.naam }}</h4>
+      <p>Bekijk de verhalen van deze familie</p>
+      <a href="/verhalen/{{ familie.id }}">Bekijk familie</a>
+    </div>
+    {% endfor %}
+  </div>
 </section>
+
+
+
 {% endblock %}

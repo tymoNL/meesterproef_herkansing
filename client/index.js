@@ -169,10 +169,14 @@ if (lineToDraw) {
     const gefilterdeVerhalen = allVerhalen.filter(item => item.verhaal.straat === geselecteerdeStraat);
 
     gefilterdeVerhalen.forEach(item => {
+      const huisnummer = item.huisnummer || 'Onbekend';
       const div = document.createElement('div');
+      div.classList.add('verhaal-kaart');
       div.innerHTML = `
-        <h4>${item.verhaal.naam}</h4>
-        <a href="/verhalen/${item.verhaal.id}">Bekijk verhaal</a>
+        <div class="huisnummer-bord">${item.verhaal.huisnummer}</div>
+        <p class="verhaal-naam">${item.verhaal.naam}</p>
+        <a href="/verhalen/${item.verhaal.id}">Bekijk dit verhaal</a>
+
       `;
       muur.appendChild(div);
     });
