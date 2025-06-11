@@ -1,23 +1,27 @@
+
 .straat-selectie {
   display: flex;
   padding: 1rem;
   align-items: center;
   justify-content: flex-end;
   margin-bottom: 1rem;
+
+  
 }
 
 .straat-selectie select {
 
-  background-color: #273D7C;
+
+  background: linear-gradient(318deg,rgba(39, 61, 124, 1) 0%, rgb(53, 86, 179) 51%, rgba(39, 61, 124, 1) 100%);
   color: #fff;
-  padding: .5em;
+  padding: .8em;
   border-radius: .3em;
-  cursor: pointer;
-  width: fit-content;
+  width:fit-content;
   border: 1.8px solid #fff;
   box-shadow: #273D7C 0px 2px 5px, #273D7C 0px 0px 0px 4px;
+  margin-left:80%;
+  font-size:1em;
   text-transform: uppercase;
-  font-size: 1em;
 }
 
 .straat-selectie select:hover {
@@ -26,7 +30,7 @@
 
 .straat-selectie select option {
   background-color: #005bac;
-  color: white;
+  /* color: white; */
   font-weight: bold;
   font-size: 1.1em;
   text-transform: uppercase;
@@ -45,6 +49,7 @@ justify-content: center;
   scroll-snap-type: x mandatory;
   width: calc(100vw - 4rem);
   padding-bottom: 2rem;
+ 
   background-size: cover;
   background-position: center;
   min-height: 250px;
@@ -62,8 +67,9 @@ justify-content: center;
 
 .verhaal-kaart {
   background-color: #002b5c;
-  /* Donkerblauw */
+  
   color: white;
+  border: 1px solid #e0e6ef;
   border-radius: 1rem;
   padding: 1.5rem;
   margin-right: 1rem;
@@ -130,15 +136,6 @@ justify-content: center;
   text-decoration: underline;
   font-weight: normal;
 
-  /* margin-top: 1rem;
-    padding: 0.4em 1em;
-    border-radius: 0.4rem;
-    background-color: #ffffff;
-    color: #002b5c;
-    font-weight: bold;
-    text-decoration: none;
-    transition: background-color 0.3s ease; */
-
 }
 
 .verhaal-kaart a:hover {
@@ -167,27 +164,16 @@ justify-content: center;
   cursor: pointer;
 }
 
-.familie-kaart {
-  background-color: #fff;
-  border-radius: 1rem;
-  padding: 1rem;
-  min-width: 250px;
-  text-align: center;
-  scroll-snap-align: start;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s ease;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-  .bloem-lijst {
+
+
+.bloem-lijst {
     position: absolute;
     bottom: 4rem;
     width: 100%;
     margin: 0 -1rem;
   }
   
-  .bloem {
+.bloem {
     width: 8em;
     height: 8em;
    
@@ -195,21 +181,31 @@ justify-content: center;
     cursor: pointer;
   }
   
-  .familie-kaart {
+.familie-kaart {
     display: block;
     background-color: #fff;
-    border-radius: 12px;
+    border: 1px solid #e0e6ef;
+    border-radius: 1rem;
     padding: 1rem;
+    flex-shrink: 0;
+    scroll-snap-align: center ;
     text-decoration: none;
-    min-width: 250px;
+    text-align: center;
+    min-width: 80vw;
+    max-width: 300px;
+    /* min-width: 250px; */
+  
     color: inherit;
     scroll-snap-align: start;
-  ;
+  
     box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
   }
 
-.familie-kaart:hover {
+
+.familie-kaart:hover,
+.verhaal-kaart:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   transform: scale(1.05);
 }
 
@@ -246,9 +242,13 @@ justify-content: center;
 }
 
 .familie-lijst {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  
   gap: 1rem;
+  padding: 0 1rem;
   overflow-x: auto;
+  box-sizing: border-box;
   scroll-snap-type: x mandatory;
   overscroll-behavior-x: contain;
   scroll-behavior: smooth;
@@ -270,56 +270,63 @@ justify-content: center;
   }
 }
 
-/* .familie-info {
-    flex: 0 0 auto;
-    min-width: 250px;
-    background-color: #f0f4f8;
-    padding: 1rem;
-    border-radius: 1rem;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    scroll-snap-align: start;
-    text-align: center;
-    transition: transform 0.2s ease;
+.familie-illustratie img {
+  width: 100%;
+  max-height: 120px;
+  object-fit: contain;
+  margin-bottom: 1rem;
+}
+
+
+@media (max-width: 768px) {
+  .straat-selectie {
+   flex-direction: column;
+   align-items: stretch;
+   gap: 0.75rem;
+   padding: 1rem 1rem 0;
   }
-  
-  .familie-info:hover {
-    transform: scale(1.03);
-  }
-  
-  .familie-info img {
+
+  .straat-selectie select {
     width: 100%;
-    max-height: 150px;
-    object-fit: cover;
-    border-radius: 0.5rem;
+    margin-left: 0;
   }
-  
-  .familie-info h4 {
-    margin-top: 0.5rem;
-    font-size: 1.1rem;
+
+  .muur-scroll{
+    padding: 1rem;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
   }
-  
-  .familie-info a {
-    padding: 0.5em 1em;
-    border: 2px solid #631a00;
-    border-radius: 10px;
-    color: white;
-    background-color: #631a00;
-    text-decoration: none;
+
+  .verhaal-kaart{
+    min-width: 85vw;
+    margin-right: 1rem;
+    padding: 1rem;
+    font-size: 0.95rem;
   }
-  
-  .familie-info a:hover {
-    background-color: white;
-    color: #631a00;
-    transition: 0.3s;
+
+  .verhaal-kaart .huisnummer-bord{
+    font-size: 1.5rem;
+    padding: 0.4rem 0.8rem;
   }
-   */
+
+  .bloem-container{
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  .bloem{
+    width: 6em;
+    height: 6em;
+  }
+}
 
 
 @media (max-width: 600px) {
 
   .verhaal-kaart,
   .familie-kaart {
-    min-width: 80vw;
+    min-width: 85vw;
   }
 
   .straat-selectie {
