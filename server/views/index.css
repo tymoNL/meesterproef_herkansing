@@ -66,6 +66,17 @@ ul.grid {
         h6 {
             margin: 0;
         }
+
+        h2{
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        p{
+            font-size: 1.1rem;
+            line-height: 1.6;
+
+        };
     }
 
     /* Positionering */
@@ -90,7 +101,16 @@ ul.grid {
 
     .info {
         background: var(--white);
-        box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+        background: #f6f1ed;
+        padding: 2rem;
+        border-radius: 1rem;
+
+       h3 {
+        font-size: 2rem;
+        color: var(--link-color);
+        margin-bottom: 1rem;
+       } 
     }
 
 
@@ -98,13 +118,22 @@ ul.grid {
     .peopleList {
         background: var(--black);
         color: var(--white);
+     
+        padding: 2rem;
+        border-radius: 1rem;
+        color: #fff;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 
         >* {
             color: var(--white);
+           
         }
 
         h2 {
+            font-size: 1.8rem;
             margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .people {
@@ -128,6 +157,7 @@ ul.grid {
         img {
             width: 100%;
             height: auto;
+            
         }
     }
 
@@ -160,6 +190,12 @@ ul.grid {
 /* 4 Mei */
 .banner {
     margin: -1rem;
+
+    h1{
+    font-size: clamp(2rem, 6vw, 5rem);
+    font-weight: 700;
+    line-height: 1.1;
+    }
 
     img {
         width: 100%;
