@@ -57,7 +57,7 @@ section.voorbeeld {
             width: 40px;
             height: 40px;
             border-radius: 50%;
-            background: crimson;
+            background: var(--link-color);
             border: 6px solid #444;
             content: "";
             translate: 50% 0;
@@ -141,7 +141,7 @@ section.voorbeeld {
         backdrop-filter: blur(8px);
         color: #fff;
         padding: 1.1rem;
-        border: 1px solid crimson;
+        border: 1px solid var(--link-color);
         border-radius: 0.6rem;
     }
 

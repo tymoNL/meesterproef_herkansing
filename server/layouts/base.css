@@ -27,6 +27,7 @@ body {
   display: grid;
   grid-template-rows: auto 1fr auto;
   color: var(--white);
+  min-height: 100dvh;
 }
 
 .container {
@@ -56,9 +57,9 @@ header.header {
   background-color: var(--header-bg);
   color: var(--header-color);
   padding: 1rem 0;
-  position: sticky;
+  /* position: sticky; */
   top: 0;
-  z-index: 10;
+  z-index: 100;
 
   nav.desktopMenu {
     display: none;
@@ -128,7 +129,7 @@ overflow-x: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 1em;
+    /* padding: 1em; */
     flex-wrap: wrap;
     gap: 1rem;
 

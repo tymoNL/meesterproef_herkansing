@@ -27,8 +27,6 @@
     {% for item in filteredItems %}
     <a href="/verhalen/{{ item.verhaal.id }}">{{ item.verhaal.naam }}</a><br />
     {% endfor %}
-    {% else %}
-    <p>Kies een straat om verhalen te zien.</p>
     {% endif %}
   </div>
 
