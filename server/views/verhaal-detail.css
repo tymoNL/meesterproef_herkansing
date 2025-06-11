@@ -13,101 +13,97 @@ body{
     padding: 2em; /* Voeg wat ruimte toe rondom de sectie */
     /* margin-bottom:3em; */
     z-index:-1;
-    height:70vh;
+    height:80vh;
     overflow: hidden;
     background: linear-gradient(0deg,rgba(153, 153, 153, 1) 0%, rgba(255, 255, 255, 1) 8%);
   }
 
-  .section1 p{
+  
+
+  .texttoscroll{
     margin-bottom:3em;
     z-index:1;
+    text-align: center;
   }
   
-  /* .section2 {
-    position: relative;
-    height: 100vh;
-    background-color: black;
-    background-image: url("/images/1steoosterparkstraat.png");
-    max-width:100vw;
-    background-size: cover; 
-    background-position: center; 
-    background-repeat: no-repeat;
-    overflow: hidden;
-    display:flex;
-    z-index:1;
-  } */
-  
-  
-  /* .section2::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: -1;
-  } */
-  
-  /* .section2-content {
-    position: relative;
-    z-index: 2;
-    color: white; 
-    text-align: center;
-    padding: 2em;
-  } */
   
   .streetName{
-    background-color: #273D7C;
+    background: linear-gradient(318deg,rgba(39, 61, 124, 1) 0%, rgb(53, 86, 179) 51%, rgba(39, 61, 124, 1) 100%);
     color: #fff;
-    padding: .8em;
+    padding: .7em;
     border-radius: .3em;
     width:fit-content;
+    max-width: 90%;
     border: 1.8px solid #fff;
     box-shadow: #273D7C 0px 2px 5px, #273D7C 0px 0px 0px 4px;
     margin-left:80%;
     font-size:1em;
+    text-transform: uppercase;
+    z-index:4;
+    word-wrap: break-word;
+
+    p{
+        font-weight: 350;
+        font-size: 0.8em;
+        margin:0;
+        margin-top:.5em;
+        text-align:right;
+        
+    }
   }
   
+  @media (max-width: 768px) {
+    .streetName {
+      font-size: 0.9em; /* Maak de tekst iets kleiner op kleinere schermen */
+      padding: 0.5em; /* Verminder de padding */
+    }
+  }
   
-  
+  @media (max-width: 480px) {
+    .streetName {
+      font-size: 0.8em; /* Maak de tekst nog kleiner op zeer kleine schermen */
+      padding: 0.4em;
+    }
+  }
+
+
   .tree1 {
-    top: 8em;
-    left: 5%;
+    top: 24%; /* Gebruik viewport hoogte voor positionering */
+    left: 5vw; /* Gebruik viewport breedte voor positionering */
     position: absolute;
     z-index: 0; /* Zorg dat de bomen achter de huisjes staan */
-    width: 25em; /* Pas de grootte van de bomen aan */
-    opacity: 0.8;
+    width: 20vw; /* Gebruik viewport breedte voor grootte */
+    opacity: 0.8; /* Maak de boom iets transparant */
   }
   
   .tree2 {
-    top: 12em;
-    left: 20%;
+    top: 26%;
+    left: 15vw;
     position: absolute;
-    z-index: 0; /* Zorg dat de bomen achter de huisjes staan */
-    width: 20em; /* Pas de grootte van de bomen aan */
+    z-index: 0;
+    width: 18vw;
     opacity: 0.95;
   }
   
   .tree3 {
-    top: 8em;
-    right: 15%;
+    top: 24%;
+    right: 10vw;
     position: absolute;
-    z-index: 0; /* Zorg dat de bomen achter de huisjes staan */
-    width: 25em; /* Pas de grootte van de bomen aan */
+    z-index: 0;
+    width: 20vw;
     opacity: 0.8;
   }
   
   .tree4 {
-    top: 12.5em;
-    right: 26%;
+    top: 26%;
+    right: 20vw;
     position: absolute;
-    z-index: 0; /* Zorg dat de bomen achter de huisjes staan */
-    width: 22em; /* Pas de grootte van de bomen aan */
+    z-index: 0;
+    width: 18vw;
     opacity: 0.95;
   }
-  
-  
+
+
   
   
   /* huisjes */
@@ -186,7 +182,7 @@ body{
   
   .introtekst{
     text-align: center;
-    background: radial-gradient(circle,rgba(84, 3, 3, 1) 0%, rgba(46, 3, 3, 1) 100%);
+    background: radial-gradient(circle,rgba(84, 3, 3, .8) 0%, rgba(46, 3, 3, .8) 100%);
     color: white;
     padding: 90px;
     border-radius: 10px;
@@ -196,10 +192,18 @@ body{
     margin-right: 10em;
     width:711px;
     height:17em;
+
+    h2{
+        color:white;
+    }
+
+    h3{
+        color: #fff;
+    }
   }
   
   .img{
-    background-color:rgba(0, 0, 0, 0.635);
+    background-color:#51515182;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.614);
     height: auto;
     width: 711px;

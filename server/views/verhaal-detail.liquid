@@ -5,7 +5,8 @@
 
 <section class="section1">
 
-    <h3 class="streetName">{{ item.straat }}</h3>
+    <h3 class="streetName">{{ item.straat }} <br> <p>stadsdeel oost</p></h3>
+    {% comment %} <p class="streetNameNmr"> {{ item.huisnummer }}</p> {% endcomment %}
 
     <div class="housjesContainer">
         <img src="/images/huis1.png" alt="amsterdams huisje 1" data-speed="1">
@@ -28,7 +29,7 @@
 
     <img src="/images/boom.png" alt="" class="tree4">
 
-    <p>Scroll naar beneden voor het verhaal van <strong>{{ item.naam }}</strong> </p>
+    <p class="texttoscroll">Scroll naar beneden voor het verhaal van <strong>{{ item.naam }}</strong> en zijn/haar familie. </p>
 
 </section>
 
@@ -39,7 +40,7 @@
         <div class="pin-wrap">
             
             <div class="introtekst">
-                <h2>{{ item.id }}  </h2>
+                <h2>{{ item.straat }} {{ item.huisnummer }}  </h2>
                 <h3>{{ item.naam }}</h3>
             </div>
             {% for tekst in item.verhalen %}
@@ -51,7 +52,7 @@
                 
                 {% comment %} <img src="/images/jacob.png" alt="foto van Jacob Philips"> {% endcomment %}
                 <div class="imgContent">
-                    <h2>{{ tekst.titel }}</h2>
+                    <h2>{{ tekst.titel }} <br> {{ tekst.datum }} </h2>
                     <p>{{ tekst.tekst }}</p>
                 </div>
                 </div>
