@@ -20,6 +20,7 @@ body{
 
   .section1 p{
     margin-bottom:3em;
+    z-index:1;
   }
   
   /* .section2 {
@@ -194,7 +195,7 @@ body{
     margin-left: 10em;
     margin-right: 10em;
     width:711px;
-    height:20em;
+    height:17em;
   }
   
   h2{
@@ -216,7 +217,7 @@ body{
     border-radius: 10px;
     display: flex;
     align-items: center;
-    padding: 1em;
+    padding: 2em;
     gap:1em;
   }
   
