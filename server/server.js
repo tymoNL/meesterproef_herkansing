@@ -69,7 +69,7 @@ app.get('/verhalen/:id', (req, res) => {
 
 app.get('/print/qr/:id', async (req, res) => {
   const id = req.params.id;
-  const detailUrl = `http://localhost:3000/adressen/${id}`; // Change to your real URL in production
+  const detailUrl = `http://localhost:3000/verhalen/${id}`; // Change to your real URL in production
 
   try {
     const qrDataUrl = await QRCode.toDataURL(detailUrl);

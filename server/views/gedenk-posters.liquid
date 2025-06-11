@@ -25,13 +25,17 @@
     {% if selectedStraat %}
     <h4>Verhalen uit {{ selectedStraat }}</h4>
     {% for item in filteredItems %}
-    <a href="/verhalen/{{ item.verhaal.id }}">{{ item.verhaal.naam }}</a><br />
+    <div class="verhaal-kaart">
+      <div class="huisnummer-bord">{{ item.verhaal.huisnummer }}</div>
+      <p class="verhaal-naam">{{ item.verhaal.naam }}</p>
+      <a href="/verhalen/{{ item.verhaal.id }}">Bekijk dit verhaal</a>
+    </div>
     {% endfor %}
     {% endif %}
   </div>
 
   <!-- Hier worden de bloemen toegevoegd -->
-  <ul class="bloem-lijst" style="position: relative; list-style: none; padding: 0;"></ul>
+  <ul class="bloem-lijst" style="list-style: none; padding: 0;"></ul>
 </div>
 
 <section class="herdenking">
@@ -48,6 +52,9 @@
   </section>
 </section>
 
+
+
+{% comment %}
 <section class="familie-scroll">
   <h3>Families</h3>
   <div class="familie-lijst" id="familieLijst">
@@ -58,5 +65,24 @@
     </div>
     {% endfor %}
   </div>
+</section> {% endcomment %}
+
+<section class="familie-scroll">
+  <h3>Families</h3>
+  <div class="familie-lijst" id="familieLijst">
+    {% for familie in families %}
+    <div class="familie-kaart">
+      <div class="familie-illustratie">
+        <img src="/images/illustraties/familie{{ forloop.index }}.svg" alt="Illustratie familie {{ familie.naam }}">
+      </div>
+      <h4>Fam. {{ familie.naam }}</h4>
+      <p>Bekijk de verhalen van deze familie</p>
+      <a href="/verhalen/{{ familie.id }}">Bekijk familie</a>
+    </div>
+    {% endfor %}
+  </div>
 </section>
+
+
+
 {% endblock %}

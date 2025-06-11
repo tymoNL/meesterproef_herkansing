@@ -58,7 +58,16 @@ Aanwezigen:
 
 ## De opdracht
 
+In de eerste week van het project zijn wij als team gestart met de verdeling van de verschillende opdrachten. Tijdens deze verdeling werd ons team gekoppeld aan Project Atlas Oosterpark, een opdracht waarbij we aan de slag gaan voor het 4 mei comité.
+Onze eerste stap was het proberen tot stand brengen van contact met de opdrachtgever, om meer duidelijkheid te krijgen over de inhoud en verwachtingen van de opdracht. In dit proces hebben we aanvankelijk per ongeluk de verkeerde contactpersoon benaderd, wat leidde tot enige verwarring en vertraging in onze oriëntatiefase.
+Gelukkig kwamen we al snel in contact met Joost, een docent van een andere opleiding die al betrokken was bij het project. Hij kon ons voorzien van waardevolle informatie en inzicht geven in de context van de opdracht. Dankzij hem kregen we een beter beeld van wat er van ons verwacht werd.
+Kort daarna slaagden we erin een afspraak te maken met een vertegenwoordiger van de daadwerkelijke opdrachtgever. Tijdens deze eerste meeting kregen we de kans om onze eerste ideeën te presenteren en te toetsen of we op de juiste koers zaten. De feedback uit dit gesprek gaf ons meer richting en duidelijkheid over het doel van het project.
+In de week die volgde vond een tweede overleg plaats, waarin we verdere toelichting kregen op de opdracht. Hieruit kwam naar voren dat we een herontwerp van de website van het 4 mei comité gaan realiseren. De centrale focus ligt op het levend houden van de verhalen van overledenen uit de Tweede Wereldoorlog, specifiek uit de wijk rondom het Oosterpark. Het doel is om deze herinneringen op een toegankelijke, respectvolle en visueel aantrekkelijke manier te presenteren aan de buurtbewoners en andere geïnteresseerden.
+Deze eerste fase stond vooral in het teken van verkenning, afstemming en het verzamelen van input, waarmee we nu een stevige basis hebben gelegd voor het verdere verloop van het project.
+
+
 ### Iteratie 1
+Van week 1 naar 2 kwam de eerste iteratie, hier ging het vooral om het overgaan van design naar echt een opzet. 
 
 ### Iteratie 2
 
@@ -220,7 +229,44 @@ Deze week was ook CSS day waar ik aan heb deelgenomen. Hierom kon ik wat minder 
 
 ### Donna
 
-Hier docs over week 4
+
+
+De laatste volledige werkweek om aan het project te werken. De opzet voor de opdracht is er en we weten hoe en wat we moeten doen. We komen er alleen achter dat we beter de verhalen uit het boek die we hebben gekregen kunnen gebruiken omdat deze uitgebreider zijn. De informatie uit de posters en data die we hadden is dus eigenlijk niet echt meer nodig. Een beetje zonde want dit zit er nu helemaal in maar het valt makkelijk te verbeteren. We kijken dus naar de verhalen en het verhaal wat we voor nu willen uitwerken. Ook voor de vorm en te laten zien zullen we nog een aantal adressen toevoegen. De data hiervan halen we dus uit de bijlage die we hebben meegekregen. Tymo en ik zijn hierna dus ermee aan de slag gegaan om onderdelen uit het document om te zetten naar een vorm die wij makkelijk kunnen gebruiken, JSON bestanden. 
+
+{
+        "verhaal": {
+            "id": "eerste-oosterparkstraat-3-1",
+            "naam": "Salomon Swalep",
+            "familie": "Swalep",
+            "straat": "eerste oosterparkstraat",
+            "huisnummer": "3-1",
+            "geboortedatum": "9 mei 1916",
+            "overlijdensdatum": "30 november 1943",
+            "taal": "Nederlands",
+            "verhalen": [
+                {
+                    "titel": "Salomon Swalep",
+                    "datum": "9 mei 1916 - 30 november 1943",
+                    "locatie": "Amsterdam",
+                    "afbeelding": "/images/details/foto_man.png",
+                    "tekst": "Salomon Swalep, journalist, winkelier in damesmode en kantoorbediende bij een herenconfectiefabriek, geboren in Amsterdam op 9 mei 1916 en overleden in Sobibor op 30 november 1943. Hij groeide op in het Nederlandsch Israëlietisch Jongensweeshuis. In 1939 trouwde hij met Rebecca Gerritse. Op 18 mei 1943 werden zij gedeporteerd naar Sobibor. Rebecca werd direct na aankomst vergast, terwijl Salomon later werd vermoord."
+                },
+                {
+                    "titel": "Rebecca Swalep-Gerritse",
+                    "datum": "23 augustus 1916 - 21 mei 1943",
+                    "locatie": "Amsterdam",
+                    "afbeelding": "/images/details/foto_vrouw.png",
+                    "tekst": "Rebecca was naaister bij een lingeriefabriek, geboren op 23 augustus 1916, overleden in Sobibor op 21 mei 1943. Ze werd direct na aankomst vergast."
+                }
+            ]
+        }
+    },
+
+Hier is bijvoorbeeld één familie uitgewerkt, dit hebben we voor meerdere families op verschillende straten gedaan om zo de json data te kunnen vullen en hierbij de gedenkmuur. Hier hebben we dus vooral veel tijd besteed aan het uitzoeken wat de beste manier was om de data te kunnen gebruiken en hoe we dit het meest efficient zouden kunnen doen omdat het aangeleverde bestand erg groot is. Vervolgens hebben we getest of het ook zou gaan werken op de detailpagina en we genoeg info erover zouden kunnen laten zien. En gelukkig werkt alles.
+
+Vervolgens is het een kwestie van deze data genoeg aanvullen om een goede site te laten zien. Maar vooral dat het verhaal nu goed laten zien wordt. Daarna zijn het de pagina's volledig afmaken, kijken of we overal tevreden mee zijn en de puntjes op de I zetten.
+
+
 
 ### Lilian
 
