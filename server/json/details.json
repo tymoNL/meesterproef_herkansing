@@ -110,5 +110,272 @@
                 }
             ]
         }
+    },
+    {
+        "verhaal": {
+          "id": "derde-oosterparkstraat-83-1",
+          "naam": "Isaäc van Beezem",
+          "familie": "van Beezem",
+          "straat": "derde oosterparkstraat",
+          "huisnummer": "83-1",
+          "geboortedatum": "14 april 1886",
+          "overlijdensdatum": "10 september 1942",
+          "taal": "Nederlands",
+          "verhalen": [
+            {
+              "titel": "Isaäc van Beezem",
+              "datum": "14 april 1886 - 10 september 1942",
+              "locatie": "Amsterdam",
+              "afbeelding": "/images/gedenkmuur/isaac.png",
+              "tekst": "Isaäc was een zoon van koopman en venter Hartog van Beezem en Margaretha van Beezem-Degen. In 1905 werd hij vrijgesteld van militaire dienst vanwege lichaamsgebreken. Hij trouwde in 1907 met Duifje de Hond en kreeg twee kinderen: Hartog en Margaretha. Isaäc ventte in de jaren dertig met groente en bloemen. In 1940 verhuisde het gezin naar dit adres. In 1942 werden Isaäc en Duifje gedeporteerd naar Auschwitz en daar vermoord. Ook zijn zussen Betje en Esther en broer Joel kwamen om."
+            },
+            {
+              "titel": "Duifje van Beezem-de Hond",
+              "datum": "11 mei 1885 - 10 september 1942",
+              "locatie": "Amsterdam",
+              "tekst": "Duifje was dochter van Hartog de Hond en Hanna Blitz. Ze kwam uit een gezin van ten minste acht kinderen. Twee zussen, Saartje en Henriette, en haar broer Markus werden ook vermoord. Ze woonde samen met Isaäc en hun kinderen op meerdere adressen. Op 5 september 1942 werd het gezin gedeporteerd naar Westerbork en vervolgens Auschwitz, waar Duifje en Isaäc werden vermoord. Ook hun kinderen Hartog en Margaretha kwamen om."
+            }
+          ]
+        }
+      },
+      {
+        "verhaal": {
+          "id": "derde-oosterparkstraat-84-2",
+          "naam": "Femma Fleijsman",
+          "familie": "Fleijsman",
+          "straat": "derde oosterparkstraat",
+          "huisnummer": "84-2",
+          "geboortedatum": "1928",
+          "overlijdensdatum": null,
+          "taal": "Nederlands",
+          "verhalen": [
+            {
+              "titel": "Femma Fleijsman – het begin",
+              "datum": "1928",
+              "locatie": "Amsterdam",
+              "tekst": "Op dit adres woonde in de oorlog Femma Fleijsman, die de oorlog overleefde. In het Parool van 4 mei 2024 vertelt zij hierover in een interview. Femma was het kind van de Joodse Anna van der Linden en de niet-Joodse Bertus Reijgwart. Ze woonde op 84-2 hoog in de Derde Oosterparkstraat. Haar vader werkte als glazenwasser. Als kind uit een gemengd huwelijk liep ze aanvankelijk geen gevaar, maar ze was geregistreerd onder de naam Swaalep, van de eerste man van haar moeder. Femma had dus officieel vier Joodse grootouders."
+            },
+            {
+              "titel": "Femma’s arrestatie en deportatie",
+              "datum": "6 januari 1944",
+              "locatie": "Amsterdam / Westerbork",
+              "tekst": "Op 6 januari 1944 werd aangebeld bij het huis van Femma. Twee Nederlandse mannen namen haar mee naar de Euterpestraat, het hoofdkwartier van de Sicherheitsdienst. Ze werd ondervraagd, kwam terecht in het Huis van Bewaring en daarna in kamp Westerbork. Haar vader probeerde via de Calmeyerlijst haar te laten erkennen als niet-Joods, maar dit verzoek werd afgewezen."
+            },
+            {
+              "titel": "Kampen, Mengele en overleven",
+              "datum": "maart 1944 – januari 1945",
+              "locatie": "Bergen-Belsen / Auschwitz",
+              "tekst": "Femma werd gedeporteerd naar Bergen-Belsen en daarna naar Auschwitz. Ze werd daar kaalgeschoren, werkte in loopgraven, en werd mishandeld door een kapo. Ze werd ernstig ziek en belandde in de ziekenbarak van Auschwitz-Birkenau, waar Josef Mengele medische experimenten op haar uitvoerde. Femma overleefde ondanks alles, en hield zich vast aan het geloof dat ze naar huis zou terugkeren."
+            },
+            {
+              "titel": "Bevrijding en thuiskomst",
+              "datum": "27 januari 1945",
+              "locatie": "Auschwitz / Odessa / Amsterdam",
+              "tekst": "Op 27 januari 1945 werd Auschwitz bevrijd. Femma bleef met andere zieken achter en werd later via Odessa en Marseille naar Nederland gerepatrieerd. In Amsterdam werd ze thuisgebracht. Ze was bang dat haar ouders waren overleden, maar haar moeder kwam naar buiten. Toen ze elkaar zagen, viel haar moeder flauw van emoties."
+            }
+          ]
+        }
+      },
+      {
+        "verhaal": {
+          "id": "derde-oosterparkstraat-86-1",
+          "naam": "Salomon Wertheijm",
+          "familie": "Wertheijm",
+          "straat": "derde oosterparkstraat",
+          "huisnummer": "86-1",
+          "geboortedatum": "21 november 1887",
+          "overlijdensdatum": "28 september 1942",
+          "taal": "Nederlands",
+          "verhalen": [
+            {
+              "titel": "Salomon Wertheijm",
+              "datum": "21 november 1887 - 28 september 1942",
+              "locatie": "Amsterdam / Auschwitz",
+              "afbeelding": "/images/details/foto_man.png",
+              "tekst": "Salomon was een zoon van schoenmaker Levie Wertheijm en Heintje Vogel. Hij kwam uit een gezin van tenminste negen kinderen, waarvan slechts één de oorlog overleefde. Salomon werkte als venter in Amsterdam met onder andere groenten, fruit, kleding en drank. Hij trouwde met Matthea Kool en kreeg vijf kinderen. In september 1942 moest hij zijn ventkaart inleveren vanwege het verbod voor Joden. Kort daarna werd hij samen met zijn vrouw naar Auschwitz gedeporteerd en vermoord. Vijf zussen en twee broers van Salomon werden ook omgebracht."
+            },
+            {
+              "titel": "Matthea Wertheijm-Kool",
+              "datum": "18 december 1880 - 28 september 1942",
+              "locatie": "Amsterdam / Auschwitz",
+              "afbeelding": "/images/details/foto_vrouw.png",
+              "tekst": "Matthea was dochter van Levie Kool en Eva Engelsman. Ze kwam uit een gezin van minimaal acht kinderen. Een zus en vier broers van haar werden door de nazi's vermoord. In 1909 trouwde zij met Salomon Wertheijm. Ze werd op 25 september 1942 met haar man gedeporteerd naar Auschwitz en daar direct na aankomst vermoord."
+            },
+            {
+              "titel": "Levie Wertheijm",
+              "datum": "29 januari 1914 - 30 november 1943",
+              "locatie": "Amsterdam / Sobibor",
+              "afbeelding": "/images/details/foto_man.png",
+              "tekst": "Levie was een zoon van Salomon en Matthea. Hij werkte bij de firma De Lange en later als schoonmaker via Sluyter en Zn. voor de Joodsche Raad. Hij werd in april 1943 opgepakt en op 27 april naar Sobibor gestuurd. Daar werd hij later vermoord, waarschijnlijk bij Aktion Erntefest in november 1943 in Majdanek. Levie was religieus liberaal en kreeg injecties in Auschwitz van kamparts Josef Mengele."
+            },
+            {
+              "titel": "Lisabeth van Loggem-Wertheijm",
+              "datum": "14 juli 1919 - 7 september 1942",
+              "locatie": "Amsterdam / Auschwitz",
+              "afbeelding": "/images/details/foto_vrouw.png",
+              "tekst": "Lisabeth trouwde op 20 juli 1942 met behanger Zadok van Loggem. Op 1 september 1942 werd zij gedeporteerd naar Westerbork en enkele dagen later naar Auschwitz, waar zij direct na aankomst werd vermoord. Haar man overleefde enkele maanden als dwangarbeider."
+            }
+        ]
+        }
+    },
+    {
+      "verhaal": {
+          "id": "derde-oosterparkstraat-125-1",
+          "straat": "derde oosterparkstraat",
+          "naam": "Mozes Zurel",
+          "familie": "Zurel",
+          "huisnummer": "125-1",
+          "geboortedatum": "15 november 1910",
+          "overlijdensdatum": "11 juni 1943",
+          "taal": "Nederlands",
+          "verhalen": [
+              {
+                  "titel": "Mozes Zurel",
+                  "datum": "15 november 1910 - 11 juni 1943",
+                  "locatie": "Amsterdam",
+                  "tekst": "Mozes Zurel was banketbakker en lompensorteerder, geboren in Amsterdam. Hij trouwde in 1933 met Kaatje Dooseman. Ze kregen drie kinderen: Robert (1936), André (1938) en Alfred (1942). Alleen Alfred overleefde de oorlog. Het gezin woonde vanaf 1938 op de Derde Oosterparkstraat 125-1. Op 6 juni 1943 werden Mozes, Kaatje, Robert en André via Westerbork naar Sobibor gedeporteerd en daar bij aankomst vergast. Mozes had twaalf broers en zussen, waarvan enkelen ook werden vermoord."
+              },
+              {
+                  "titel": "Kaatje Zurel-Dooseman",
+                  "datum": "6 mei 1907 - 11 juni 1943",
+                  "locatie": "Amsterdam",
+                  "tekst": "Kaatje was de jongste van drie kinderen van Levie en Roosje Dooseman. Zij trouwde met Mozes Zurel en kreeg drie kinderen. Samen met haar man en twee oudste zoons werd zij op 11 juni 1943 in Sobibor vermoord. Twee zussen van Kaatje, Margaretha en Gonda, kwamen ook om in de oorlog."
+              },
+              {
+                  "titel": "Robert Zurel",
+                  "datum": "3 oktober 1936 - 11 juni 1943",
+                  "locatie": "Haarlem",
+                  "tekst": "Robert (Robby) was de oudste zoon van Mozes en Kaatje Zurel. Hij werd samen met zijn ouders en broertje André op 11 juni 1943 vergast in Sobibor."
+              },
+              {
+                  "titel": "André Zurel",
+                  "datum": "25 mei 1938 - 11 juni 1943",
+                  "locatie": "Amsterdam",
+                  "tekst": "André was de tweede zoon van Mozes en Kaatje Zurel. Hij werd op 11 juni 1943 in Sobibor vermoord, samen met zijn ouders en broer Robert."
+              },
+              {
+                  "titel": "Alfred Zurel",
+                  "datum": "1942 - overleefde de oorlog",
+                  "locatie": "Amsterdam",
+                  "tekst": "Alfred was de jongste zoon van Mozes en Kaatje Zurel. Hij overleefde als enige van het gezin de oorlog. Omdat hij ziek was, bleef hij achter toen de rest van het gezin werd opgepakt. Hij werd uiteindelijk ondergebracht bij familie in de Watergraafsmeer, die hem opvoedde als hun eigen kind."
+              }
+          ]
+      }
+  },
+    {
+        "verhaal": {
+            "id": "eerste-oosterparkstraat-16-1",
+            "straat": "eerste oosterparkstraat",
+            "naam": "Samuel Rodrigues Pereira",
+            "geboortedatum": "2 februari 1906",
+            "overleidingsdatum": "19 oktober 1942",
+            "taal": "Nederlands",
+            "verhalen": [
+                {
+                    "titel": "Samuel Rodrigues Pereira",
+                    "datum": "2 februari 1906 - 19 oktober 1942",
+                    "locatie": "Amsterdam",
+                    "tekst": "Samuel was kleermaker en woonde samen met zijn vrouw Roosje Lopes Dias en hun twee kinderen op de Eerste Oosterparkstraat. Hij werd op 19 oktober 1942 vermoord in Auschwitz. Zijn hele gezin werd in hetzelfde jaar omgebracht."
+                }
+            ]
+        }
+    },
+    {
+        "verhaal": {
+            "id": "eerste-oosterparkstraat-20-2",
+            "straat": "eerste oosterparkstraat",
+            "naam": "Mozes Nunes Cardozo",
+            "geboortedatum": "13 maart 1884",
+            "overleidingsdatum": "23 juli 1943",
+            "taal": "Nederlands",
+            "verhalen": [
+                {
+                    "titel": "Mozes Nunes Cardozo",
+                    "datum": "13 maart 1884 - 23 juli 1943",
+                    "locatie": "Amsterdam",
+                    "tekst": "Mozes Nunes Cardozo was koopman in textiel. Hij werd gedeporteerd naar Sobibor en daar vermoord. Zijn vrouw Rachel en hun kinderen overleefden de oorlog niet."
+                }
+            ]
+        }
+    },
+    {
+    "verhaal": {
+        "id": "derde-oosterparkstraat-103-3",
+        "straat": "derde oosterparkstraat",
+        "naam": "Jakob (Yankel) Hersz Nortman",
+        "geboortedatum": "21 juli 1894",
+        "overleidingsdatum": "24 september 1943",
+        "taal": "Nederlands",
+        "verhalen": [
+            {
+                "titel": "Jakob (Yankel) Hersz Nortman",
+                "datum": "21 juli 1894 - 24 september 1943",
+                "locatie": "Amsterdam",
+                "tekst": "Jakob (Yankel) Hersz Nortman, kleermaker, geboren in Sarnaki (Polen), vestigde zich in 1930 in Amsterdam met zijn vrouw Frejda. Ze woonden sinds 1932 op de Derde Oosterparkstraat 103-3. Yankel werd op 20 februari 1943 naar Westerbork gebracht en op 21 september naar Auschwitz, waar hij direct na aankomst op 24 september 1943 werd vermoord. Er zijn geen verdere familieleden bekend van Yankel."
+            },
+            {
+                "titel": "Frejda Liwcia Nortman-Nuchowicz",
+                "datum": "31 juli 1894 - 24 september 1943",
+                "locatie": "Amsterdam",
+                "tekst": "Frejda, echtgenote van Yankel, werd geboren in Biala en was de dochter van Josef Icek Nuchowicz en Fejga Perla Grynszpan. Ook zij werd op 21 september 1943 gedeporteerd en direct na aankomst in Auschwitz vermoord. Er zijn geen andere bekende familieleden van haar."
+            },
+            {
+                "titel": "Josef Icchok Nortman",
+                "datum": "18 december 1920 - 26 januari 1945",
+                "locatie": "Amsterdam",
+                "tekst": "Josef was de zoon van Yankel en Frejda. Hij werkte bij Hollandia-Kattenburg, een fabriek waar veel Joden tijdelijk beschermd waren door een sperre. Na een razzia in januari 1942 werden veel medewerkers afgevoerd. Josef kwam uiteindelijk terecht in Kamp Vught, later Westerbork, en werd op 21 september 1943 samen met zijn familie naar Auschwitz gedeporteerd. Hij werd niet direct vermoord, maar overleed uiteindelijk op 26 januari 1945 in Buchenwald."
+            },
+            {
+                "titel": "Zysa Nortman",
+                "datum": "27 februari 1926 - 30 september 1942",
+                "locatie": "Amsterdam",
+                "tekst": "Zysa was dochter van Yankel en Frejda, geboren in Warschau. Zij werd al op 17 juli 1942 naar Auschwitz gedeporteerd, veel eerder dan haar ouders en broer, en werd daar op 30 september 1942 vermoord. Ze woonde mogelijk niet meer thuis, maar bij het echtpaar Meijer Piller op de Weesperstraat."
+            }
+        ]
     }
+},
+{
+    "verhaal": {
+        "id": "derde-oosterparkstraat-125-1",
+        "straat": "derde oosterparkstraat",
+        "naam": "Mozes Zurel",
+        "geboortedatum": "15 november 1910",
+        "overleidingsdatum": "11 juni 1943",
+        "taal": "Nederlands",
+        "verhalen": [
+            {
+                "titel": "Mozes Zurel",
+                "datum": "15 november 1910 - 11 juni 1943",
+                "locatie": "Amsterdam",
+                "tekst": "Mozes Zurel was banketbakker en lompensorteerder, geboren in Amsterdam. Hij trouwde in 1933 met Kaatje Dooseman. Ze kregen drie kinderen: Robert (1936), André (1938) en Alfred (1942). Alleen Alfred overleefde de oorlog. Het gezin woonde vanaf 1938 op de Derde Oosterparkstraat 125-1. Op 6 juni 1943 werden Mozes, Kaatje, Robert en André via Westerbork naar Sobibor gedeporteerd en daar bij aankomst vergast. Mozes had twaalf broers en zussen, waarvan enkelen ook werden vermoord."
+            },
+            {
+                "titel": "Kaatje Zurel-Dooseman",
+                "datum": "6 mei 1907 - 11 juni 1943",
+                "locatie": "Amsterdam",
+                "tekst": "Kaatje was de jongste van drie kinderen van Levie en Roosje Dooseman. Zij trouwde met Mozes Zurel en kreeg drie kinderen. Samen met haar man en twee oudste zoons werd zij op 11 juni 1943 in Sobibor vermoord. Twee zussen van Kaatje, Margaretha en Gonda, kwamen ook om in de oorlog."
+            },
+            {
+                "titel": "Robert Zurel",
+                "datum": "3 oktober 1936 - 11 juni 1943",
+                "locatie": "Haarlem",
+                "tekst": "Robert (Robby) was de oudste zoon van Mozes en Kaatje Zurel. Hij werd samen met zijn ouders en broertje André op 11 juni 1943 vergast in Sobibor."
+            },
+            {
+                "titel": "André Zurel",
+                "datum": "25 mei 1938 - 11 juni 1943",
+                "locatie": "Amsterdam",
+                "tekst": "André was de tweede zoon van Mozes en Kaatje Zurel. Hij werd op 11 juni 1943 in Sobibor vermoord, samen met zijn ouders en broer Robert."
+            },
+            {
+                "titel": "Alfred Zurel",
+                "datum": "1942 - overleefde de oorlog",
+                "locatie": "Amsterdam",
+                "tekst": "Alfred was de jongste zoon van Mozes en Kaatje Zurel. Hij overleefde als enige van het gezin de oorlog. Omdat hij ziek was, bleef hij achter toen de rest van het gezin werd opgepakt. Hij werd uiteindelijk ondergebracht bij familie in de Watergraafsmeer, die hem opvoedde als hun eigen kind."
+            }
+        ]
+    }
+}
+
+
 ]
