@@ -176,7 +176,7 @@ body{
       overscroll-behavior-x: contain;
       scroll-snap-type: x mandatory;
       scroll-behavior: smooth;
-      gap: 1em; /* Voeg ruimte toe tussen de items */
+      gap: 1em; /* Voeg ruimte toe tussen de items */;
     }
     
     .familySlider ul > li {
