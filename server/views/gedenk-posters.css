@@ -254,7 +254,7 @@ justify-content: center;
   scroll-behavior: smooth;
   padding-bottom: 1rem;
   scrollbar-width: thin;
-  width: 100%; /* ✅ Restrict width */
+  width: calc(100vw - 5rem); /* ✅ Restrict width */
   box-sizing: border-box; /* ✅ Prevent overflow due to padding */
 
   /* Make children not shrink but also not stretch the parent */
