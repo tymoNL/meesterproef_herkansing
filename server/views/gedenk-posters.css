@@ -160,21 +160,29 @@
   }
   
   .familie-kaart {
+    display: block;
     background-color: #fff;
-    border-radius: 1rem;
+    border-radius: 12px;
     padding: 1rem;
+    text-decoration: none;
     min-width: 250px;
-    text-align: center;
+    color: inherit;
     scroll-snap-align: start;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    transition: transform 0.2s ease;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  ;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
   }
 
   .familie-kaart:hover {
-    transform: scale(1.05);
+    transform: translateY(-4px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  }
+
+  .familie-kaart img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
   }
 
   .familie-kaart h4 {
