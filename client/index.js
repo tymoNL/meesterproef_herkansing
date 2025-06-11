@@ -215,6 +215,8 @@ if (lineToDraw) {
     const gefilterdeVerhalen = allVerhalen.filter(item => item.verhaal.straat === geselecteerdeStraat);
 
     gefilterdeVerhalen.forEach(item => {
+      console.log('Verhaal item:', item);
+      // Controleer of huisnummer bestaat, anders 'Onbekend'
       const huisnummer = item.huisnummer || 'Onbekend';
       const div = document.createElement('div');
       div.classList.add('verhaal-kaart');
