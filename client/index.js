@@ -130,19 +130,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const scrollAmount = 300; // Hoeveel pixels de slider moet scrollen per klik
 
-  leftButton.addEventListener("click", () => {
-    slider.scrollBy({
-      left: -scrollAmount,
-      behavior: "smooth",
+  if (leftButton) {
+    leftButton.addEventListener("click", () => {
+      slider.scrollBy({
+        left: -scrollAmount,
+        behavior: "smooth",
+      });
     });
-  });
+  }
 
-  rightButton.addEventListener("click", () => {
-    slider.scrollBy({
-      left: scrollAmount,
-      behavior: "smooth",
+  if (rightButton) {
+    rightButton.addEventListener("click", () => {
+      slider.scrollBy({
+        left: scrollAmount,
+        behavior: "smooth",
+      });
     });
-  });
+  }
 });
 
 
@@ -203,35 +207,39 @@ if (lineToDraw) {
   });
 }
 
-straatSelect.addEventListener('change', () => {
-  const geselecteerdeStraat = straatSelect.value.trim();
-  muur.innerHTML = ''; // Leegmaken
+const straatSelect = document.querySelector('#straatSelect');
 
-  console.log('Geselecteerde straat:', geselecteerdeStraat);
+if (straatSelect) {
+  straatSelect.addEventListener('change', () => {
+    const geselecteerdeStraat = straatSelect.value.trim();
+    muur.innerHTML = ''; // Leegmaken
 
-  if (!geselecteerdeStraat) {
-    muur.innerHTML = '<p>Kies een straat om verhalen te bekijken.</p>';
-    return;
-  }
+    console.log('Geselecteerde straat:', geselecteerdeStraat);
 
-  const gefilterdeVerhalen = allVerhalen.filter(
-    item => item.verhaal.straat === geselecteerdeStraat
-  );
+    if (!geselecteerdeStraat) {
+      muur.innerHTML = '<p>Kies een straat om verhalen te bekijken.</p>';
+      return;
+    }
 
-  if (gefilterdeVerhalen.length === 0) {
-    muur.innerHTML = '<p>Geen verhalen gevonden voor deze straat.</p>';
-    return;
-  }
+    const gefilterdeVerhalen = allVerhalen.filter(
+      item => item.verhaal.straat === geselecteerdeStraat
+    );
 
-  gefilterdeVerhalen.forEach(item => {
-    const div = document.createElement('div');
-    div.classList.add('verhaal-kaart');
-    div.innerHTML = `
+    if (gefilterdeVerhalen.length === 0) {
+      muur.innerHTML = '<p>Geen verhalen gevonden voor deze straat.</p>';
+      return;
+    }
+
+    gefilterdeVerhalen.forEach(item => {
+      const div = document.createElement('div');
+      div.classList.add('verhaal-kaart');
+      div.innerHTML = `
       <div class="huisnummer-bord">${item.verhaal.huisnummer || 'Onbekend'}</div>
       <p class="verhaal-naam">${item.verhaal.naam}</p>
       <a href="/verhalen/${item.verhaal.id}">Bekijk dit verhaal</a>
     `;
-    muur.appendChild(div);
+      muur.appendChild(div);
+    });
   });
-});
+}
 

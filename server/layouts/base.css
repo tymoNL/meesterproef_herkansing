@@ -23,6 +23,11 @@ html {
   scroll-behavior: smooth;
 }
 
+*,
+*::before, *::after {
+  box-sizing: border-box;
+ }
+
 body {
   display: grid;
   grid-template-rows: auto 1fr auto;
@@ -57,7 +62,7 @@ header.header {
   background-color: var(--header-bg);
   color: var(--header-color);
   padding: 1rem 0;
-  /* position: sticky; */
+  position: relative;
   top: 0;
   z-index: 100;
 
@@ -119,23 +124,6 @@ header.header {
   a {
     color: var(--link-color);
     text-decoration: none;
-  }
-}
-
-.main {
-overflow-x: hidden;
-
-  .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    /* padding: 1em; */
-    flex-wrap: wrap;
-    gap: 1rem;
-
-    @media screen and (min-width: 568px) {
-      justify-content: space-between;
-    }
   }
 }
 
