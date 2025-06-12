@@ -69,11 +69,19 @@ Deze eerste fase stond vooral in het teken van verkenning, afstemming en het ver
 ### Iteratie 1
 Van week 1 naar 2 kwam de eerste iteratie, hier ging het vooral om het overgaan van design naar echt een opzet. 
 
+Met de eerste iteratie hebben we veel inspiratie genomen uit de voorbeeld website van [FDND](https://atlas4045.agency.fdnd.nl/). Tijdens deze iteratie wisten we nog niet echt wat de opdrachtgever wilde. Declan had ons aangeraden om naar de database te kijken en alle nuttige info eruit te halen wat we konden.
+
 ### Iteratie 2
+
+Na contact gehad te hebben met Joost en de opdrachtgever is er duidelijker wat de opdracht is. We moeten het verhaal digitaal overbrengen van de slachtoffers. Om dit te kunnen doen hebben we verhalen nodig om te vertellen. Deze hebben we van Joost gekregen, alleen is dit via een pdf gedaan dus moeten we alle verhalen zelf in Json omzetten om zo de verhalen goed over te kunnen brengen.
 
 ### Iteratie 3
 
+In deze iteratie hebben we de muur gemaakt waar de addressen van de families opstaan. Op deze muur komen de verschillende addressen te staan samen met een plek voor bloemen om te worden neergelegd. Deze bloemen worden opgeslagen in de server zodat andere mensen deze zouden kunnen zien (Hier kan het niet want er is geen database dus er wordt na een refresh van de server niks opgeslagen).
+
 ### Iteratie 4
+
+Met de laatste iteratie hebben we besloten om de eigen Json te structureren om de data dynamisch in te kunnen laden. Deze iteratie gebruikt de verhalen uit de Json om blokken te maken en ook te vullen. De data komt uit het boek/ PDF die is opgeleverd.
 
 ## Product biografie
 
