@@ -65,9 +65,9 @@ Kort daarna slaagden we erin een afspraak te maken met een vertegenwoordiger van
 In de week die volgde vond een tweede overleg plaats, waarin we verdere toelichting kregen op de opdracht. Hieruit kwam naar voren dat we een herontwerp van de website van het 4 mei comité gaan realiseren. De centrale focus ligt op het levend houden van de verhalen van overledenen uit de Tweede Wereldoorlog, specifiek uit de wijk rondom het Oosterpark. Het doel is om deze herinneringen op een toegankelijke, respectvolle en visueel aantrekkelijke manier te presenteren aan de buurtbewoners en andere geïnteresseerden.
 Deze eerste fase stond vooral in het teken van verkenning, afstemming en het verzamelen van input, waarmee we nu een stevige basis hebben gelegd voor het verdere verloop van het project.
 
-
 ### Iteratie 1
-Van week 1 naar 2 kwam de eerste iteratie, hier ging het vooral om het overgaan van design naar echt een opzet. 
+
+Van week 1 naar 2 kwam de eerste iteratie, hier ging het vooral om het overgaan van design naar echt een opzet.
 
 Met de eerste iteratie hebben we veel inspiratie genomen uit de voorbeeld website van [FDND](https://atlas4045.agency.fdnd.nl/). Tijdens deze iteratie wisten we nog niet echt wat de opdrachtgever wilde. Declan had ons aangeraden om naar de database te kijken en alle nuttige info eruit te halen wat we konden.
 
@@ -237,10 +237,9 @@ Deze week was ook CSS day waar ik aan heb deelgenomen. Hierom kon ik wat minder 
 
 ### Donna
 
-
-
 De laatste volledige werkweek om aan het project te werken. De opzet voor de opdracht is er en we weten hoe en wat we moeten doen. We komen er alleen achter dat we beter de verhalen uit het boek die we hebben gekregen kunnen gebruiken omdat deze uitgebreider zijn. De informatie uit de posters en data die we hadden is dus eigenlijk niet echt meer nodig. Een beetje zonde want dit zit er nu helemaal in maar het valt makkelijk te verbeteren. We kijken dus naar de verhalen en het verhaal wat we voor nu willen uitwerken. Ook voor de vorm en te laten zien zullen we nog een aantal adressen toevoegen. De data hiervan halen we dus uit de bijlage die we hebben meegekregen. Tymo en ik zijn hierna dus ermee aan de slag gegaan om onderdelen uit het document om te zetten naar een vorm die wij makkelijk kunnen gebruiken, JSON bestanden. 
 
+```json
 {
         "verhaal": {
             "id": "eerste-oosterparkstraat-3-1",
@@ -269,6 +268,7 @@ De laatste volledige werkweek om aan het project te werken. De opzet voor de opd
             ]
         }
     },
+```
 
 Hier is bijvoorbeeld één familie uitgewerkt, dit hebben we voor meerdere families op verschillende straten gedaan om zo de json data te kunnen vullen en hierbij de gedenkmuur. Hier hebben we dus vooral veel tijd besteed aan het uitzoeken wat de beste manier was om de data te kunnen gebruiken en hoe we dit het meest efficient zouden kunnen doen omdat het aangeleverde bestand erg groot is. Vervolgens hebben we getest of het ook zou gaan werken op de detailpagina en we genoeg info erover zouden kunnen laten zien. En gelukkig werkt alles.
 

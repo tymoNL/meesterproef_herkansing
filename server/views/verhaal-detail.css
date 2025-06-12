@@ -9,11 +9,9 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center; /* Centreer de inhoud horizontaal */
-    justify-content: space-between; /* Zorg dat de huisjes en slider netjes verdeeld zijn */
     padding: 2em; /* Voeg wat ruimte toe rondom de sectie */
     /* margin-bottom:3em; */
     z-index:-1;
-    height:80vh;
     overflow: hidden;
     background: linear-gradient(0deg,rgba(153, 153, 153, 1) 0%, rgba(255, 255, 255, 1) 8%);
   }
@@ -36,7 +34,7 @@ body{
     max-width: 90%;
     border: 1.8px solid #fff;
     box-shadow: #273D7C 0px 2px 5px, #273D7C 0px 0px 0px 4px;
-    margin-left:80%;
+    margin-left:auto;
     font-size:1em;
     text-transform: uppercase;
     z-index:4;
@@ -108,18 +106,24 @@ body{
   
   /* huisjes */
   
-  .housjesContainer {
-    position: relative;
-    display: flex;
-    gap: 1em;
-    justify-content: center;
-    z-index:1;
-  }
-  
-  .housjesContainer img {
-    width: 50%;
-    transition: transform 0.1s ease-out; /* Zorg voor een soepel scroll-effect */
-  }
+.housjesContainer {
+  position: relative;
+  display: flex;
+  flex-wrap: nowrap; /* Prevent wrapping */
+  gap: 1em;
+  justify-content: center;
+  overflow-x: hidden; /* Allow horizontal scroll if screen is too small */
+  z-index: 1;
+  padding: 1em;
+}
+
+.housjesContainer img {
+  flex: 1 1 auto;
+  width: 10%; /* Adjust this based on how many images you want visible */
+  max-width: 100px; /* Optional: limit the max size */
+  height: auto;
+  transition: transform 0.1s ease-out;
+}
   
   
   /* ///////////////// */
