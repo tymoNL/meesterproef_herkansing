@@ -39,7 +39,8 @@
     <div class="pin-wrap-sticky">
         <div class="pin-wrap">
             
-            <div class="introtekst">
+            <div class="introtekst" tapindex="1">
+              
                 <h2>{{ item.straat }} {{ item.huisnummer }}  </h2>
                 <h3>{{ item.naam }}</h3>
             </div>
@@ -51,7 +52,11 @@
 
                 
                 {% comment %} <img src="/images/jacob.png" alt="foto van Jacob Philips"> {% endcomment %}
-                <div class="imgContent">
+                <div class="imgContent" tabindex="0">
+                    {% if tekst.afbeelding %}
+                        <img src="{{ tekst.afbeelding }}" alt="{{ tekst.titel }}" class="verhaalImage">
+                    {% else %}
+                    {% endif %}
                     <h2>{{ tekst.titel }} <br> {{ tekst.datum }} </h2>
                     <p>{{ tekst.tekst }}</p>
                 </div>

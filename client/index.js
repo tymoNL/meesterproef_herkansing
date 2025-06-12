@@ -41,7 +41,7 @@ function addSpecificBloem(imageSrc, altText) {
 
   if (bloemList) {
     const randomLeft = Math.floor(Math.random() * 85) + 1;
-    const randomWidth = Math.floor(Math.random() * 26) + 50;
+    const randomWidth = Math.floor(Math.random() * 31) + 90;
 
     const bloemHTML = `
       <li style="position: absolute; left: ${randomLeft}%; width: ${randomWidth}px;">
