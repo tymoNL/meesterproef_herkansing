@@ -67,16 +67,19 @@ ul.grid {
             margin: 0;
         }
 
-        h2{
+        h2 {
             font-size: 2rem;
             margin-bottom: 1rem;
             font-weight: 700;
         }
-        p{
+
+        p {
             font-size: 1.1rem;
             line-height: 1.6;
 
-        };
+        }
+
+        ;
     }
 
     /* Positionering */
@@ -106,11 +109,11 @@ ul.grid {
         padding: 2rem;
         border-radius: 1rem;
 
-       h3 {
-        font-size: 2rem;
-        color: var(--link-color);
-        margin-bottom: 1rem;
-       } 
+        h3 {
+            font-size: 2rem;
+            color: var(--link-color);
+            margin-bottom: 1rem;
+        }
     }
 
 
@@ -118,7 +121,7 @@ ul.grid {
     .peopleList {
         background: var(--black);
         color: var(--white);
-     
+
         padding: 2rem;
         border-radius: 1rem;
         color: #fff;
@@ -126,7 +129,6 @@ ul.grid {
 
         >* {
             color: var(--white);
-           
         }
 
         h2 {
@@ -145,7 +147,7 @@ ul.grid {
 
             li {
                 list-style-type: none;
-                opacity: 0;
+                opacity: 1;
                 animation: grow-progress 2s linear forwards;
                 color: var(--white);
             }
@@ -157,7 +159,7 @@ ul.grid {
         img {
             width: 100%;
             height: auto;
-            
+
         }
     }
 
@@ -191,10 +193,10 @@ ul.grid {
 .banner {
     margin: -1rem;
 
-    h1{
-    font-size: clamp(2rem, 6vw, 5rem);
-    font-weight: 700;
-    line-height: 1.1;
+    h1 {
+        font-size: clamp(2rem, 6vw, 5rem);
+        font-weight: 700;
+        line-height: 1.1;
     }
 
     img {
@@ -241,25 +243,23 @@ ul.grid {
         text-align: center;
     }
 
-        ul {
+    ul {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+
+        li {
             position: absolute;
-            left: 0;
-            bottom: 0;
-            width: 100%;
-            margin: 0;
-            padding: 0;
-            list-style-type: none;
+            bottom: 1rem;
 
-            li {
-                position: absolute;
-                bottom: 1rem;
-
-                img {
-                    width: 50px;
-                    height: 50px;
-                }
+            img {
+                width: 50px;
+                height: 50px;
             }
         }
+    }
 }
-
-/* Gedenkmuur */

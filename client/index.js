@@ -76,8 +76,9 @@ async function postBloem() {
 
 bloemen.forEach(bloem => {
   bloem.addEventListener('click', async () => {
-    const imageSrc = bloem.getAttribute('src');
-    const altText = bloem.getAttribute('alt');
+    const img = bloem.querySelector('img');
+    const imageSrc = img.getAttribute('src');
+    const altText = img.getAttribute('alt');
 
     // Voeg bloem direct toe aan UI
     addSpecificBloem(imageSrc, altText);

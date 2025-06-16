@@ -85,12 +85,11 @@ app.get('/print/qr/:id', async (req, res) => {
   }
 });
 
-/* Header pages */
 app.get('/gedenk-posters', async (req, res) => {
   const straatSet = new Set(testData.map(item => item.verhaal.straat));
   const straten = Array.from(straatSet);
 
-  // Maak een unieke map van familie -> id (bijv. voor de eerste persoon met die familienaam)
+  // Maak een unieke map van familie -> id
   const familieMap = new Map();
   testData.forEach(item => {
     const { familie, id } = item.verhaal;
@@ -99,19 +98,27 @@ app.get('/gedenk-posters', async (req, res) => {
     }
   });
 
-  // Zet het om naar een array van objecten
   const families = Array.from(familieMap.entries()).map(([naam, id]) => ({
     naam,
     id
   }));
 
   const selectedStraat = req.query.straat;
+  const selectedFamilieNaam = req.query.familieNaam?.toLowerCase() || '';
 
-  const filteredItems = selectedStraat
-    ? testData.filter(item => item.verhaal.straat === selectedStraat)
-    : testData;
+  let filteredItems = testData;
 
-console.log(numberOfRoses);
+  if (selectedStraat) {
+    filteredItems = filteredItems.filter(item =>
+      item.verhaal.straat === selectedStraat
+    );
+  }
+
+  if (selectedFamilieNaam) {
+    filteredItems = filteredItems.filter(item =>
+      item.verhaal.familie.toLowerCase().includes(selectedFamilieNaam)
+    );
+  }
 
   return res.send(renderTemplate('server/views/gedenk-posters.liquid', {
     title: 'Gedenk-posters',
@@ -120,11 +127,10 @@ console.log(numberOfRoses);
     families,
     filteredItems,
     selectedStraat,
+    selectedFamilieNaam,
     numberOfRoses
   }));
 });
-
-
 
 app.post('/legbloem', async (req, res) => {
   numberOfRoses++;
@@ -136,5 +142,3 @@ app.get('/over-ons', async (req, res) => {
     title: 'Over ons'
   }));
 });
-
-/* Header pages */

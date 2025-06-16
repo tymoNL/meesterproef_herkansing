@@ -1,14 +1,9 @@
 /* Animations */
-@keyframes scrollNames {
-    from { transform: translateX(0) translateY(0) rotate(-5deg); }
-    to { transform: translateX(-100%) translateY(100%) rotate(-5deg); }
-  }
-  
   @keyframes grow-progress {
     from {
-      opacity: 0;
+      opacity: 1;
     }
     to {
-      opacity: 1;
+      opacity: 0;
     }
   }

@@ -1,8 +1,7 @@
-.center{
+.center {
   text-align: center;
-  margin-top:1.5em;
+  margin-top: 1.5em;
 }
-
 
 .straat-selectie {
   display: flex;
@@ -11,35 +10,30 @@
   justify-content: flex-end;
   margin-bottom: 1rem;
 
+  select {
+    background: linear-gradient(318deg, rgba(39, 61, 124, 1) 0%, rgb(53, 86, 179) 51%, rgba(39, 61, 124, 1) 100%);
+    color: #fff;
+    padding: .8em;
+    border-radius: .3em;
+    width: fit-content;
+    border: 1.8px solid #fff;
+    box-shadow: #273D7C 0px 2px 5px, #273D7C 0px 0px 0px 4px;
+    margin-left: 80%;
+    font-size: 1em;
+    text-transform: uppercase;
+    font-weight: bolder;
 
-}
+    &hover {
+      background-color: #004080;
+    }
 
-.straat-selectie select {
-
-
-  background: linear-gradient(318deg, rgba(39, 61, 124, 1) 0%, rgb(53, 86, 179) 51%, rgba(39, 61, 124, 1) 100%);
-  color: #fff;
-  padding: .8em;
-  border-radius: .3em;
-  width: fit-content;
-  border: 1.8px solid #fff;
-  box-shadow: #273D7C 0px 2px 5px, #273D7C 0px 0px 0px 4px;
-  margin-left: 80%;
-  font-size: 1em;
-  text-transform: uppercase;
-  font-weight:bolder;
-}
-
-.straat-selectie select:hover {
-  background-color: #004080;
-}
-
-.straat-selectie select option {
-  background-color: #005bac;
-  /* color: white; */
-  font-weight: bold;
-  font-size: 1.1em;
-  text-transform: uppercase;
+    option {
+      background-color: #005bac;
+      font-weight: bold;
+      font-size: 1.1em;
+      text-transform: uppercase;
+    }
+  }
 }
 
 .muur-background {
@@ -47,22 +41,20 @@
   margin: 0 -2rem;
   display: flex;
   justify-content: center;
-  height:45vh;
+  height: 45vh;
   background-color: #f6f1ed;
-}
 
-.muur-scroll {
-  overflow-x: auto;
-  overflow-y: hidden;
-  scroll-snap-type: x mandatory;
-  width: calc(100vw - 4rem);
-  padding-bottom: 2rem;
-
-  background-size: cover;
-  background-position: center;
-  min-height: 250px;
-  position: relative;
-
+  .muur-scroll {
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    width: calc(100vw - 4rem);
+    padding-bottom: 2rem;
+    background-size: cover;
+    background-position: center;
+    min-height: 250px;
+    position: relative;
+  }
 }
 
 .muur {
@@ -70,8 +62,6 @@
   padding-bottom: 1rem;
   min-width: 100%;
 }
-
-
 
 .verhaal-kaart {
   background-color: #fffffffa;
@@ -84,12 +74,11 @@
   text-align: center;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   scroll-snap-align: start;
-  margin-top:2em;
+  margin-top: 2em;
 }
 
 .huisnummer-bord {
   background-color: #002b5c;
-  /* Donkerblauw */
   color: white;
   font-weight: bold;
   font-size: 1.8rem;
@@ -108,49 +97,43 @@
   font-weight: 600;
 }
 
+.verhaal-kaart {
+  &:hover {
+    transform: scale(1.05);
+  }
 
+  h4 {
+    font-size: 2rem;
+    margin: 0;
+    color: white;
+    font-weight: bold;
+  }
 
-.verhaal-kaart:hover {
-  transform: scale(1.05);
+  p {
+    margin: 0.5rem 0 0;
+    font-size: 1rem;
+    color: #8b2300;
+    text-align: center;
+  }
+
+  a {
+    display: inline-block;
+    margin-top: 1rem;
+    font-size: 0.95rem;
+    background-color: white;
+    padding: 0.4em 1em;
+    border-radius: 0.4rem;
+    color: #002b5c;
+    font-weight: bold;
+    text-decoration: none;
+    text-decoration: underline;
+    font-weight: normal;
+
+    &:hover {
+      background-color: #f0f4f8;
+    }
+  }
 }
-
-.verhaal-kaart h4 {
-
-  font-size: 2rem;
-  margin: 0;
-  color: white;
-  font-weight: bold;
-}
-
-.verhaal-kaart p {
-  margin: 0.5rem 0 0;
-  font-size: 1rem;
-  color: #8b2300;
-  text-align: center;
-}
-
-
-
-.verhaal-kaart a {
-  display: inline-block;
-  margin-top: 1rem;
-  font-size: 0.95rem;
-  background-color: white;
-  padding: 0.4em 1em;
-  border-radius: 0.4rem;
-  color: #002b5c;
-  /* Donkerblauw */
-  font-weight: bold;
-  text-decoration: none;
-  text-decoration: underline;
-  font-weight: normal;
-
-}
-
-.verhaal-kaart a:hover {
-  background-color: #f0f4f8;
-}
-
 
 .bloem-container {
   display: flex;
@@ -168,30 +151,11 @@
 .bloem {
   width: 8em;
   height: 8em;
-
   margin: 0.5em;
-  cursor: pointer;
-}
-
-
-
-.bloem-lijst {
-  position: absolute;
-  bottom: 4rem;
-  width: 100%;
-  margin: 0 -1rem;
-}
-
-.bloem {
-  width: 8em;
-  height: 8em;
-
-  margin: 0.5em;
-  cursor: pointer;
+  background-color: transparent;
 }
 
 .familie-kaart {
-
   background-color: #fff;
   border: 1px solid #e0e6ef;
   border-radius: 1rem;
@@ -203,18 +167,31 @@
   margin: auto;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 
-  /* display: block;
-    flex-shrink: 0;
-    scroll-snap-align: center ;
+  h4 {
+    font-size: 1.2rem;
+    color: #273D7C;
+    margin: 0.5rem 0 0.3rem;
+  }
+
+  p {
+    font-size: 0.95rem;
+    color: #555;
+    margin: 0 0 0.8rem;
+  }
+
+  a {
+    background-color: #273D7C;
+    color: white;
+    padding: 0.5em 1em;
+    border-radius: 0.5em;
     text-decoration: none;
-    
-    min-width: 80vw;
-    max-width: 300px;
-    scroll-snap-align: start; */
+    font-weight: 500;
 
-
+    &:hover {
+      background-color: #1a2c5c;
+    }
+  }
 }
-
 
 .familie-kaart:hover,
 .verhaal-kaart:hover {
@@ -222,35 +199,7 @@
   transform: scale(1.05);
 }
 
-.familie-kaart h4 {
-  font-size: 1.2rem;
-  color: #273D7C;
-  margin: 0.5rem 0 0.3rem;
-}
-
-.familie-kaart p {
-  font-size: 0.95rem;
-  color: #555;
-  margin: 0 0 0.8rem;
-}
-
-.familie-kaart a {
-  background-color: #273D7C;
-  color: white;
-  padding: 0.5em 1em;
-  border-radius: 0.5em;
-  text-decoration: none;
-  font-weight: 500;
-}
-
-.familie-kaart a:hover {
-  background-color: #1a2c5c;
-}
-
-
-
 .familie-scroll {
-
   overflow-x: auto;
 }
 
@@ -259,13 +208,9 @@
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 1rem;
   padding: 1rem;
-  /* width: 100%; */
   box-sizing: border-box;
   overflow-x: hidden;
 
-
-
-  /* Make children not shrink but also not stretch the parent */
   >div {
     flex-shrink: 0;
     scroll-snap-align: center;
@@ -275,7 +220,6 @@
     border-radius: var(--button-br);
     padding: 1rem 2rem;
     min-width: 250px;
-    /* ✅ Ensure a consistent card width */
   }
 }
 
@@ -286,18 +230,17 @@
   margin-bottom: 1rem;
 }
 
-
 @media (max-width: 768px) {
   .straat-selectie {
     flex-direction: column;
     align-items: stretch;
     gap: 0.75rem;
     padding: 1rem 1rem 0;
-  }
 
-  .straat-selectie select {
-    width: 100%;
-    margin-left: 0;
+    select {
+      width: 100%;
+      margin-left: 0;
+    }
   }
 
   .muur-scroll {
@@ -314,28 +257,28 @@
     font-size: 0.9rem;
     scroll-snap-align: center;
     flex-shrink: 0;
-  }
 
-  .verhaal-kaart .huisnummer-bord {
-    font-size: 1.4rem;
-    padding: 0.4rem 0.8rem;
-    margin-bottom: 0.5rem;
-  }
+    .huisnummer-bord {
+      font-size: 1.4rem;
+      padding: 0.4rem 0.8rem;
+      margin-bottom: 0.5rem;
+    }
 
-  .verhaal-kaart .verhaal-naam {
-    font-size: 1rem;
-    margin: 0.5rem 0;
-  }
+    .verhaal-naam {
+      font-size: 1rem;
+      margin: 0.5rem 0;
+    }
 
-  .verhaal-kaart a {
-    font-size: 0.9rem;
-    padding: 0.3rem 0.8rem;
-    margin-top: 0.5rem;
-  }
+    a {
+      font-size: 0.9rem;
+      padding: 0.3rem 0.8rem;
+      margin-top: 0.5rem;
+    }
 
-  .verhaal-kaart p {
-    font-size: 0.85rem;
-    line-height: 1.3;
+    p {
+      font-size: 0.85rem;
+      line-height: 1.3;
+    }
   }
 
   .familie-kaart {
@@ -343,11 +286,9 @@
     max-width: 80%;
     min-width: 250px;
     scroll-snap-align: center;
-    /* width: 75vw; */
   }
 
   .familie-lijst {
-
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     gap: 1rem;

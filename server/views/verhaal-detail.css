@@ -1,192 +1,158 @@
-
-body{
-    padding:0;
-    margin:0;
-  }
-  
-  
-  .section1{
+  .section1 {
     display: flex;
     flex-direction: column;
-    align-items: center; /* Centreer de inhoud horizontaal */
-    padding: 2em; /* Voeg wat ruimte toe rondom de sectie */
-    /* margin-bottom:3em; */
-    z-index:-1;
+    align-items: center;
+    padding: 2em;
+    z-index: -1;
     overflow: hidden;
-    background: linear-gradient(0deg,rgba(153, 153, 153, 1) 0%, rgba(255, 255, 255, 1) 8%);
+    background: linear-gradient(0deg, rgba(153, 153, 153, 1) 0%, rgba(255, 255, 255, 1) 8%);
   }
 
-  
-
-  .texttoscroll{
-    margin-bottom:3em;
-    z-index:1;
+  .texttoscroll {
+    margin-bottom: 3em;
+    z-index: 1;
     text-align: center;
   }
-  
-  
-  .streetName{
-    background: linear-gradient(318deg,rgba(39, 61, 124, 1) 0%, rgb(53, 86, 179) 51%, rgba(39, 61, 124, 1) 100%);
+
+  .streetName {
+    background: linear-gradient(318deg, rgba(39, 61, 124, 1) 0%, rgb(53, 86, 179) 51%, rgba(39, 61, 124, 1) 100%);
     color: #fff;
     padding: .7em;
     border-radius: .3em;
-    width:fit-content;
+    width: fit-content;
     max-width: 90%;
     border: 1.8px solid #fff;
     box-shadow: #273D7C 0px 2px 5px, #273D7C 0px 0px 0px 4px;
-    margin-left:auto;
-    font-size:1em;
+    margin-left: auto;
+    font-size: 1em;
     text-transform: uppercase;
-    z-index:4;
+    z-index: 4;
     word-wrap: break-word;
 
-    p{
-        font-weight: 350;
-        font-size: 0.8em;
-        margin:0;
-        margin-top:.5em;
-        text-align:right;
-        
+    p {
+      font-weight: 350;
+      font-size: 0.8em;
+      margin: 0;
+      margin-top: .5em;
+      text-align: right;
     }
   }
-  
+
   @media (max-width: 768px) {
     .streetName {
-      font-size: 0.9em; /* Maak de tekst iets kleiner op kleinere schermen */
-      padding: 0.5em; /* Verminder de padding */
+      font-size: 0.9em;
+      padding: 0.5em;
     }
   }
-  
+
   @media (max-width: 480px) {
     .streetName {
-      font-size: 0.8em; /* Maak de tekst nog kleiner op zeer kleine schermen */
+      font-size: 0.8em;
       padding: 0.4em;
     }
   }
 
+  .tree {
+    position: absolute;
+    z-index: 0;
+    width: 19vw;
+  }
 
-  .tree1 {
-    top: 24%; /* Gebruik viewport hoogte voor positionering */
-    left: 5vw; /* Gebruik viewport breedte voor positionering */
-    position: absolute;
-    z-index: 0; /* Zorg dat de bomen achter de huisjes staan */
-    width: 20vw; /* Gebruik viewport breedte voor grootte */
-    opacity: 0.8; /* Maak de boom iets transparant */
-  }
-  
-  .tree2 {
-    top: 26%;
-    left: 15vw;
-    position: absolute;
-    z-index: 0;
-    width: 18vw;
-    opacity: 0.95;
-  }
-  
-  .tree3 {
+  .tree1, .tree3 {
     top: 24%;
-    right: 10vw;
-    position: absolute;
-    z-index: 0;
-    width: 20vw;
     opacity: 0.8;
   }
-  
+
+  .tree2,
   .tree4 {
     top: 26%;
-    right: 20vw;
-    position: absolute;
-    z-index: 0;
-    width: 18vw;
     opacity: 0.95;
   }
 
+  .tree1 {
+    left: 5vw;
+  }
 
-  
-  
+  .tree2 {
+    left: 15vw;
+  }
+
+  .tree3 {
+    right: 10vw;
+  }
+
+  .tree4 {
+    right: 20vw;
+  }
+
   /* huisjes */
-  
-.housjesContainer {
-  position: relative;
-  display: flex;
-  flex-wrap: nowrap; /* Prevent wrapping */
-  gap: 1em;
-  justify-content: center;
-  overflow-x: hidden; /* Allow horizontal scroll if screen is too small */
-  z-index: 1;
-  padding: 1em;
-}
+  .housjesContainer {
+    position: relative;
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 1em;
+    justify-content: center;
+    overflow-x: hidden;
+    z-index: 1;
+    padding: 1em;
 
-.housjesContainer img {
-  flex: 1 1 auto;
-  width: 10%; /* Adjust this based on how many images you want visible */
-  max-width: 100px; /* Optional: limit the max size */
-  height: auto;
-  transition: transform 0.1s ease-out;
-}
-  
-  
+    img {
+      flex: 1 1 auto;
+      width: 10%;
+      max-width: 100px;
+      height: auto;
+      transition: transform 0.1s ease-out;
+    }
+  }
+
   /* ///////////////// */
   /* SCROLL TIME LINE */
   /* ///////////////// */
-  
+
   @keyframes move {
-      to {
-          /* Move horizontally so that right edge is aligned against the viewport */
-          transform: translateX(calc(-100% + 100vw));
-      }
+    to {
+      transform: translateX(calc(-100% + 100vw));
+    }
   }
-  
+
   #sectionPin {
-      /* Stretch it out, so that we create room for the horizontal scroll animation */
-      height: 500vh;
-      overflow: visible; /* To make position sticky work … */
-  
-      view-timeline-name: --section-pin-tl;
-      view-timeline-axis: block;
+    height: 500vh;
+    overflow: visible;
+    view-timeline-name: --section-pin-tl;
+    view-timeline-axis: block;
     background-image: url("/images/1steoosterparkstraat.png");
-    max-width:100vw;
-    background-size: cover; 
-    background-position: center; 
+    max-width: 100vw;
+    background-size: cover;
+    background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
   }
-  
-  
-  
-  
+
   .pin-wrap-sticky {
-      /* Stick to Top */
-      height: 100vh;
-      width: 100vw;
-      position: sticky;
-      top: 0;
-  
-      width: 100vw;
-      overflow-x: hidden;
+    height: 100vh;
+    width: 100vw;
+    position: sticky;
+    top: 0;
+    width: 100vw;
+    overflow-x: hidden;
   }
-  
+
   .pin-wrap {
-      height: 100vh;
-      width: 250vmax;
-    gap:3rem;
-    
-     display: flex;
-     justify-content: flex-start;
-     align-items: center;
-  
-      /* Hook animation */
-      will-change: transform;
-      animation: linear move forwards;
-  
-      /* Link animation to view-timeline */
-      animation-timeline: --section-pin-tl;
-      animation-range: contain 0% contain 100%;
+    height: 100vh;
+    width: 250vmax;
+    gap: 3rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    will-change: transform;
+    animation: linear move forwards;
+    animation-timeline: --section-pin-tl;
+    animation-range: contain 0% contain 100%;
   }
-  
-  .introtekst{
+
+  .introtekst {
     text-align: center;
-    background: radial-gradient(circle,rgba(84, 3, 3, .8) 0%, rgba(46, 3, 3, .8) 100%);
+    background: radial-gradient(circle, rgba(84, 3, 3, .8) 0%, rgba(46, 3, 3, .8) 100%);
     color: white;
     padding: 90px;
     border-radius: 10px;
@@ -194,21 +160,21 @@ body{
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     margin-left: 10em;
     margin-right: 10em;
-    width:711px;
-    height:17em;
+    width: 711px;
+    height: 17em;
 
-    h2{
-        color:white;
-        margin-top:0;
+    h2 {
+      margin-top: 0;
     }
 
-    h3{
-        color: #fff;
+    h2,
+    h3 {
+      color: #fff;
     }
   }
-  
-  .img{
-    background-color:#51515182;
+
+  .img {
+    background-color: #51515182;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.614);
     height: auto;
     width: 711px;
@@ -217,38 +183,29 @@ body{
     display: flex;
     align-items: center;
     padding: 2em;
-    gap:1em;
+    gap: 1em;
+
+    img {
+      width: 10em;
+      height: auto;
+      border-radius: 10px;
+    }
   }
-  
-  .img img{
-   width:10em;
-    height: auto;
-    border-radius: 10px;
-  }
-  
+
   .imgContent {
     display: flex;
-    flex-direction: column; /* Plaats de tekst onder elkaar */
-    justify-content: center; /* Centreer de tekst verticaal */
-    gap: 0.5em; /* Voeg ruimte toe tussen de `h2` en `p` */
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.5em;
     color: white;
+
+    h2 {
+      color: white;
+      font-size: 1.5em;
+    }
+
+    p {
+      color: white;
+      font-size: 1em;
+    }
   }
-  
-  .imgContent h2{
-    color:white;
-    font-size:1.5em;
-  
-    font-family: 'Open Sans', sans-serif;
-  
-  }
-  
-  .imgContent p{
-    color:white;
-    font-size:1em;
-  
-    font-family: 'Open Sans', sans-serif;
-  
-  }
-  
-  
- 
