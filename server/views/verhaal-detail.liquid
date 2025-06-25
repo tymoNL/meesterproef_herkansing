@@ -10,7 +10,9 @@
 {% include "server/layouts/breadcrumbs" %}
 
 <section class="section1">
-    <h3 class="streetName">{{ item.straat }} <br> <p>stadsdeel oost</p></h3>
+    <h3 class="streetName">{{ item.straat }} <br>
+        <p>stadsdeel oost</p>
+    </h3>
 
     <div class="housjesContainer">
         <img src="/images/huis1.png" alt="amsterdams huisje 1" data-speed="1" />
@@ -30,31 +32,41 @@
     <img src="/images/boom.png" alt="Boom" class="tree tree3" />
     <img src="/images/boom.png" alt="Boom" class="tree tree4" />
 
-    <p class="texttoscroll">Scroll naar beneden voor het verhaal van <strong>{{ item.naam }}</strong> en zijn/haar familie. </p>
+    <p class="texttoscroll">Scroll naar beneden voor het verhaal van <strong>{{ item.naam }}</strong> en zijn/haar
+        familie. </p>
 </section>
 
 <section id="sectionPin">
-    
+
     <div class="pin-wrap-sticky">
         <div class="pin-wrap">
-            
+
             <div class="introtekst" tapindex="1">
-                <h2>{{ item.straat }} {{ item.huisnummer }}  </h2>
+                <h2>{{ item.straat }} {{ item.huisnummer }} </h2>
                 <h3>{{ item.naam }}</h3>
             </div>
             {% for tekst in item.verhalen %}
             <div class="img">
                 <div class="imgContent" tabindex="0">
                     {% if tekst.afbeelding %}
-                        <img src="{{ tekst.afbeelding }}" alt="{{ tekst.titel }}" class="verhaalImage">
+                    <img src="{{ tekst.afbeelding }}" alt="{{ tekst.titel }}" class="verhaalImage">
                     {% else %}
                     {% endif %}
                     <h2>{{ tekst.titel }} <br> {{ tekst.datum }} </h2>
                     <p>{{ tekst.tekst }}</p>
                 </div>
-                </div>
+            </div>
             {% endfor %}
+
+            {% if volgend %}
+                <a href="/verhalen/{{ volgend.id }}" class="img volgendVerhaal">
+                Volgend verhaal: <b>{{ volgend.naam }}</b></a>
+            {% else %}
+            <a href="/verhalen/" class="img volgendVerhaal">Terug naar overzicht</a>
+            {% endif %}
         </div>
+
+
     </div>
 </section>
 

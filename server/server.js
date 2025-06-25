@@ -61,15 +61,19 @@ app.get('/verhalen/:id', (req, res) => {
     return res.status(500).send('Data nog niet geladen');
   }
 
-  const verhaalData = testData.find(v => v.verhaal.id === verhaalId);
+  const index = testData.findIndex(v => v.verhaal.id === verhaalId);
 
-  if (!verhaalData) {
+  if (index === -1) {
     return res.status(404).send('Verhaal niet gevonden');
   }
 
+  const verhaalData = testData[index];
+  const volgendVerhaal = testData[index + 1]; // undefined als laatste
+
   return res.send(renderTemplate('server/views/verhaal-detail.liquid', {
     title: verhaalData.verhaal.titel,
-    item: verhaalData.verhaal
+    item: verhaalData.verhaal,
+    volgend: volgendVerhaal ? volgendVerhaal.verhaal : null
   }));
 });
 

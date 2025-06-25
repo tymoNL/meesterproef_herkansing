@@ -149,7 +149,7 @@
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     margin-left: 10em;
     margin-right: 10em;
-    width: 711px;
+    width: 66dvw  ;
     height: 17em;
 
     h2 {
@@ -197,4 +197,14 @@
       color: var(--white);
       font-size: 1em;
     }
+  }
+
+  .volgendVerhaal {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: var(--white);
+    padding: 1em;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
   }
