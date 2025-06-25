@@ -19,6 +19,7 @@
     "@directus/sdk": "^19.1.0",
     "@tinyhttp/app": "^2.5.2",
     "@tinyhttp/logger": "^2.1.0",
+    "body-parser": "^2.2.0",
     "chokidar-cli": "^3.0.0",
     "dotenv": "^16.4.7",
     "liquidjs": "^10.21.0",

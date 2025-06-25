@@ -1,13 +1,19 @@
+<script>
+  window.bloemenVoorStraat = {{ bloemenVoorStraat | json }};
+  console.log(window.bloemenVoorStraat);
+</script>
+
+
 {% layout "server/layouts/base.liquid" %}
 
 {% block content %}
 
 <script>
   const allVerhalen = {{ items | json }};
-  window.numberOfRoses = {{ numberOfRoses }};
 </script>
 
-
+{% assign breadcrumb_title = "Gedenkmuur" %}
+{% include "server/layouts/breadcrumbs" %}
 
 
 <section class="container" style="overflow-x: hidden;">
@@ -55,34 +61,6 @@
       <button class="bloem"><img src="/images/bloemen/4.png" alt="roses" data-image="flower-bouquet.png" /></button>
       <button class="bloem"><img src="/images/bloemen/5.png" alt="roses" data-image="flower-bouquet.png" /></button>
     </section>
-  </section>
-
-  <section class="familie-scroll">
-    <h3>Families</h3>
-
-    <section class="filters">
-      <form method="GET" action="/gedenk-posters#familieLijst">
-        <input type="text" name="familieNaam" placeholder="Zoek op familienaam" value="{{ selectedFamilieNaam }}" />
-        <button type="submit"><i class="fa-solid fa-filter"></i></button>
-      </form>
-    </section>
-
-    {% if filteredItems.size > 0 %}
-    <div class="familie-lijst" id="familieLijst">
-      {% for item in filteredItems %}
-      <a href="/verhalen/{{ item.verhaal.id }}" class="familie-kaart">
-        <div class="familie-illustratie">
-          <img src="/images/gedenkmuur/ilustratie-gezinnen.png" alt="Gezin illustratie" />
-        </div>
-        <h4>Fam. {{ item.verhaal.familie }}</h4>
-        <p>Bekijk de verhalen van deze familie</p>
-      </a>
-      {% endfor %}
-    </div>
-    {% else %}
-    <p>Geen familie gevonden met deze naam.</p>
-    {% endif %}
-
   </section>
 </section>
 {% endblock %}

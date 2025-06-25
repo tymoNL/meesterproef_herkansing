@@ -5,11 +5,9 @@ import sirv from 'sirv';
 import QRCode from 'qrcode';
 import fs from 'fs/promises';
 import path from 'path';
-
-let numberOfRoses = 0;
+import bodyParser from 'body-parser'
 
 // API URL base
-
 const testJson = `/json/details.json`;
 
 let testData = null;
@@ -35,9 +33,17 @@ const renderTemplate = (template, data) => engine.renderFileSync(template, data)
 // ✅ tinyhttp server
 const app = new App();
 
+app.use(bodyParser.json());
+
+let numberOfRoses = 0;
+const bloemenVoorStraat = {};
+
+const __dirname = path.resolve();
+
 app
   .use(logger())
   .use('/images', sirv('images'))
+  .use('/fonts', sirv(path.join(__dirname, 'fonts')))
   .use('/', sirv('dist')) // statische bestanden
   .listen(3000, () => console.log('Server gestart op http://localhost:3000'));
 
@@ -85,10 +91,31 @@ app.get('/print/qr/:id', async (req, res) => {
   }
 });
 
-app.get('/gedenk-posters', async (req, res) => {
+app.get('/gedenkmuur', async (req, res) => {
   const straatSet = new Set(testData.map(item => item.verhaal.straat));
   const straten = Array.from(straatSet);
 
+  const selectedStraat = req.query.straat;
+
+  let filteredItems = testData;
+
+  if (selectedStraat) {
+    filteredItems = filteredItems.filter(item =>
+      item.verhaal.straat === selectedStraat
+    );
+  }
+
+  return res.send(renderTemplate('server/views/gedenkmuur.liquid', {
+    title: 'Gedenkmuur',
+    items: testData,
+    straten,
+    selectedStraat,
+    numberOfRoses,
+    bloemenVoorStraat 
+  }));
+});
+
+app.get('/families', async (req, res) => {
   // Maak een unieke map van familie -> id
   const familieMap = new Map();
   testData.forEach(item => {
@@ -120,25 +147,42 @@ app.get('/gedenk-posters', async (req, res) => {
     );
   }
 
-  return res.send(renderTemplate('server/views/gedenk-posters.liquid', {
-    title: 'Gedenk-posters',
+  return res.send(renderTemplate('server/views/families.liquid', {
+    title: 'Families',
     items: testData,
-    straten,
     families,
     filteredItems,
-    selectedStraat,
     selectedFamilieNaam,
-    numberOfRoses
   }));
 });
 
-app.post('/legbloem', async (req, res) => {
+// Route voor bloemen leggen
+app.post('/legbloem', (req, res) => {
+  const { straat, image, alt, left, width } = req.body;
+
+  if (!straat) {
+    return res.status(400).send({ error: 'Straat is verplicht' });
+  }
+
+  if (!bloemenVoorStraat[straat]) {
+    bloemenVoorStraat[straat] = [];
+  }
+
+  bloemenVoorStraat[straat].push({ src: image, alt, left, width });
+
   numberOfRoses++;
-  return res.send({ numberOfRoses });
-});
+
+  return res.send({ numberOfRoses, bloemenVoorStraat });
+})
 
 app.get('/over-ons', async (req, res) => {
   return res.send(renderTemplate('server/views/over-ons.liquid', {
     title: 'Over ons'
   }));
+});
+
+app.get('/api/bloemen/:straat', (req, res) => {
+  const straat = req.params.straat;
+
+  res.json(bloemenVoorStraat[straat] || []);
 });

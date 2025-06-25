@@ -1,77 +1,47 @@
 import './index.css';
 
-/* Mobile header logica */
+/* Mobile header toggle */
 const mobileMenuLink = document.querySelector('.mobileMenuLink');
-
 if (mobileMenuLink) {
-  mobileMenuLink.addEventListener("click", function () {
+  mobileMenuLink.addEventListener("click", () => {
     document.querySelector('.mobileMenu').classList.toggle('active');
-
-    const icon = this.querySelector('i');
-    if (icon.classList.contains('fa-bars')) {
-      icon.classList.remove('fa-bars');
-      icon.classList.add('fa-xmark');
-    } else {
-      icon.classList.remove('fa-xmark');
-      icon.classList.add('fa-bars');
-    }
+    const icon = mobileMenuLink.querySelector('i');
+    icon.classList.toggle('fa-bars');
+    icon.classList.toggle('fa-xmark');
   });
 }
 
-/* Homepage mensen animatie */
+/* People animatie */
 const peopleList = document.querySelector('.people');
-const peopleCount = 933;
-
 if (peopleList) {
-  for (let i = 0; i < peopleCount; i++) {
-    const listItem = document.createElement('li');
-    listItem.innerHTML = `<i class="fa-solid fa-users"></i>`;
-    listItem.style.animationDelay = `${i / 4}s`;
-    peopleList.appendChild(listItem);
+  for (let i = 0; i < 933; i++) {
+    const li = document.createElement('li');
+    li.innerHTML = `<i class="fa-solid fa-users"></i>`;
+    li.style.animationDelay = `${i / 4}s`;
+    peopleList.appendChild(li);
   }
 }
 
+/* Bloemen functionaliteit */
 const bloemList = document.querySelector('.bloem-lijst');
 const bloemen = document.querySelectorAll('.bloem');
-const totalFlowerImages = 5;  // Zet dit bovenaan in je bestand
+const straatSelect = document.querySelector('#straatSelect');
+const muur = document.getElementById('muur');
+window.bloemenVoorStraat = {}; // Init global storage
 
-// Voeg een bloem toe op willekeurige positie gebaseerd op geklikte afbeelding
-function addSpecificBloem(imageSrc, altText) {
-  console.log('test');
+function addSpecificBloem(imageSrc, altText, left = null, width = null) {
+  if (!bloemList) return;
 
-  if (bloemList) {
-    const randomLeft = Math.floor(Math.random() * 85) + 1;
-    const randomWidth = Math.floor(Math.random() * 31) + 90;
+  const randomLeft = left ?? Math.floor(Math.random() * 85) + 1;
+  const randomWidth = width ?? Math.floor(Math.random() * 31) + 90;
 
-    const bloemHTML = `
-      <li style="position: absolute; left: ${randomLeft}%; width: ${randomWidth}px;">
-        <img src="${imageSrc}" alt="${altText}" style="width: 100%" />
-      </li>`;
+  const bloemHTML = `
+    <li style="position: absolute; left: ${randomLeft}%; width: ${randomWidth}px;">
+      <img src="${imageSrc}" alt="${altText}" style="width: 100%" />
+    </li>`;
+  bloemList.insertAdjacentHTML('beforeend', bloemHTML);
 
-    bloemList.insertAdjacentHTML('beforeend', bloemHTML);
-  }
-}
-
-// POST-verzoek om bloem toe te voegen op de server en in de UI
-async function postBloem() {
-  const url = "/legbloem";
-
-  try {
-    const response = await fetch(url, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' }
-    });
-
-    if (!response.ok) throw new Error(`Response status: ${response.status}`);
-
-    const json = await response.json();
-
-    // Voeg bloem toe in UI
-    addOneBloem();
-
-  } catch (error) {
-    console.error(error.message);
-  }
+  return { left: randomLeft, width: randomWidth };
 }
 
 bloemen.forEach(bloem => {
@@ -79,24 +49,31 @@ bloemen.forEach(bloem => {
     const img = bloem.querySelector('img');
     const imageSrc = img.getAttribute('src');
     const altText = img.getAttribute('alt');
+    const selectedStraat = straatSelect ? straatSelect.value.trim().toLowerCase() : null;
 
-    // Voeg bloem direct toe aan UI
-    addSpecificBloem(imageSrc, altText);
+    if (!selectedStraat) {
+      alert('Kies eerst een straat voordat je een bloem legt.');
+      return;
+    }
 
-    // Stuur ook POST-verzoek naar server
+    const { left, width } = addSpecificBloem(imageSrc, altText); // UI direct tonen
+
     try {
       const response = await fetch('/legbloem', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ image: imageSrc }) // eventueel andere data meesturen
+        body: JSON.stringify({ straat: selectedStraat, image: imageSrc, alt: altText, left, width })
       });
 
-      if (!response.ok) {
-        throw new Error(`Server error: ${response.status}`);
-      }
-
+      if (!response.ok) throw new Error(`Server error: ${response.status}`);
       const json = await response.json();
       console.log('Bloem succesvol gepost:', json);
+
+      // Voeg toe aan local storage voor deze straat
+      if (!window.bloemenVoorStraat[selectedStraat]) {
+        window.bloemenVoorStraat[selectedStraat] = [];
+      }
+      window.bloemenVoorStraat[selectedStraat].push({ src: imageSrc, alt: altText, left, width });
 
     } catch (error) {
       console.error('Fout bij POST bloem:', error.message);
@@ -104,56 +81,90 @@ bloemen.forEach(bloem => {
   });
 });
 
-if (bloemList) {
-  const aantalBloemen = window.numberOfRoses || 0;
+straatSelect?.addEventListener('change', async () => {
+  const geselecteerdeStraat = straatSelect.value.trim().toLowerCase();
+  muur.innerHTML = '';
 
-  for (let i = 0; i < aantalBloemen; i++) {
-    const bloem = getRandomBloem();
-    addSpecificBloem(bloem.src, bloem.alt);
+  if (!geselecteerdeStraat) {
+    muur.innerHTML = '<p>Kies een straat om verhalen te bekijken.</p>';
+    return;
   }
+
+  console.log(`Geselecteerde straat: ${geselecteerdeStraat}`);
+
+  const gefilterdeVerhalen = allVerhalen.filter(item => item.verhaal.straat.toLowerCase() === geselecteerdeStraat);
+
+  if (gefilterdeVerhalen.length === 0) {
+    muur.innerHTML = '<p>Geen verhalen gevonden voor deze straat.</p>';
+  } else {
+    gefilterdeVerhalen.forEach(item => {
+      const div = document.createElement('div');
+      div.classList.add('verhaal-kaart');
+      div.innerHTML = `
+        <div class="huisnummer-bord">${item.verhaal.huisnummer || 'Onbekend'}</div>
+        <p class="verhaal-naam">${item.verhaal.naam}</p>
+        <a href="/verhalen/${item.verhaal.id}">Bekijk dit verhaal</a>`;
+      muur.appendChild(div);
+    });
+  }
+
+  // 🌼 Haal bloemen op via API
+  try {
+    const response = await fetch(`/api/bloemen/${encodeURIComponent(geselecteerdeStraat)}`);
+    const bloemen = await response.json();
+
+    console.log('Bloemen voor straat:', geselecteerdeStraat, bloemen);
+
+    window.bloemenVoorStraat[geselecteerdeStraat] = bloemen;
+    showBloemenVoorStraat(geselecteerdeStraat);
+  } catch (error) {
+    console.error('Fout bij ophalen bloemen:', error);
+    bloemList.innerHTML = '<p>Fout bij laden bloemen.</p>';
+  }
+});
+
+function showBloemenVoorStraat(straat) {
+  if (!bloemList || !window.bloemenVoorStraat) return;
+  bloemList.innerHTML = '';
+  const bloemen = window.bloemenVoorStraat[straat] || [];
+
+  bloemen.forEach(bloem => {
+    const li = document.createElement('li');
+    li.style.position = 'absolute';
+    li.style.left = bloem.left + '%';
+    li.style.width = bloem.width + 'px';
+
+    const img = document.createElement('img');
+    img.src = bloem.src;
+    img.alt = bloem.alt;
+    img.style.width = '100%';
+
+    li.appendChild(img);
+    bloemList.appendChild(li);
+  });
 }
 
-function getRandomBloem() {
-  const randomImageNum = Math.floor(Math.random() * totalFlowerImages) + 1;
-  return {
-    src: `/images/bloemen/${randomImageNum}.png`,
-    alt: `bloem ${randomImageNum}`
-  };
-}
-
-
-// familie slider
-
+/* Familie slider */
 document.addEventListener("DOMContentLoaded", () => {
   const slider = document.querySelector(".familySlider ul");
   const leftButton = document.querySelector(".familySlider__button--left");
   const rightButton = document.querySelector(".familySlider__button--right");
-
-  const scrollAmount = 300; // Hoeveel pixels de slider moet scrollen per klik
+  const scrollAmount = 300;
 
   if (leftButton) {
     leftButton.addEventListener("click", () => {
-      slider.scrollBy({
-        left: -scrollAmount,
-        behavior: "smooth",
-      });
+      slider.scrollBy({ left: -scrollAmount, behavior: "smooth" });
     });
   }
 
   if (rightButton) {
     rightButton.addEventListener("click", () => {
-      slider.scrollBy({
-        left: scrollAmount,
-        behavior: "smooth",
-      });
+      slider.scrollBy({ left: scrollAmount, behavior: "smooth" });
     });
   }
 });
 
-
-
-// huisjes bewegeen bij scrollen
-
+/* Huisjes scroll animatie */
 document.addEventListener("DOMContentLoaded", () => {
   const housjes = document.querySelectorAll(".housjesContainer img");
 
@@ -162,24 +173,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
     housjes.forEach((huisje) => {
       const speed = huisje.getAttribute("data-speed");
-      const translateY = -scrollPosition * speed * 0.1; // Gebruik een negatieve waarde voor naar boven bewegen
+      const translateY = -scrollPosition * speed * 0.1;
       huisje.style.transform = `translateY(${translateY}px)`;
-      huisje.style.opacity = 1 - scrollPosition / 500; // Laat de huisjes uitfaden
+      huisje.style.opacity = 1 - scrollPosition / 500;
     });
   });
 });
 
-
-// Timeline Scroll Section
-
+/* Timeline scroll */
 const items = document.querySelectorAll(".timeline li");
-const timeline = document.querySelector(".timeline ul");
 const greyLine = document.querySelector(".default-line");
 const lineToDraw = document.querySelector(".draw-line");
 
 if (lineToDraw) {
   window.addEventListener("scroll", () => {
-    const redLineHeight = lineToDraw.offsetHeight;
     const greyLineHeight = greyLine.offsetHeight;
     const windowDistance = window.scrollY;
     const windowHeight = window.innerHeight / 2;
@@ -187,7 +194,6 @@ if (lineToDraw) {
 
     if (windowDistance >= timelineDistance - windowHeight) {
       let line = windowDistance - timelineDistance + windowHeight;
-
       if (line <= greyLineHeight) {
         lineToDraw.style.height = `${line + 20}px`;
       }
@@ -197,8 +203,6 @@ if (lineToDraw) {
 
     items.forEach((item) => {
       const circleTop = item.getBoundingClientRect().top + window.scrollY;
-
-
       if (bottom > circleTop) {
         item.classList.add("in-view");
       } else {
@@ -207,40 +211,3 @@ if (lineToDraw) {
     });
   });
 }
-
-const straatSelect = document.querySelector('#straatSelect');
-
-if (straatSelect) {
-  straatSelect.addEventListener('change', () => {
-    const geselecteerdeStraat = straatSelect.value.trim();
-    muur.innerHTML = ''; // Leegmaken
-
-    console.log('Geselecteerde straat:', geselecteerdeStraat);
-
-    if (!geselecteerdeStraat) {
-      muur.innerHTML = '<p>Kies een straat om verhalen te bekijken.</p>';
-      return;
-    }
-
-    const gefilterdeVerhalen = allVerhalen.filter(
-      item => item.verhaal.straat === geselecteerdeStraat
-    );
-
-    if (gefilterdeVerhalen.length === 0) {
-      muur.innerHTML = '<p>Geen verhalen gevonden voor deze straat.</p>';
-      return;
-    }
-
-    gefilterdeVerhalen.forEach(item => {
-      const div = document.createElement('div');
-      div.classList.add('verhaal-kaart');
-      div.innerHTML = `
-      <div class="huisnummer-bord">${item.verhaal.huisnummer || 'Onbekend'}</div>
-      <p class="verhaal-naam">${item.verhaal.naam}</p>
-      <a href="/verhalen/${item.verhaal.id}">Bekijk dit verhaal</a>
-    `;
-      muur.appendChild(div);
-    });
-  });
-}
-

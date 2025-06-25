@@ -2,20 +2,17 @@
 @import 'reset.css';
 @import "typography.css";
 @import 'animations.css';
+@import 'fonts.css';
 
 /*.layout and view styling */
 @import '../server/layouts/base.css';
 @import '../server/views/index.css';
 @import '../server/views/verhaal-detail.css';
 @import '../server/views/gedenk-posters.css';
+@import '../server/views/families.css';
 
 
 /* component styling */
 @import '../server/components/card/card.css';
-
-body {
-  color: black;
-  margin: 0 auto;
-}
 
 

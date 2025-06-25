@@ -2,37 +2,36 @@
 
 {% block content %}
 
+{% assign breadcrumb_parent = "gedenkmuur" %}
+{% assign breadcrumb_parent_url = "/gedenkmuur" %}
+{% assign breadcrumb_title = item.familie %}
+
+{% assign breadcrumb_title = "Familie " | append: item.familie %}
+{% include "server/layouts/breadcrumbs" %}
 
 <section class="section1">
-
     <h3 class="streetName">{{ item.straat }} <br> <p>stadsdeel oost</p></h3>
-    {% comment %} <p class="streetNameNmr"> {{ item.huisnummer }}</p> {% endcomment %}
 
     <div class="housjesContainer">
-        <img src="/images/huis1.png" alt="amsterdams huisje 1" data-speed="1">
-        <img src="/images/huis2.png" alt="amsterdams huisje 2" data-speed="4">
-        <img src="/images/huis3.png" alt="amsterdams huisje 3" data-speed="2">
-        <img src="/images/huis4.png" alt="amsterdams huisje 4" data-speed="3">
-        <img src="/images/huis5.png" alt="amsterdams huisje 5" data-speed="5">
-        <img src="/images/huis1.png" alt="amsterdams huisje 1" data-speed="1">
-        <img src="/images/huis2.png" alt="amsterdams huisje 2" data-speed="4">
-        <img src="/images/huis3.png" alt="amsterdams huisje 3" data-speed="2">
-        <img src="/images/huis4.png" alt="amsterdams huisje 4" data-speed="3">
-        <img src="/images/huis5.png" alt="amsterdams huisje 5" data-speed="5">
+        <img src="/images/huis1.png" alt="amsterdams huisje 1" data-speed="1" />
+        <img src="/images/huis2.png" alt="amsterdams huisje 2" data-speed="4" />
+        <img src="/images/huis3.png" alt="amsterdams huisje 3" data-speed="2" />
+        <img src="/images/huis4.png" alt="amsterdams huisje 4" data-speed="3" />
+        <img src="/images/huis5.png" alt="amsterdams huisje 5" data-speed="5" />
+        <img src="/images/huis1.png" alt="amsterdams huisje 1" data-speed="1" />
+        <img src="/images/huis2.png" alt="amsterdams huisje 2" data-speed="4" />
+        <img src="/images/huis3.png" alt="amsterdams huisje 3" data-speed="2" />
+        <img src="/images/huis4.png" alt="amsterdams huisje 4" data-speed="3" />
+        <img src="/images/huis5.png" alt="amsterdams huisje 5" data-speed="5" />
     </div>
 
-    <img src="/images/boom.png" alt="" class="tree tree1">
-
-    <img src="/images/boom.png" alt="" class="tree tree2">
-
-    <img src="/images/boom.png" alt="" class="tree tree3">
-
-    <img src="/images/boom.png" alt="" class="tree tree4">
+    <img src="/images/boom.png" alt="Boom" class="tree tree1" />
+    <img src="/images/boom.png" alt="Boom" class="tree tree2" />
+    <img src="/images/boom.png" alt="Boom" class="tree tree3" />
+    <img src="/images/boom.png" alt="Boom" class="tree tree4" />
 
     <p class="texttoscroll">Scroll naar beneden voor het verhaal van <strong>{{ item.naam }}</strong> en zijn/haar familie. </p>
-
 </section>
-
 
 <section id="sectionPin">
     
@@ -40,18 +39,11 @@
         <div class="pin-wrap">
             
             <div class="introtekst" tapindex="1">
-              
                 <h2>{{ item.straat }} {{ item.huisnummer }}  </h2>
                 <h3>{{ item.naam }}</h3>
             </div>
             {% for tekst in item.verhalen %}
             <div class="img">
-
-                {% comment %} <p style="color:white;">{{ item | json }}</p> {% endcomment %}
-
-
-                
-                {% comment %} <img src="/images/jacob.png" alt="foto van Jacob Philips"> {% endcomment %}
                 <div class="imgContent" tabindex="0">
                     {% if tekst.afbeelding %}
                         <img src="{{ tekst.afbeelding }}" alt="{{ tekst.titel }}" class="verhaalImage">
@@ -62,55 +54,8 @@
                 </div>
                 </div>
             {% endfor %}
-            
-
-    
         </div>
     </div>
-
-
-
 </section>
 
-
-
-
-
-
-
-
-
-{% endblock %} 
-
-
-
-
-{% comment %} {% layout "server/layouts/base.liquid" %}
-
-{% block content %}
-<section class="voorbeeld">
-    <h1>{{ item.titel }}</h1>
-    <p><strong>Naam:</strong> {{ item.naam }}</p>
-    <p><strong>Geboren:</strong> {{ item.geboortedatum }}</p>
-    <p><strong>Overleden:</strong> {{ item.overleidingsdatum }}</p>
-
-    <h2>Verhaal</h2>
-
-    <div>
-        {% for tekst in item.verhalen %}
-        <article class="stop" tabindex="0">
-            <div class="text">
-                <header>
-                    <h2>{{ tekst.titel }}</h2>
-                    <time>{{ tekst.date }}</time>
-                </header>
-                <p>{{ tekst.tekst }}</p>
-                {% if item.image %}
-                <img src="{{ tekst.afbeelding }}" alt="{{ tekst.titel }}" />
-                {% endif %}
-            </div>
-        </article>
-        {% endfor %}
-    </div>
-</section>
-{% endblock %} {% endcomment %}
+{% endblock %}

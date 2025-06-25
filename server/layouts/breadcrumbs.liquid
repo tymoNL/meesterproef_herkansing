@@ -1,3 +1,13 @@
-<section class="breadcrumbs">
-
+<section class="container breadcrumbs-container">
+<nav class="breadcrumbs">
+  <a href="/">Home</a>
+  
+  {% if breadcrumb_parent %}
+    <i class="fa-solid fa-chevron-right"></i> <a href="{{ breadcrumb_parent_url }}">{{ breadcrumb_parent }}</a>
+  {% endif %}
+  
+  {% if breadcrumb_title %}
+    <i class="fa-solid fa-chevron-right"></i> <span>{{ breadcrumb_title }}</span>
+  {% endif %}
+</nav>
 </section>

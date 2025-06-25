@@ -1,24 +1,29 @@
 <!DOCTYPE html>
 <html lang="nl">
+
 <head>
   <meta charset="UTF-8">
   <title>{{ title }}</title>
+
   <style>
     body {
       font-family: sans-serif;
       text-align: center;
       padding: 2rem;
     }
+
     .qr-container {
       border: 1px solid #ccc;
       padding: 2rem;
       display: inline-block;
     }
+
     .url {
       margin-top: 1rem;
       font-size: 1.2rem;
       word-break: break-all;
     }
+    
     @media print {
       body {
         margin: 0;
@@ -26,6 +31,7 @@
     }
   </style>
 </head>
+
 <body>
   <h1>{{ title }}</h1>
   <div class="qr-container">
@@ -33,4 +39,5 @@
     <div class="url">{{ detailUrl }}</div>
   </div>
 </body>
+
 </html>

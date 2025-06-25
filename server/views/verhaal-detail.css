@@ -16,15 +16,14 @@
 
   .streetName {
     background: linear-gradient(318deg, rgba(39, 61, 124, 1) 0%, rgb(53, 86, 179) 51%, rgba(39, 61, 124, 1) 100%);
-    color: #fff;
+    color: var(--white);
     padding: .7em;
     border-radius: .3em;
     width: fit-content;
     max-width: 90%;
-    border: 1.8px solid #fff;
+    border: 1.8px solid var(--white);
     box-shadow: #273D7C 0px 2px 5px, #273D7C 0px 0px 0px 4px;
     margin-left: auto;
-    font-size: 1em;
     text-transform: uppercase;
     z-index: 4;
     word-wrap: break-word;
@@ -38,14 +37,7 @@
     }
   }
 
-  @media (max-width: 768px) {
-    .streetName {
-      font-size: 0.9em;
-      padding: 0.5em;
-    }
-  }
-
-  @media (max-width: 480px) {
+  @media (max-width: 676px) {
     .streetName {
       font-size: 0.8em;
       padding: 0.4em;
@@ -100,7 +92,6 @@
       flex: 1 1 auto;
       width: 10%;
       max-width: 100px;
-      height: auto;
       transition: transform 0.1s ease-out;
     }
   }
@@ -108,7 +99,6 @@
   /* ///////////////// */
   /* SCROLL TIME LINE */
   /* ///////////////// */
-
   @keyframes move {
     to {
       transform: translateX(calc(-100% + 100vw));
@@ -129,16 +119,15 @@
   }
 
   .pin-wrap-sticky {
-    height: 100vh;
+    height: 100dvh;
     width: 100vw;
     position: sticky;
     top: 0;
-    width: 100vw;
     overflow-x: hidden;
   }
 
   .pin-wrap {
-    height: 100vh;
+    height: 100dvh;
     width: 250vmax;
     gap: 3rem;
     display: flex;
@@ -153,7 +142,7 @@
   .introtekst {
     text-align: center;
     background: radial-gradient(circle, rgba(84, 3, 3, .8) 0%, rgba(46, 3, 3, .8) 100%);
-    color: white;
+    color: var(--white);
     padding: 90px;
     border-radius: 10px;
     box-sizing: border-box;
@@ -169,7 +158,7 @@
 
     h2,
     h3 {
-      color: #fff;
+      color: var(--white);
     }
   }
 
@@ -179,7 +168,7 @@
     height: auto;
     width: 711px;
     max-width: 100%;
-    border-radius: 10px;
+    border-radius: var(--border-radius);
     display: flex;
     align-items: center;
     padding: 2em;
@@ -188,7 +177,7 @@
     img {
       width: 10em;
       height: auto;
-      border-radius: 10px;
+      border-radius: var(--border-radius);
     }
   }
 
@@ -197,15 +186,15 @@
     flex-direction: column;
     justify-content: center;
     gap: 0.5em;
-    color: white;
+    color: var(--white);
 
     h2 {
-      color: white;
+      color: var(--white);
       font-size: 1.5em;
     }
 
     p {
-      color: white;
+      color: var(--white);
       font-size: 1em;
     }
   }
